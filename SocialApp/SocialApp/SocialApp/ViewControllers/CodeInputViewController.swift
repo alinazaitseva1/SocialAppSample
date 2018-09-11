@@ -8,20 +8,18 @@
 
 import UIKit
 
-class CodeInputViewController: UIViewController {
+class CodeInputViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstCodeTextField: UITextField!
     @IBOutlet weak var secondCodeTextField: UITextField!
     @IBOutlet weak var thirdCodeTextField: UITextField!
     @IBOutlet weak var fourthCodeTextField: UITextField!
-    let cardNumberLimit = 1
-    let symbolsBeforeBackslash = 2
-    var isSlashAdded = false
-    
+    let codeNumberLimit = 1
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
     private func numbersValidate (_ string: String) -> Bool {
         let allowedCharacters = CharacterSet.letters
         let characterSet = CharacterSet(charactersIn: string)
@@ -33,13 +31,36 @@ class CodeInputViewController: UIViewController {
     }
     
     @IBAction func editingCodeTextField(_ sender: UITextField) {
+        let numbersInField = sender.text?.count
+        if numbersInField! == codeNumberLimit {
+            switch sender {
+            case firstCodeTextField :
+                secondCodeTextField.isEnabled = true
+                textFieldShouldBecome(secondCodeTextField)
+            case secondCodeTextField :
+                thirdCodeTextField.isEnabled = true
+                textFieldShouldBecome(thirdCodeTextField)
+            case thirdCodeTextField :
+                fourthCodeTextField.isEnabled = true
+                textFieldShouldBecome(fourthCodeTextField)
+            case fourthCodeTextField:
+                fourthCodeTextField.resignFirstResponder()
+            default:
+                break
+            }
+        }
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+    }
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
         guard let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as?  UserProfileViewController else { return }
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
-        
+    }
+    
+    private func textFieldShouldBecome(_ textField: UITextField) {
+        textField.becomeFirstResponder()
     }
 
 }

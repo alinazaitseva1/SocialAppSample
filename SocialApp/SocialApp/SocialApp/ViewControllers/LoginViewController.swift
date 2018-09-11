@@ -8,17 +8,16 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var telephoneTextField: UITextField!
-    let telephoneNumberLimit = 11
+    let telephoneNumberLimit = 12
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-    // symbbols validate, requered?
+    // symbols validate, requered?
     
     private func symbolsValidate (_ string: String) -> Bool {
         let allowedCharacters = CharacterSet.decimalDigits
@@ -46,9 +45,9 @@ class LoginViewController: UIViewController {
         
         let newLength = text.count + string.count - range.length
         var isValidationDone = false
-        let limitLength: Int?
+        var limitLength: Int?
         
-        if text.count <= telephoneNumberLimit {
+        if textField == telephoneTextField {
             isValidationDone = symbolsValidate(string)
             limitLength = telephoneNumberLimit
         }
@@ -57,13 +56,35 @@ class LoginViewController: UIViewController {
        
     }
     
-    @IBAction func editingPhoneTextField(_ sender: UITextField) {
+    // check symbols validation
+    
+    var isValid: Bool {
+        
+       let telephoneNumber = telephoneTextField.text?.count
+        
+        if telephoneNumber == telephoneNumberLimit {
+            validate(string: self.telephoneTextField.text!)
+            return true
+        } else {
+            telephoneTextField.setAppropriateLookWith(color: .red)
+        }
+        return false
         
     }
     
-    @IBAction func pushTelephoneButton(_ sender: UIButton) {
+    @IBAction func editingPhoneTextField(_ sender: UITextField) {
+        if isValid {
+            
+        }
         
+    }
+    
+   
+    
+    @IBAction func pushTelephoneButton(_ sender: UIButton) {
         guard let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as? CodeInputViewController else { return }
+        
+        
         self.navigationController?.pushViewController(codeViewController, animated: true)
         
     }

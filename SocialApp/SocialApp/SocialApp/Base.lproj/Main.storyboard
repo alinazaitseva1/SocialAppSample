@@ -41,10 +41,10 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3P-qs-mIG">
-                                <rect key="frame" x="122" y="308" width="131" height="30"/>
+                                <rect key="frame" x="122" y="308" width="131" height="40"/>
                                 <color key="backgroundColor" red="0.88086274830621758" green="0.88086274830621758" blue="0.88086274830621758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cxc-ZZ-Z2n"/>
+                                    <constraint firstAttribute="height" constant="40" id="Cxc-ZZ-Z2n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Send">
@@ -104,7 +104,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" textContentType="cc-number"/>
                                         <connections>
-                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingDidEnd" id="TDR-9k-EWQ"/>
+                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingChanged" id="lGG-kB-DTD"/>
                                             <outlet property="delegate" destination="XO2-wG-Hvc" id="5au-gC-3hR"/>
                                         </connections>
                                     </textField>
@@ -114,7 +114,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                         <connections>
-                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingDidEnd" id="wmT-Ee-GhT"/>
+                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingChanged" id="vAx-zy-9H0"/>
                                             <outlet property="delegate" destination="XO2-wG-Hvc" id="Y3F-B9-959"/>
                                         </connections>
                                     </textField>
@@ -124,7 +124,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                         <connections>
-                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingDidEnd" id="dk9-MD-Njx"/>
+                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingChanged" id="TJv-fK-uWc"/>
                                             <outlet property="delegate" destination="XO2-wG-Hvc" id="Y85-VD-I8r"/>
                                         </connections>
                                     </textField>
@@ -134,7 +134,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                         <connections>
-                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingDidEnd" id="yjQ-iB-mE8"/>
+                                            <action selector="editingCodeTextField:" destination="XO2-wG-Hvc" eventType="editingChanged" id="DFp-HY-sxP"/>
                                             <outlet property="delegate" destination="XO2-wG-Hvc" id="wNy-AA-Mx0"/>
                                         </connections>
                                     </textField>
@@ -144,10 +144,10 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jB-bo-nz8">
-                                <rect key="frame" x="122" y="260" width="131" height="30"/>
+                                <rect key="frame" x="122" y="260" width="131" height="40"/>
                                 <color key="backgroundColor" red="0.8808627483" green="0.8808627483" blue="0.8808627483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="4zN-6y-8fQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="4zN-6y-8fQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Send">
