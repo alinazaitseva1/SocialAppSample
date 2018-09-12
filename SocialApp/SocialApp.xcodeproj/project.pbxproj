@@ -17,6 +17,7 @@
 		DC6B37662147C25D00D6478F /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37652147C25D00D6478F /* ValidationError.swift */; };
 		DC6B376D2147E1AC00D6478F /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376C2147E1AC00D6478F /* TextFieldExtensions.swift */; };
 		DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376E2147E27100D6478F /* ApiRequest.swift */; };
+		DC79839D2148F209005FCA08 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79839C2148F209005FCA08 /* ViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DC6B37652147C25D00D6478F /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		DC6B376C2147E1AC00D6478F /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		DC6B376E2147E27100D6478F /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		DC79839C2148F209005FCA08 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +70,9 @@
 				DC358F4E2146AC410068E511 /* Enums */,
 				DC358F4D2146AC3B0068E511 /* Models */,
 				DC358F4C2146AC300068E511 /* ViewControllers */,
-				DC358F4B2146ABCA0068E511 /* Supporting files */,
 				DC358F3D2146A6130068E511 /* Main.storyboard */,
 				DC358F452146A6140068E511 /* Info.plist */,
+				DC358F4B2146ABCA0068E511 /* Supporting files */,
 			);
 			path = SocialApp;
 			sourceTree = "<group>";
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6B376C2147E1AC00D6478F /* TextFieldExtensions.swift */,
+				DC79839C2148F209005FCA08 /* ViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				DC6B37662147C25D00D6478F /* ValidationError.swift in Sources */,
 				DC6B37632147A34000D6478F /* UserProfileViewController.swift in Sources */,
 				DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */,
+				DC79839D2148F209005FCA08 /* ViewControllerExtensions.swift in Sources */,
 				DC6B376D2147E1AC00D6478F /* TextFieldExtensions.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
