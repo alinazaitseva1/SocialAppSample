@@ -9,18 +9,19 @@
 import Foundation
 import UIKit
 
-enum ValidationError: Error {
+enum ValidationError: Error, LocalizedError {
     case invalidData
     case codeInvalid
-}
-
-extension ValidationError: LocalizedError {
-    var localizedDescription: String {
+    
+    var errorDescription: String? {
         switch self {
+            
         case .invalidData:
-            return NSLocalizedString("Telephone number invalid", comment: "Required field should be filled in and valid")
+            return NSLocalizedString("Telephone number invalid", comment: "")
+            
         case .codeInvalid:
-            return NSLocalizedString("Invalid code", comment: "Code should be valid and fields filled in")
+            return NSLocalizedString("Invalid code", comment: "")
+       
         }
     }
 }

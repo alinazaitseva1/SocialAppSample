@@ -16,11 +16,11 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fourthCodeTextField: UITextField!
     let codeNumberLimit = 1
     var codeCharacters = [String]()
-    var phone = ""
+    var phoneNumber = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiRequest.getResponse(for: phone) { (code) in
+        ApiRequest.getResponse(for: phoneNumber) { (code) in
             code?.forEach() {
                 self.codeCharacters.append(String($0))
             }
@@ -37,7 +37,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setDefaultBorderColor(for textField: UITextField) {
-        textField.setAppropriateLookWith(color: #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1))
+        textField.setAppropriateLookWith(color: #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1), border: 1)
     }
     
     // Function to validate symbols amount in TextFields
@@ -74,8 +74,8 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func editingCodeTextField(_ sender: UITextField) {
-        let numbersInField = sender.text?.count
-        if numbersInField! == codeNumberLimit {
+        let numbersInField = sender.text?.count ?? 0
+        if numbersInField == codeNumberLimit {
             switch sender {
             case firstCodeTextField :
                 secondCodeTextField.isEnabled = true
@@ -103,15 +103,16 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
             return true
         } else {
             print("INVALID")
-            self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
+            self.showAlert(title: "Error", message: ValidationError.codeInvalid.errorDescription!)
             return false
         }
     }
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
         if codeValid() {
-            guard let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as?  UserProfileViewController else { return }
+            let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
             self.navigationController?.pushViewController(userProfileViewController, animated: true)
+           
         }
     }
     
