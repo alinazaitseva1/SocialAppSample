@@ -10,10 +10,13 @@ import UIKit
 
 class CodeInputViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: Outlets
     @IBOutlet weak var firstCodeTextField: UITextField!
     @IBOutlet weak var secondCodeTextField: UITextField!
     @IBOutlet weak var thirdCodeTextField: UITextField!
     @IBOutlet weak var fourthCodeTextField: UITextField!
+    
+    // MARK: Constants and Variables
     let codeNumberLimit = 1
     var codeCharacters = [String]()
     var phoneNumber = ""
@@ -28,22 +31,9 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // symbols validate
-    
-    private func symbolsValidate (_ string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
-    }
-    
-    func setBorderColor(for textField: UITextField) {
-        textField.setDefaultLookWith(color: CustomColor.grayDefault.color, border: 1)
-    }
-    
-    // Function to validate symbols amount in TextFields
-    
+    // MARK: Functions
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        setBorderColor(for: textField)
+        ColorPicker.setBorderColor(for: textField)
         
         guard let text = textField.text else { return true }
         
@@ -53,16 +43,16 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         
         switch textField {
         case firstCodeTextField:
-            isValidationDone = symbolsValidate(string)
+            isValidationDone = Validator.symbolsValidate(string)
             limitLength = codeNumberLimit
         case secondCodeTextField:
-            isValidationDone = symbolsValidate(string)
+            isValidationDone = Validator.symbolsValidate(string)
             limitLength = codeNumberLimit
         case thirdCodeTextField:
-            isValidationDone = symbolsValidate(string)
+            isValidationDone = Validator.symbolsValidate(string)
             limitLength = codeNumberLimit
         case fourthCodeTextField:
-            isValidationDone = symbolsValidate(string)
+            isValidationDone = Validator.symbolsValidate(string)
             limitLength = codeNumberLimit
         default:
             break
@@ -112,7 +102,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         if codeValid() {
             let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
             self.navigationController?.pushViewController(userProfileViewController, animated: true)
-           
+            
         }
     }
     

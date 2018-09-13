@@ -21,26 +21,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Functions
-    
-    private func symbolsValidate (_ string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
-    }
-    
-    // RegExp to validate telephone number
-    
     func validateNumber(string: String) -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^(0[0-9]{2,3}\\-)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$")
+        let regex = try! NSRegularExpression(pattern: "^(0[0-9]{2,3}\\-)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$")  // RegExp to validate telephone number
         return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
     }
     
-    func setBorderColor(for textField: UITextField) {
-        textField.setDefaultLookWith(color: CustomColor.grayDefault.color, border: 1)
-    }
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        setBorderColor(for: textField)
+        ColorPicker.setBorderColor(for: textField)
         
         guard let text = textField.text else { return true }
         
@@ -49,18 +36,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var limitLength: Int?
         
         if textField == telephoneTextField {
-            isValidationDone = symbolsValidate(string)
+            isValidationDone = Validator.symbolsValidate(string)
             limitLength = telephoneNumberLimit
         }
-            let lengthValidate = newLength <= limitLength!
-            return lengthValidate && isValidationDone
-       
+        let lengthValidate = newLength <= limitLength!
+        return lengthValidate && isValidationDone
+        
     }
     
-    // check symbols validation
     
     var isValid: Bool {
-       let telephoneNumber = telephoneTextField.text?.count
+        let telephoneNumber = telephoneTextField.text?.count
         if telephoneNumber == telephoneNumberLimit {
             return validateNumber(string: self.telephoneTextField.text!)
         } else {
@@ -73,10 +59,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if isValid {}
     }
     
-   
+    
     @IBAction func pushTelephoneButton(_ sender: UIButton) {
         if isValid {
-           let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController 
+            let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
             codeViewController.phoneNumber = telephoneTextField.text!
             self.navigationController?.pushViewController(codeViewController, animated: true)
         } else {
