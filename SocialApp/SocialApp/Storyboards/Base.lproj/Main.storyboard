@@ -514,6 +514,8 @@
                     </view>
                     <connections>
                         <outlet property="addToFriends" destination="hnd-rC-DDk" id="nEP-nf-MC3"/>
+                        <outlet property="mainAvatar" destination="70y-7h-Arb" id="XD2-Vg-Kha"/>
+                        <outlet property="newsAvatar" destination="a5R-3v-eJt" id="rbG-a5-DcF"/>
                         <outlet property="writeMessageLabel" destination="dMj-Et-CsW" id="uBU-cE-AtM"/>
                     </connections>
                 </viewController>

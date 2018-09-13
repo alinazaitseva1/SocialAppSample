@@ -16,3 +16,6 @@ enum CustomFont: String {
         return UIFont(name: self.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
     }
 }
+
+
+// FIXME: - Use fonts in code

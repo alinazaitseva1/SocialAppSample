@@ -23,6 +23,7 @@
 		DC81C848214A4BA200877D27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C847214A4BA200877D27 /* Validator.swift */; };
 		DC81C84A214A4D3800877D27 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C849214A4D3800877D27 /* ColorPicker.swift */; };
 		DC81C84C214A656B00877D27 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC81C84B214A656B00877D27 /* Auth.storyboard */; };
+		DC81C851214AAD7200877D27 /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C850214AAD7200877D27 /* UIView+Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DC81C847214A4BA200877D27 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		DC81C849214A4D3800877D27 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		DC81C84B214A656B00877D27 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		DC81C850214AAD7200877D27 /* UIView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				DC6B376C2147E1AC00D6478F /* TextField+Border.swift */,
 				DC79839C2148F209005FCA08 /* ViewController+Alert.swift */,
+				DC81C850214AAD7200877D27 /* UIView+Image.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				DC7983A421495F69005FCA08 /* CustomColor.swift in Sources */,
 				DC6B37632147A34000D6478F /* UserProfileViewController.swift in Sources */,
 				DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */,
+				DC81C851214AAD7200877D27 /* UIView+Image.swift in Sources */,
 				DC81C84A214A4D3800877D27 /* ColorPicker.swift in Sources */,
 				DC81C848214A4BA200877D27 /* Validator.swift in Sources */,
 				DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */,
