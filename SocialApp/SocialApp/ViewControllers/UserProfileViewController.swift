@@ -10,6 +10,12 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var writeMessageLabel: UILabel!
+    @IBOutlet weak var addToFriends: UILabel!
+    
+    
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
     }
