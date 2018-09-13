@@ -37,7 +37,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func validateNumber(string: String) -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^(0[0-9]{2,3}\\-)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$")  // RegExp to validate telephone number
+        let regex = try! NSRegularExpression(pattern: "^[0-9]{2}[(]{0,1}[0-9]{1,4}[)]{0,1}[0-9]*$")  // RegExp to validate telephone number
         return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
     }
     
