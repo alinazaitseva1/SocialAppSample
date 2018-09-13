@@ -12,7 +12,7 @@ class ApiRequest {
     static var loginResponse = ["status" : "200",
                            "code" : "4444"]
     
-    static func getResponse(for telephone: String, completion: @escaping (String?) -> Void ) {
+    static func captureResponse(for telephone: String, completion: @escaping (String?) -> Void ) {
         completion(loginResponse["code"]!)
     }
 }

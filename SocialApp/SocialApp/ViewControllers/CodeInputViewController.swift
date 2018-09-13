@@ -10,20 +10,30 @@ import UIKit
 
 class CodeInputViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     @IBOutlet weak var firstCodeTextField: UITextField!
     @IBOutlet weak var secondCodeTextField: UITextField!
     @IBOutlet weak var thirdCodeTextField: UITextField!
     @IBOutlet weak var fourthCodeTextField: UITextField!
     
-    // MARK: Constants and Variables
+    // MARK: - Constants and Variables
     let codeNumberLimit = 1
     var codeCharacters = [String]()
     var phoneNumber = ""
     
+    //MARK: - Actions
+    @IBAction func sendCodeButton(_ sender: UIButton) {
+        if codeValid() {
+            let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+            self.navigationController?.pushViewController(userProfileViewController, animated: true)
+            
+        }
+    }
+    
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiRequest.getResponse(for: phoneNumber) { (code) in
+        ApiRequest.captureResponse(for: phoneNumber) { (code) in
             code?.forEach() {
                 self.codeCharacters.append(String($0))
             }
@@ -31,7 +41,6 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: Functions
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         ColorPicker.setBorderColor(for: textField)
         
@@ -77,7 +86,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
                 fourthCodeTextField.isEnabled = true
                 textFieldShouldBecome(fourthCodeTextField)
             case fourthCodeTextField:
-                fourthCodeTextField.resignFirstResponder()
+                textFieldShouldReturn(fourthCodeTextField)
             default:
                 break
             }
@@ -85,6 +94,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func codeValid() -> Bool {
+        // to validate code in TextField with Code from ApiRequest
         if firstCodeTextField.text == codeCharacters[0],
             secondCodeTextField.text == codeCharacters[1],
             thirdCodeTextField.text == codeCharacters[2],
@@ -98,16 +108,10 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func sendCodeButton(_ sender: UIButton) {
-        if codeValid() {
-            let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
-            self.navigationController?.pushViewController(userProfileViewController, animated: true)
-            
-        }
-    }
-    
     private func textFieldShouldBecome(_ textField: UITextField) {
         textField.becomeFirstResponder()
     }
-    
+    private func textFieldShouldReturn(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
 }

@@ -15,9 +15,9 @@
 		DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37602147A32800D6478F /* CodeInputViewController.swift */; };
 		DC6B37632147A34000D6478F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37622147A34000D6478F /* UserProfileViewController.swift */; };
 		DC6B37662147C25D00D6478F /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37652147C25D00D6478F /* ValidationError.swift */; };
-		DC6B376D2147E1AC00D6478F /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376C2147E1AC00D6478F /* TextFieldExtensions.swift */; };
+		DC6B376D2147E1AC00D6478F /* TextField+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376C2147E1AC00D6478F /* TextField+Border.swift */; };
 		DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376E2147E27100D6478F /* ApiRequest.swift */; };
-		DC79839D2148F209005FCA08 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79839C2148F209005FCA08 /* ViewControllerExtensions.swift */; };
+		DC79839D2148F209005FCA08 /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79839C2148F209005FCA08 /* ViewController+Alert.swift */; };
 		DC7983A421495F69005FCA08 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7983A321495F69005FCA08 /* CustomColor.swift */; };
 		DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7983A521495F7A005FCA08 /* CustomFont.swift */; };
 		DC81C848214A4BA200877D27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C847214A4BA200877D27 /* Validator.swift */; };
@@ -35,9 +35,9 @@
 		DC6B37602147A32800D6478F /* CodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputViewController.swift; sourceTree = "<group>"; };
 		DC6B37622147A34000D6478F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DC6B37652147C25D00D6478F /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
-		DC6B376C2147E1AC00D6478F /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		DC6B376C2147E1AC00D6478F /* TextField+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Border.swift"; sourceTree = "<group>"; };
 		DC6B376E2147E27100D6478F /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
-		DC79839C2148F209005FCA08 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		DC79839C2148F209005FCA08 /* ViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alert.swift"; sourceTree = "<group>"; };
 		DC7983A321495F69005FCA08 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		DC7983A521495F7A005FCA08 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		DC81C847214A4BA200877D27 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 		DC358F4F2146AC4A0068E511 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC6B376C2147E1AC00D6478F /* TextFieldExtensions.swift */,
-				DC79839C2148F209005FCA08 /* ViewControllerExtensions.swift */,
+				DC6B376C2147E1AC00D6478F /* TextField+Border.swift */,
+				DC79839C2148F209005FCA08 /* ViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 				DC81C84A214A4D3800877D27 /* ColorPicker.swift in Sources */,
 				DC81C848214A4BA200877D27 /* Validator.swift in Sources */,
 				DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */,
-				DC79839D2148F209005FCA08 /* ViewControllerExtensions.swift in Sources */,
-				DC6B376D2147E1AC00D6478F /* TextFieldExtensions.swift in Sources */,
+				DC79839D2148F209005FCA08 /* ViewController+Alert.swift in Sources */,
+				DC6B376D2147E1AC00D6478F /* TextField+Border.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
 			);

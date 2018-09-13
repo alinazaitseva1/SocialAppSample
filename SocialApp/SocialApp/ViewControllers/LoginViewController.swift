@@ -10,17 +10,32 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     @IBOutlet weak var telephoneTextField: UITextField!
     
-    // MARK: Constants and Variables
+    // MARK: - Constants and Variables
     let telephoneNumberLimit = 12
     
+    // MARK: - Actions
+    @IBAction func editingPhoneTextField(_ sender: UITextField) {
+        if isValid {}
+    }
+    
+    @IBAction func pushTelephoneButton(_ sender: UIButton) {
+        if isValid {
+            let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
+            codeViewController.phoneNumber = telephoneTextField.text!
+            self.navigationController?.pushViewController(codeViewController, animated: true)
+        } else {
+            self.showAlert(title: "Error", message: ValidationError.invalidData.errorDescription!)
+        }
+    }
+    
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: Functions
     func validateNumber(string: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: "^(0[0-9]{2,3}\\-)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$")  // RegExp to validate telephone number
         return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
@@ -44,29 +59,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
     var isValid: Bool {
+        // check if amount of symbols and regEx is valid
         let telephoneNumber = telephoneTextField.text?.count
         if telephoneNumber == telephoneNumberLimit {
             return validateNumber(string: self.telephoneTextField.text!)
-        } else {
-            telephoneTextField.setDefaultLookWith(color: CustomColor.redError.color, border: 1) // TODO: Remove
         }
         return false
     }
     
-    @IBAction func editingPhoneTextField(_ sender: UITextField) {
-        if isValid {}
-    }
-    
-    
-    @IBAction func pushTelephoneButton(_ sender: UIButton) {
-        if isValid {
-            let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
-            codeViewController.phoneNumber = telephoneTextField.text!
-            self.navigationController?.pushViewController(codeViewController, animated: true)
-        } else {
-            self.showAlert(title: "Error", message: ValidationError.invalidData.errorDescription!)
-        }
-    }
+
 }
