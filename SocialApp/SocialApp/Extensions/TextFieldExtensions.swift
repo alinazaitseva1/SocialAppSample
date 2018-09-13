@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    func setAppropriateLookWith (color: UIColor, border: Int) {
+    func setDefaultLookWith (color: UIColor, border: Int) {
         self.layer.borderWidth = 1
-        self.layer.cornerRadius = 5
         self.layer.borderColor = color.cgColor
     }
 }

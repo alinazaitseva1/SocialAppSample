@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK: Extension to handle errors
+// MARK: Extension to show handler errors
 
 extension UIViewController {
     func showAlert(title: String, message: String) {

@@ -36,14 +36,14 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         return allowedCharacters.isSuperset(of: characterSet)
     }
     
-    func setDefaultBorderColor(for textField: UITextField) {
-        textField.setAppropriateLookWith(color: #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1), border: 1)
+    func setBorderColor(for textField: UITextField) {
+        textField.setDefaultLookWith(color: CustomColor.grayDefault.color, border: 1)
     }
     
     // Function to validate symbols amount in TextFields
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        setDefaultBorderColor(for: textField)
+        setBorderColor(for: textField)
         
         guard let text = textField.text else { return true }
         

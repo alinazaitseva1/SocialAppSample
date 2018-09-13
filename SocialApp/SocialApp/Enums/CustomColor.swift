@@ -7,3 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
+enum CustomColor {
+    case grayDefault
+    case redError
+    
+    var color: UIColor {
+        switch self {
+        case .grayDefault:
+           return UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 244.0 / 255.0, alpha: 1.0)
+        case .redError:
+            return UIColor(red: 250.0 / 255.0, green: 99.0 / 255.0, blue: 0.0 / 99.0, alpha: 1.0)
+        
+        }
+    }
+}

@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import UIKit
+
+enum CustomFont: String {
+    case DINCondensed = "DINCondensed-Bold"
+    
+    func ofSize(_ size: CGFloat) -> UIFont {
+        return UIFont(name: self.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+}
