@@ -41,6 +41,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
     }
     
+    func validate(value: String) -> Bool { // To validate number ??????
+        let PHONE_REGEX = "^((\\+)|(00))[0-9]{6,14}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result =  phoneTest.evaluate(with: value)
+        return result
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         ColorPicker.setBorderColor(for: textField)
         

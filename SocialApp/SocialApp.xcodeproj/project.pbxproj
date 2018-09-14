@@ -20,6 +20,7 @@
 		DC79839D2148F209005FCA08 /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79839C2148F209005FCA08 /* ViewController+Alert.swift */; };
 		DC7983A421495F69005FCA08 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7983A321495F69005FCA08 /* CustomColor.swift */; };
 		DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7983A521495F7A005FCA08 /* CustomFont.swift */; };
+		DC7FE579214B94A9008C18F4 /* Button+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7FE578214B94A9008C18F4 /* Button+Border.swift */; };
 		DC81C848214A4BA200877D27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C847214A4BA200877D27 /* Validator.swift */; };
 		DC81C84A214A4D3800877D27 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C849214A4D3800877D27 /* ColorPicker.swift */; };
 		DC81C84C214A656B00877D27 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC81C84B214A656B00877D27 /* Auth.storyboard */; };
@@ -42,6 +43,7 @@
 		DC79839C2148F209005FCA08 /* ViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alert.swift"; sourceTree = "<group>"; };
 		DC7983A321495F69005FCA08 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		DC7983A521495F7A005FCA08 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		DC7FE578214B94A9008C18F4 /* Button+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Border.swift"; sourceTree = "<group>"; };
 		DC81C847214A4BA200877D27 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		DC81C849214A4D3800877D27 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		DC81C84B214A656B00877D27 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				DC6B376C2147E1AC00D6478F /* TextField+Border.swift */,
 				DC79839C2148F209005FCA08 /* ViewController+Alert.swift */,
 				DC81C850214AAD7200877D27 /* UIView+Image.swift */,
+				DC7FE578214B94A9008C18F4 /* Button+Border.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				DC6B376D2147E1AC00D6478F /* TextField+Border.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
+				DC7FE579214B94A9008C18F4 /* Button+Border.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

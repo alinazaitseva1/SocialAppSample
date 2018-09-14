@@ -24,12 +24,14 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Actions
     @IBAction func sendCodeButton(_ sender: UIButton) {
         if codeValid() {
-            let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+            let authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
+            let userProfileViewController = authStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
             self.navigationController?.pushViewController(userProfileViewController, animated: true)
             
         }
     }
     
+   
     // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,10 +101,8 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
             secondCodeTextField.text == codeCharacters[1],
             thirdCodeTextField.text == codeCharacters[2],
             fourthCodeTextField.text == codeCharacters[3] {
-            print("VALID")
             return true
         } else {
-            print("INVALID")
             self.showAlert(title: "Error", message: ValidationError.codeInvalid.errorDescription!)
             return false
         }
