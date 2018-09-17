@@ -11,31 +11,33 @@ import UIKit
 class CodeInputViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var firstCodeTextField: UITextField!
     @IBOutlet weak var secondCodeTextField: UITextField!
     @IBOutlet weak var thirdCodeTextField: UITextField!
     @IBOutlet weak var fourthCodeTextField: UITextField!
     
     // MARK: - Constants and Variables
+    
     let codeNumberLimit = 1
     var codeCharacters = [String]()
     var phoneNumber = ""
     
     //MARK: - Actions
+    
     @IBAction func sendCodeButton(_ sender: UIButton) {
         if codeValid() {
-            let authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-            let userProfileViewController = authStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
-            self.navigationController?.pushViewController(userProfileViewController, animated: true)
-            
+            let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+            let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+            self.navigationController?.pushViewController(userProfileVC, animated: true)
         }
     }
     
-   
-    // MARK: - Functions
+   // MARK: - Initialization functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiRequest.captureResponse(for: phoneNumber) { (code) in
+        ApiRequest.login(for: phoneNumber) { (code) in
             code?.forEach() {
                 self.codeCharacters.append(String($0))
             }
@@ -43,36 +45,22 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        ColorPicker.setBorderColor(for: textField)
-        
-        guard let text = textField.text else { return true }
-        
-        let newLength = text.count + string.count - range.length
-        var isValidationDone = false
-        var limitLength: Int?
-        
-        switch textField {
-        case firstCodeTextField:
-            isValidationDone = Validator.symbolsValidate(string)
-            limitLength = codeNumberLimit
-        case secondCodeTextField:
-            isValidationDone = Validator.symbolsValidate(string)
-            limitLength = codeNumberLimit
-        case thirdCodeTextField:
-            isValidationDone = Validator.symbolsValidate(string)
-            limitLength = codeNumberLimit
-        case fourthCodeTextField:
-            isValidationDone = Validator.symbolsValidate(string)
-            limitLength = codeNumberLimit
-        default:
-            break
+    //MARK: - Validation functions
+    
+    private func codeValid() -> Bool {
+        // to validate code in TextField with Code from ApiRequest
+        if firstCodeTextField.text == codeCharacters[0],
+            secondCodeTextField.text == codeCharacters[1],
+            thirdCodeTextField.text == codeCharacters[2],
+            fourthCodeTextField.text == codeCharacters[3] {
+            return true
+        } else {
+            self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
+            return false
         }
-        
-        let lengthValidate = newLength <= limitLength!
-        return lengthValidate && isValidationDone
-        
     }
+    
+    //MARK: - TextField functions
     
     @IBAction func editingCodeTextField(_ sender: UITextField) {
         let numbersInField = sender.text?.count ?? 0
@@ -95,17 +83,35 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    private func codeValid() -> Bool {
-        // to validate code in TextField with Code from ApiRequest
-        if firstCodeTextField.text == codeCharacters[0],
-            secondCodeTextField.text == codeCharacters[1],
-            thirdCodeTextField.text == codeCharacters[2],
-            fourthCodeTextField.text == codeCharacters[3] {
-            return true
-        } else {
-            self.showAlert(title: "Error", message: ValidationError.codeInvalid.errorDescription!)
-            return false
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        ColorAssigner.setLook(for: textField)
+        
+        let text = textField.text ?? ""
+        
+        let newLength = text.count + string.count - range.length
+        var isValidationDone = false
+        var limitLength: Int?
+        
+        switch textField {
+        case firstCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        case secondCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        case thirdCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        case fourthCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        default:
+            break
         }
+        
+        let lengthValidate = newLength <= limitLength!
+        return lengthValidate && isValidationDone
+        
     }
     
     private func textFieldShouldBecome(_ textField: UITextField) {

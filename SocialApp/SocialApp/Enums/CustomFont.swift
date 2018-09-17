@@ -10,12 +10,9 @@ import Foundation
 import UIKit
 
 enum CustomFont: String {
-    case DINCondensed = "DINCondensed-Bold"
     
-    func ofSize(_ size: CGFloat) -> UIFont {
-        return UIFont(name: self.rawValue, size: size) ?? UIFont.systemFont(ofSize: size)
-    }
+    case DINCondensed = "DINCondensed"
+    
+    func of(size: CGFloat) -> UIFont { return UIFont(name: self.rawValue, size: size)! }
 }
 
-
-// FIXME: - Use fonts in code

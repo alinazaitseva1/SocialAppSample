@@ -11,15 +11,14 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var telephoneTextField: UITextField!
     
     // MARK: - Constants and Variables
+    
     let telephoneNumberLimit = 12
     
     // MARK: - Actions
-    @IBAction func editingPhoneTextField(_ sender: UITextField) {
-        if isValid {}
-    }
     
     @IBAction func pushTelephoneButton(_ sender: UIButton) {
         if isValid {
@@ -27,43 +26,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             codeViewController.phoneNumber = telephoneTextField.text!
             self.navigationController?.pushViewController(codeViewController, animated: true)
         } else {
-            self.showAlert(title: "Error", message: ValidationError.invalidData.errorDescription!)
+            self.showAlert(title: "Error", message: ValidationError.invalidData.localizedDescription)
         }
     }
     
-    // MARK: - Functions
+    // MARK: - Initialization functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // MARK: - Validation functions
+    
     func validateNumber(string: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: "^[0-9]{2}[(]{0,1}[0-9]{1,4}[)]{0,1}[0-9]*$")  // RegExp to validate telephone number
         return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
-    }
-    
-    func validate(value: String) -> Bool { // To validate number ??????
-        let PHONE_REGEX = "^((\\+)|(00))[0-9]{6,14}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
-        let result =  phoneTest.evaluate(with: value)
-        return result
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        ColorPicker.setBorderColor(for: textField)
-        
-        guard let text = textField.text else { return true }
-        
-        let newLength = text.count + string.count - range.length
-        var isValidationDone = false
-        var limitLength: Int?
-        
-        if textField == telephoneTextField {
-            isValidationDone = Validator.symbolsValidate(string)
-            limitLength = telephoneNumberLimit
-        }
-        let lengthValidate = newLength <= limitLength!
-        return lengthValidate && isValidationDone
-        
     }
     
     var isValid: Bool {
@@ -75,5 +52,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-
+    // TextField functions
+    
+    @IBAction func editingPhoneTextField(_ sender: UITextField) {
+        if isValid {}
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        ColorAssigner.setLook(for: textField)
+        
+       let text = textField.text ?? ""
+        
+        let newLength = text.count + string.count - range.length
+        var isValidationDone = false
+        var limitLength: Int?
+        
+        if textField == telephoneTextField {
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = telephoneNumberLimit
+        }
+        let lengthValidate = newLength <= limitLength!
+        return lengthValidate && isValidationDone
+        
+    }
+    
 }

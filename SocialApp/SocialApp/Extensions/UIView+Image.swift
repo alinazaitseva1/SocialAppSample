@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func setRounded() { // Make photo accept round shape
+    
+    func setRounded() {
+        // Forced photo accept round shape
         layer.borderWidth = 1.0
         layer.masksToBounds = false
         layer.borderColor = UIColor.white.cgColor

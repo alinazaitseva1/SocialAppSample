@@ -18,9 +18,21 @@ class UserProfileViewController: UIViewController {
     // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainAvatar.setRounded()
-        newsAvatar.setRounded()
+        //mainAvatar.setRounded()
+        //newsAvatar.setRounded()
         
     }
+}
+
+extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return SectionType.numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
     
 }

@@ -11,10 +11,9 @@ import UIKit
 
 class Validator {
     
-    static func symbolsValidate (_ string: String) -> Bool {
+    static func symbolsValidateOnlyNumbers(_ string: String) -> Bool {
         let allowedCharacters = CharacterSet.decimalDigits
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
-    
 }

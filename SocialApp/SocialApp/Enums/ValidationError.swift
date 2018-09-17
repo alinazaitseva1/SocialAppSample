@@ -17,11 +17,11 @@ enum ValidationError: Error, LocalizedError {
         switch self {
             
         case .invalidData:
-            return NSLocalizedString("Telephone number invalid", comment: "")
+            return ("Telephone number invalid")
             
         case .codeInvalid:
-            return NSLocalizedString("Invalid code", comment: "")
-       
+            return ("Invalid code")
+            
         }
     }
 }
