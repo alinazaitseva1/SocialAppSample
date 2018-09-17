@@ -16,7 +16,7 @@ class ApiRequest {
         completion(loginResponse["code"]!) // TODO: Rework
     }
     
-    static func validCode(phone: String, enteredCode: String, completion: @escaping (Bool?) -> Void) {
+    static func validateCode(phone: String, enteredCode: String, completion: @escaping (Bool?) -> Void) {
         completion(true) // TODO: In Use
     }
 }

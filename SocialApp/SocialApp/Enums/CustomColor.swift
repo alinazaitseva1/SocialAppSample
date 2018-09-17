@@ -17,8 +17,8 @@ enum CustomColor {
     var color: UIColor {
         switch self {
             
-        case .grayDefault: return UIColor(red: 242.0, green: 243.0, blue: 244, alpha: 1.0)
-        case .redError:    return UIColor(red: 250.0, green: 99.0, blue: 0.0, alpha: 1.0)
+        case .grayDefault: return UIColor(red: 242, green: 243, blue: 244, alpha: 1)
+        case .redError:    return UIColor(red: 250, green: 99, blue: 0, alpha: 1)
             
         }
     }
