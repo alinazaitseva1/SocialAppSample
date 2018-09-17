@@ -16,7 +16,13 @@ enum SectionType: Int {
         self.init(rawValue: indexPath.section)
     }
     
-    //static var numberOfSections: Int { return 2 }
+    static var numberOfSections: Int {
+        var count = 0
+        while let _ = SectionType(rawValue: count) {
+            count += 1
+        }
+        return count
+    }
 }
 
 enum Profile: Int {
