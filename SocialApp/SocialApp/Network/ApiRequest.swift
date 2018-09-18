@@ -9,14 +9,19 @@
 import Foundation
 
 class ApiRequest {
-    static var loginResponse = ["status" : "200",
-                           "code" : "4444"]
     
-    static func login(for telephone: String, completion: @escaping (String?) -> Void ) {
-        completion(loginResponse["code"]!) // TODO: Rework
+    static var users: [String: String] = [:]
+    
+    static func login(with phone: String) -> Bool {
+        if users[phone] == nil {
+            users[phone] = "4444" // TODO: Generate random code
+            return false
+        } else {
+            return true
+        }
     }
     
     static func validateCode(phone: String, enteredCode: String, completion: @escaping (Bool?) -> Void) {
-        completion(true) // TODO: In Use
+        completion(users[phone] == enteredCode)
     }
 }

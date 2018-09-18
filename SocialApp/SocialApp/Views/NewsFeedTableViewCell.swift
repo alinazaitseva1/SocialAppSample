@@ -9,5 +9,8 @@
 import UIKit
 
 class NewsFeedTableViewCell: UITableViewCell {
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var newsAvatarImage: UIImageView!
 }

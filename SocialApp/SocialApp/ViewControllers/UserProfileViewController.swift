@@ -12,42 +12,34 @@ private enum SectionType: Int {
     case profile
     case posts
     
-    init?(indexPath: NSIndexPath) {
-        self.init(rawValue: indexPath.section)
-    }
-    static var numberOfSection = [SectionType.profile, SectionType.posts]
-    
-    //    static var numberOfSections: Int {
-    //        var count = 0
-    //        while let _ = SectionType(rawValue: count) {
-    //            count += 1
-    //        }
-    //        return count
-    //    } TODO: ????
+        init?(indexPath: NSIndexPath) {
+            self.init(rawValue: indexPath.section)
+        }
+    static var section: [SectionType] = [.profile, .posts]
 }
 
-private enum Profile: Int {
+private enum ProfileRowType: Int {
     case photo
     case info
     case actions
     case collectionInfo
     
-    init?(indexPath: NSIndexPath) {
-        self.init(rawValue: indexPath.section)
-    }
+        init?(indexPath: NSIndexPath) {
+            self.init(rawValue: indexPath.row)
+        }
     
-    static var numberOfRowProfile = [Profile.photo, Profile.info, Profile.actions, Profile.collectionInfo]
+    static var rows: [ProfileRowType] = [.photo, .info, .actions, .collectionInfo]
 }
 
-private enum Posts: Int {
+private enum PostsRowType: Int {
     case actionWithPosts
     case newsFeed
     
-    init?(indexPath: NSIndexPath) {
-        self.init(rawValue: indexPath.section)
-    }
+        init?(indexPath: NSIndexPath) {
+            self.init(rawValue: indexPath.row)
+        }
     
-    static var numberOfRowPosts = [Posts.actionWithPosts, Posts.newsFeed]
+    static var rows: [PostsRowType] = [.actionWithPosts, .newsFeed]
 }
 
 class UserProfileViewController: UIViewController {
@@ -56,28 +48,64 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var uiTableView: UITableView!
     
-    // MARK: - Init functions
+    // MARK: - Initialization functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
+        uiTableView.rowHeight = UITableViewAutomaticDimension
+        
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return SectionType.numberOfSection.count
+        return SectionType.section.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if section == SectionType.profile.rawValue {
+            return ProfileRowType.rows.count
+        } else if section == SectionType.posts.rawValue {
+            return PostsRowType.rows.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        _ = tableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell // TODO: For instantiatexib in storyboards
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.reuseIdentifier, for: indexPath) as? PhotoTableViewCell
         
-        return UITableViewCell()
+        let section = SectionType(indexPath: indexPath as NSIndexPath)!
+        
+        switch section {
+        case .profile:
+            let row = ProfileRowType(indexPath: indexPath as NSIndexPath)!
+            switch row {
+            case .photo:
+                let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
+                photoCell.mainAvatarImage.makeRounded()
+                return photoCell
+            case .info:
+                let infoCell = uiTableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+                return infoCell
+            case .actions:
+                let actionsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionsTableViewCell", for: indexPath) as! ActionsTableViewCell
+                return actionsCell
+            case .collectionInfo:
+                let collectionInfoCell = uiTableView.dequeueReusableCell(withIdentifier: "CollectionInfoTableViewCell", for: indexPath) as! CollectionInfoTableViewCell
+                return collectionInfoCell
+            }
+        case .posts:
+            let row = PostsRowType(indexPath: indexPath as NSIndexPath)!
+            switch row {
+            case .actionWithPosts:
+                let actionsWithPostsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell", for: indexPath) as! ActionWithPostsTableViewCell
+                return actionsWithPostsCell
+            case .newsFeed:
+                let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
+                newsFeedCell.newsAvatarImage.makeRounded()
+                return  newsFeedCell
+            }
+        }
+        
     }
-    
-    
 }

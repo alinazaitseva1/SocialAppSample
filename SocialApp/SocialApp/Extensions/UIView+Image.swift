@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImageView {
     
-    func setRounded() {
+    func makeRounded() {
         // Forced photo accept round shape
         layer.borderWidth = 1.0
         layer.masksToBounds = false

@@ -14,7 +14,8 @@
 		DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C1A214FCBE0009833AC /* CollectionInfoTableViewCell.swift */; };
 		DC016C1D214FCC00009833AC /* ActionWithPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C1C214FCC00009833AC /* ActionWithPostsTableViewCell.swift */; };
 		DC016C1F214FCC1C009833AC /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C1E214FCC1C009833AC /* NewsFeedTableViewCell.swift */; };
-		DC016C21214FDCF4009833AC /* NewsFeed.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC016C20214FDCF4009833AC /* NewsFeed.xib */; };
+		DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */; };
+		DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C2821513A03009833AC /* ChangeStateButton.swift */; };
 		DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F392146A6130068E511 /* AppDelegate.swift */; };
 		DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F3B2146A6130068E511 /* LoginViewController.swift */; };
 		DC358F3F2146A6130068E511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F3D2146A6130068E511 /* Main.storyboard */; };
@@ -33,9 +34,12 @@
 		DC81C84A214A4D3800877D27 /* ColorAssigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C849214A4D3800877D27 /* ColorAssigner.swift */; };
 		DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC81C84B214A656B00877D27 /* UserProfile.storyboard */; };
 		DC81C851214AAD7200877D27 /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C850214AAD7200877D27 /* UIView+Image.swift */; };
+		E813F125E1F281606B25E4A3 /* Pods_SocialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A364BBB1EF8D5D0ECB81AFF6 /* Pods_SocialApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A364BBB1EF8D5D0ECB81AFF6 /* Pods_SocialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EFAA50923B79A5FD1F6C90 /* Pods-SocialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.release.xcconfig"; sourceTree = "<group>"; };
 		DC016C0F214F9419009833AC /* UIColor+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Color.swift"; sourceTree = "<group>"; };
 		DC016C14214FAAFE009833AC /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		DC016C16214FCB93009833AC /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoTableViewCell.swift; path = SocialApp/Views/InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -43,7 +47,8 @@
 		DC016C1A214FCBE0009833AC /* CollectionInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInfoTableViewCell.swift; sourceTree = "<group>"; };
 		DC016C1C214FCC00009833AC /* ActionWithPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionWithPostsTableViewCell.swift; sourceTree = "<group>"; };
 		DC016C1E214FCC1C009833AC /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
-		DC016C20214FDCF4009833AC /* NewsFeed.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeed.xib; sourceTree = "<group>"; };
+		DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
+		DC016C2821513A03009833AC /* ChangeStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStateButton.swift; sourceTree = "<group>"; };
 		DC358F362146A6130068E511 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC358F392146A6130068E511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC358F3B2146A6130068E511 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 		DC81C849214A4D3800877D27 /* ColorAssigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssigner.swift; sourceTree = "<group>"; };
 		DC81C84B214A656B00877D27 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		DC81C850214AAD7200877D27 /* UIView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
+		F180877A42B29999181E5F3A /* Pods-SocialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +77,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E813F125E1F281606B25E4A3 /* Pods_SocialApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96CF0A6D9F1200A28636D74B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A364BBB1EF8D5D0ECB81AFF6 /* Pods_SocialApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C828E9C7BE471B2D97FF0537 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F180877A42B29999181E5F3A /* Pods-SocialApp.debug.xcconfig */,
+				D3EFAA50923B79A5FD1F6C90 /* Pods-SocialApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DC016C13214FA9E3009833AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,11 +114,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DC016C27215138F2009833AC /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				DC016C2821513A03009833AC /* ChangeStateButton.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		DC358F2D2146A6130068E511 = {
 			isa = PBXGroup;
 			children = (
 				DC358F382146A6130068E511 /* SocialApp */,
 				DC358F372146A6130068E511 /* Products */,
+				C828E9C7BE471B2D97FF0537 /* Pods */,
+				96CF0A6D9F1200A28636D74B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +143,7 @@
 		DC358F382146A6130068E511 /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				DC016C27215138F2009833AC /* Subclasses */,
 				DC016C13214FA9E3009833AC /* Views */,
 				DC7983A221495F46005FCA08 /* Network */,
 				DC358F4E2146AC410068E511 /* Enums */,
@@ -177,7 +212,7 @@
 				DC358F422146A6140068E511 /* LaunchScreen.storyboard */,
 				DC358F3D2146A6130068E511 /* Main.storyboard */,
 				DC81C84B214A656B00877D27 /* UserProfile.storyboard */,
-				DC016C20214FDCF4009833AC /* NewsFeed.xib */,
+				DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -206,9 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC358F482146A6140068E511 /* Build configuration list for PBXNativeTarget "SocialApp" */;
 			buildPhases = (
+				918AE5A8A653349A3E90FF13 /* [CP] Check Pods Manifest.lock */,
 				DC358F322146A6130068E511 /* Sources */,
 				DC358F332146A6130068E511 /* Frameworks */,
 				DC358F342146A6130068E511 /* Resources */,
+				281DD488793FAB4407CB3E48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */,
-				DC016C21214FDCF4009833AC /* NewsFeed.xib in Resources */,
+				DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */,
 				DC358F442146A6140068E511 /* LaunchScreen.storyboard in Resources */,
 				DC358F412146A6140068E511 /* Assets.xcassets in Resources */,
 				DC358F3F2146A6130068E511 /* Main.storyboard in Resources */,
@@ -266,6 +303,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		281DD488793FAB4407CB3E48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		918AE5A8A653349A3E90FF13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC358F322146A6130068E511 /* Sources */ = {
@@ -289,6 +365,7 @@
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
 				DC79839D2148F209005FCA08 /* UIViewController+Alert.swift in Sources */,
 				DC6B376D2147E1AC00D6478F /* UITextField+Border.swift in Sources */,
+				DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
 				DC7FE579214B94A9008C18F4 /* UIButton+Border.swift in Sources */,
@@ -434,6 +511,7 @@
 		};
 		DC358F492146A6140068E511 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F180877A42B29999181E5F3A /* Pods-SocialApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +529,7 @@
 		};
 		DC358F4A2146A6140068E511 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3EFAA50923B79A5FD1F6C90 /* Pods-SocialApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -9,5 +9,8 @@
 import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var mainAvatarImage: UIImageView!
 }

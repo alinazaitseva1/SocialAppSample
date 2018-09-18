@@ -22,41 +22,38 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     let codeNumberLimit = 1
     var codeCharacters = [String]()
     var phoneNumber = ""
+    var isUserValid = false {
+        didSet {
+            if isUserValid {
+                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+                self.navigationController?.pushViewController(userProfileVC, animated: true)
+            } else {
+                self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
+            }
+        }
+    }
     
     //MARK: - Actions
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
-        if codeValid() {
-            let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
-            let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
-            self.navigationController?.pushViewController(userProfileVC, animated: true)
-        }
+        codeValid()
     }
     
-   // MARK: - Initialization functions
+    // MARK: - Initialization functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiRequest.login(for: phoneNumber) { (code) in
-            code?.forEach() {
-                self.codeCharacters.append(String($0))
-            }
-            print("code: \(code!)")
-        }
     }
     
     //MARK: - Validation functions
     
-    private func codeValid() -> Bool {
+    private func codeValid() {
         // to validate code in TextField with Code from ApiRequest
-        if firstCodeTextField.text == codeCharacters[0],
-            secondCodeTextField.text == codeCharacters[1],
-            thirdCodeTextField.text == codeCharacters[2],
-            fourthCodeTextField.text == codeCharacters[3] {
-            return true
-        } else {
-            self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
-            return false
+        let code = (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
+        
+        ApiRequest.validateCode(phone: phoneNumber, enteredCode: code) { validationResult in
+            self.isUserValid = validationResult!
         }
     }
     

@@ -10,6 +10,4 @@ import UIKit
 
 class CollectionInfoTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var collectionViewInfo: UICollectionViewFlowLayout!
-    
 }
