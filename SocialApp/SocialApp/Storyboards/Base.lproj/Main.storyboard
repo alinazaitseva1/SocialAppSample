@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xJX-19-xUV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xJX-19-xUV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +40,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="S5i-Xe-N5U"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3P-qs-mIG">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3P-qs-mIG" customClass="ChangeStateButton" customModule="SocialApp" customModuleProvider="target">
                                 <rect key="frame" x="122" y="308" width="131" height="40"/>
                                 <color key="backgroundColor" red="0.8808627483" green="0.8808627483" blue="0.8808627483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -71,6 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8AT-Sb-k5o"/>
                     <connections>
+                        <outlet property="sendButton" destination="F3P-qs-mIG" id="1mD-96-30Z"/>
                         <outlet property="telephoneTextField" destination="cs5-1d-WE4" id="SJK-34-SD6"/>
                     </connections>
                 </viewController>
@@ -143,7 +144,7 @@
                                     <constraint firstAttribute="height" constant="40" id="JRY-qx-nKZ"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jB-bo-nz8" customClass="ChangeStateButton" customModule="SocialApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jB-bo-nz8" customClass="ChangeStateButton" customModule="SocialApp" customModuleProvider="target">
                                 <rect key="frame" x="122" y="260" width="131" height="40"/>
                                 <color key="backgroundColor" red="0.8808627483" green="0.8808627483" blue="0.8808627483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -175,6 +176,7 @@
                     <connections>
                         <outlet property="firstCodeTextField" destination="dDD-8b-34E" id="j3K-3m-HPd"/>
                         <outlet property="fourthCodeTextField" destination="Qcd-ZL-kE7" id="BVw-43-h5A"/>
+                        <outlet property="okCodeButton" destination="1jB-bo-nz8" id="fxy-BK-yc9"/>
                         <outlet property="secondCodeTextField" destination="oQ5-PP-cgs" id="yVk-B3-k84"/>
                         <outlet property="thirdCodeTextField" destination="gqy-yQ-WZ0" id="ym7-Xl-b5k"/>
                     </connections>

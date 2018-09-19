@@ -9,18 +9,21 @@
 import UIKit
 
 class ChangeStateButton: UIButton {
-    required public init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-        
-        if (self.isEnabled == false) {
-            self.backgroundColor = UIColor.clear
-            self.borderWidth = 2
-            self.cornerRadius = 20
-        } else {
-            self.backgroundColor = UIColor.clear
-            self.borderWidth = 2
-            self.cornerRadius = 20
+    
+    override var isEnabled: Bool {
+        get {
+            return super.isEnabled
+        }
+        set {
+            if newValue == true {
+                self.backgroundColor = CustomColor.grayDefault.color
+                self.borderWidth = 1
+            } else {
+                self.backgroundColor = CustomColor.disabledGrayColor.color
+                self.borderWidth = 1
+            }
+            super.isEnabled = newValue
+            
         }
     }
 }

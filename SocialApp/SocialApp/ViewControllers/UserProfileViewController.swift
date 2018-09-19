@@ -12,9 +12,9 @@ private enum SectionType: Int {
     case profile
     case posts
     
-        init?(indexPath: NSIndexPath) {
-            self.init(rawValue: indexPath.section)
-        }
+    init?(indexPath: NSIndexPath) {
+        self.init(rawValue: indexPath.section)
+    }
     static var section: [SectionType] = [.profile, .posts]
 }
 
@@ -24,9 +24,9 @@ private enum ProfileRowType: Int {
     case actions
     case collectionInfo
     
-        init?(indexPath: NSIndexPath) {
-            self.init(rawValue: indexPath.row)
-        }
+    init?(indexPath: NSIndexPath) {
+        self.init(rawValue: indexPath.row)
+    }
     
     static var rows: [ProfileRowType] = [.photo, .info, .actions, .collectionInfo]
 }
@@ -35,9 +35,9 @@ private enum PostsRowType: Int {
     case actionWithPosts
     case newsFeed
     
-        init?(indexPath: NSIndexPath) {
-            self.init(rawValue: indexPath.row)
-        }
+    init?(indexPath: NSIndexPath) {
+        self.init(rawValue: indexPath.row)
+    }
     
     static var rows: [PostsRowType] = [.actionWithPosts, .newsFeed]
 }
@@ -53,7 +53,7 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
-        uiTableView.rowHeight = UITableViewAutomaticDimension
+        uiTableView.rowHeight = UITableView.automaticDimension
         
     }
 }

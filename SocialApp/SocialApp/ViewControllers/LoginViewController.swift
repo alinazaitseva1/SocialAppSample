@@ -14,10 +14,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Outlets
     
     @IBOutlet weak var telephoneTextField: PhoneNumberTextField!
+    @IBOutlet weak var sendButton: ChangeStateButton!
     
     // MARK: - Constants and Variables
     
-    let telephoneNumberLimit = 14 // TODO ?? 16 ??
+    let telephoneNumberLimit = 14
+    var phone: String {
+        return telephoneTextField.text!
+    }
     
     // MARK: - Actions
     
@@ -25,7 +29,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if isValid {
             let phoneNumber = telephoneTextField.text!
             if ApiRequest.login(with: phoneNumber) {
-                // TODO: use saved vc
+                if ApiRequest.users.values.contains(phoneNumber){
+                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+                self.navigationController?.pushViewController(userProfileVC, animated: true)
+                }
             } else {
                 let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
                 codeViewController.phoneNumber = telephoneTextField.text!
@@ -64,6 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func editingPhoneTextField(_ sender: UITextField) {
         if isValid {}
+        sendButton.isEnabled = phone.count == telephoneNumberLimit
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

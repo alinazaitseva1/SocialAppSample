@@ -16,12 +16,14 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var secondCodeTextField: UITextField!
     @IBOutlet weak var thirdCodeTextField: UITextField!
     @IBOutlet weak var fourthCodeTextField: UITextField!
+    @IBOutlet weak var okCodeButton: ChangeStateButton!
     
     // MARK: - Constants and Variables
     
     let codeNumberLimit = 1
     var codeCharacters = [String]()
     var phoneNumber = ""
+    let amountSymbolsInCode = 4
     var isUserValid = false {
         didSet {
             if isUserValid {
@@ -32,6 +34,9 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
                 self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
             }
         }
+    }
+    var code: String {
+        return (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
     }
     
     //MARK: - Actions
@@ -50,11 +55,11 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     
     private func codeValid() {
         // to validate code in TextField with Code from ApiRequest
-        let code = (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
         
         ApiRequest.validateCode(phone: phoneNumber, enteredCode: code) { validationResult in
             self.isUserValid = validationResult!
         }
+        
     }
     
     //MARK: - TextField functions
@@ -78,6 +83,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
                 break
             }
         }
+        okCodeButton.isEnabled = code.count == amountSymbolsInCode
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
