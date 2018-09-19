@@ -300,7 +300,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="FZn-mA-puV">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="baseline_dehaze_white_18dp-1" id="rgZ-YW-xGa"/>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aoF-Ax-dW3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="aoF-Ax-dW3">
+                            <connections>
+                                <action selector="pushLogoutButton:" destination="1s6-be-Zgp" id="adK-m1-Cpo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>

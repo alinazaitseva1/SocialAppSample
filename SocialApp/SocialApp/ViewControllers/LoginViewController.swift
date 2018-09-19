@@ -29,11 +29,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if isValid {
             let phoneNumber = telephoneTextField.text!
             if ApiRequest.login(with: phoneNumber) {
-                if ApiRequest.users.values.contains(phoneNumber){
                 let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
                 self.navigationController?.pushViewController(userProfileVC, animated: true)
-                }
             } else {
                 let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
                 codeViewController.phoneNumber = telephoneTextField.text!

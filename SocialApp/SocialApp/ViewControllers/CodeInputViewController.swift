@@ -59,7 +59,6 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         ApiRequest.validateCode(phone: phoneNumber, enteredCode: code) { validationResult in
             self.isUserValid = validationResult!
         }
-        
     }
     
     //MARK: - TextField functions

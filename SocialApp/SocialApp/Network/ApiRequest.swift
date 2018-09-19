@@ -10,7 +10,7 @@ import Foundation
 
 class ApiRequest {
     
-    static var users: [String: String] = [:]
+    static private var users: [String: String] = [:]
     
     static func login(with phone: String) -> Bool {
         if users[phone] == nil {

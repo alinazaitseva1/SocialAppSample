@@ -48,12 +48,19 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var uiTableView: UITableView!
     
+    //MARK: - Actions
+    
+    @IBAction func pushLogoutButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     // MARK: - Initialization functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         uiTableView.rowHeight = UITableView.automaticDimension
+        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell")
         
     }
 }
