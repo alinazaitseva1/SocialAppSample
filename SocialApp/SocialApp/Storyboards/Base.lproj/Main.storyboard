@@ -174,11 +174,11 @@
                         <viewLayoutGuide key="safeArea" id="5Tx-7Z-V9v"/>
                     </view>
                     <connections>
-                        <outlet property="firstCodeTextField" destination="dDD-8b-34E" id="j3K-3m-HPd"/>
-                        <outlet property="fourthCodeTextField" destination="Qcd-ZL-kE7" id="BVw-43-h5A"/>
+                        <outlet property="firstCodeTextField" destination="dDD-8b-34E" id="f2b-ad-k2l"/>
+                        <outlet property="fourthCodeTextField" destination="Qcd-ZL-kE7" id="BiU-72-WsF"/>
                         <outlet property="okCodeButton" destination="1jB-bo-nz8" id="fxy-BK-yc9"/>
-                        <outlet property="secondCodeTextField" destination="oQ5-PP-cgs" id="yVk-B3-k84"/>
-                        <outlet property="thirdCodeTextField" destination="gqy-yQ-WZ0" id="ym7-Xl-b5k"/>
+                        <outlet property="secondCodeTextField" destination="oQ5-PP-cgs" id="GzO-Jx-szD"/>
+                        <outlet property="thirdCodeTextField" destination="gqy-yQ-WZ0" id="PSs-DW-IVB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSA-VU-HKN" userLabel="First Responder" sceneMemberID="firstResponder"/>

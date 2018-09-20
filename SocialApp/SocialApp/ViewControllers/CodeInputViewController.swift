@@ -42,7 +42,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Actions
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
-        codeValid()
+       codeValid()
     }
     
     // MARK: - Initialization functions

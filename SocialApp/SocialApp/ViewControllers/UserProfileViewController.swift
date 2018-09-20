@@ -64,7 +64,7 @@ class UserProfileViewController: UIViewController {
         
     }
 }
-extension UserProfileViewController: UITableViewDelegate {
+extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -79,7 +79,7 @@ extension UserProfileViewController: UITableViewDelegate {
         return 0
     }
     
-    private func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let section = SectionType(indexPath: indexPath as NSIndexPath)!
         
@@ -99,7 +99,6 @@ extension UserProfileViewController: UITableViewDelegate {
                 return actionsCell
             case .collectionInfo:
                 let collectionInfoCell = uiTableView.dequeueReusableCell(withIdentifier: "CollectionInfoTableViewCell", for: indexPath) as! CollectionInfoTableViewCell
-                //let collectionViewCell =
                 return collectionInfoCell
             }
         case .posts:
@@ -115,16 +114,5 @@ extension UserProfileViewController: UITableViewDelegate {
             }
         }
         
-    }
-}
-extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //let collectionCell = uiCollectionView.dequeueReusableCellWithReuseIdentifier("UserProfileCounterCollectionViewCell", forIndexPath: indexPath) as! CollectionInfoTableViewCell
-        return UICollectionViewCell()
     }
 }
