@@ -10,4 +10,6 @@ import UIKit
 
 class CollectionInfoTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var uiCollectionView: UICollectionView!
+    
 }

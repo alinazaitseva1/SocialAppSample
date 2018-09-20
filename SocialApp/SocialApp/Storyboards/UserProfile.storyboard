@@ -169,15 +169,15 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1C2-KX-OtN">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3VN-fy-jAi">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3VN-fy-jAi">
                                                         <size key="itemSize" width="58" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="30k-n6-7IB">
-                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="50"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserProfileCounterCollectionViewCell" id="30k-n6-7IB" customClass="UserProfileCounterCollectionViewCell" customModule="SocialApp" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="-0.5" width="58" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="58" height="50"/>
@@ -203,6 +203,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </view>
+                                                            <color key="backgroundColor" red="0.36988705350000001" green="0.52790937839999996" blue="0.90712209300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="svp-Qf-sMB" secondAttribute="trailing" constant="6" id="BtP-XW-awD"/>
                                                                 <constraint firstItem="svp-Qf-sMB" firstAttribute="leading" secondItem="30k-n6-7IB" secondAttribute="leading" constant="6" id="Nf9-2P-8ec"/>
@@ -213,6 +214,10 @@
                                                             </constraints>
                                                         </collectionViewCell>
                                                     </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="nsy-fl-2fJ" id="qlL-ry-IkT"/>
+                                                        <outlet property="delegate" destination="nsy-fl-2fJ" id="5El-34-dcZ"/>
+                                                    </connections>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
@@ -223,6 +228,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="uiCollectionView" destination="1C2-KX-OtN" id="7zC-f7-dym"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionWithPostsTableViewCell" rowHeight="40" id="ceX-oA-flP" customClass="ActionWithPostsTableViewCell" customModule="SocialApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="356" width="320" height="40"/>

@@ -17,7 +17,7 @@
 		DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */; };
 		DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C2821513A03009833AC /* ChangeStateButton.swift */; };
 		DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */; };
-		DC27B8DB21529E55007978D1 /* UserProfileCounterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC27B8D921529E55007978D1 /* UserProfileCounterCollectionViewCell.xib */; };
+		DC27B8DB21529E55007978D1 /* UserProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC27B8D921529E55007978D1 /* UserProfile.xib */; };
 		DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F392146A6130068E511 /* AppDelegate.swift */; };
 		DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F3B2146A6130068E511 /* LoginViewController.swift */; };
 		DC358F3F2146A6130068E511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F3D2146A6130068E511 /* Main.storyboard */; };
@@ -52,7 +52,7 @@
 		DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		DC016C2821513A03009833AC /* ChangeStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStateButton.swift; sourceTree = "<group>"; };
 		DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCounterCollectionViewCell.swift; sourceTree = "<group>"; };
-		DC27B8D921529E55007978D1 /* UserProfileCounterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileCounterCollectionViewCell.xib; sourceTree = "<group>"; };
+		DC27B8D921529E55007978D1 /* UserProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfile.xib; sourceTree = "<group>"; };
 		DC358F362146A6130068E511 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC358F392146A6130068E511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC358F3B2146A6130068E511 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				DC358F3D2146A6130068E511 /* Main.storyboard */,
 				DC81C84B214A656B00877D27 /* UserProfile.storyboard */,
 				DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */,
-				DC27B8D921529E55007978D1 /* UserProfileCounterCollectionViewCell.xib */,
+				DC27B8D921529E55007978D1 /* UserProfile.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC27B8DB21529E55007978D1 /* UserProfileCounterCollectionViewCell.xib in Resources */,
+				DC27B8DB21529E55007978D1 /* UserProfile.xib in Resources */,
 				DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */,
 				DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */,
 				DC358F442146A6140068E511 /* LaunchScreen.storyboard in Resources */,

@@ -9,6 +9,8 @@
 import UIKit
 
 class UserProfileCounterCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Outlets
 
     override func awakeFromNib() {
         super.awakeFromNib()

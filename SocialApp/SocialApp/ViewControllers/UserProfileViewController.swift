@@ -60,11 +60,11 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         uiTableView.rowHeight = UITableView.automaticDimension
-        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell")
+        //        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell") //TODO: Put in xib
         
     }
 }
-extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension UserProfileViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -79,7 +79,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let section = SectionType(indexPath: indexPath as NSIndexPath)!
         
@@ -99,6 +99,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 return actionsCell
             case .collectionInfo:
                 let collectionInfoCell = uiTableView.dequeueReusableCell(withIdentifier: "CollectionInfoTableViewCell", for: indexPath) as! CollectionInfoTableViewCell
+                //let collectionViewCell =
                 return collectionInfoCell
             }
         case .posts:
@@ -114,5 +115,16 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             }
         }
         
+    }
+}
+extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let collectionCell = uiCollectionView.dequeueReusableCellWithReuseIdentifier("UserProfileCounterCollectionViewCell", forIndexPath: indexPath) as! CollectionInfoTableViewCell
+        return UICollectionViewCell()
     }
 }
