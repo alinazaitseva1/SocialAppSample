@@ -124,7 +124,7 @@ extension UserProfileViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let collectionCell = uiCollectionView.dequeueReusableCellWithReuseIdentifier("UserProfileCounterCollectionViewCell", forIndexPath: indexPath) as! CollectionInfoTableViewCell
+        //let collectionCell = uiCollectionView.dequeueReusableCellWithReuseIdentifier("UserProfileCounterCollectionViewCell", forIndexPath: indexPath) as! CollectionInfoTableViewCell
         return UICollectionViewCell()
     }
 }
