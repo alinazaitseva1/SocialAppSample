@@ -12,6 +12,7 @@ class ApiRequest {
     
     static private var users: [String: String] = [:]
     static private var profileInfo = """
+    {
         "id": 12,
           "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
           "first_name": "John",
@@ -34,6 +35,7 @@ class ApiRequest {
           "connection_type": "friends",
           "is_follower": false,
           "is_following": true
+    }
 """
     
     static func login(with phone: String) -> Bool {
@@ -47,5 +49,13 @@ class ApiRequest {
     
     static func validateCode(phone: String, enteredCode: String, completion: @escaping (Bool?) -> Void) {
         completion(users[phone] == enteredCode)
+    }
+    
+    static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity?) -> Void) {
+        if let jsonString = try? JSONSerialization.jsonObject(with: profileInfo.data(using: .utf8)! , options: []) as? [String: Any] {
+            //let data = UserProfileEntity(from: jsonString! as! Decoder)
+            //completion(data)
+        }
+        
     }
 }
