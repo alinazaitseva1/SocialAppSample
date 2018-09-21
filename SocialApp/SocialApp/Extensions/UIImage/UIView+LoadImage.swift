@@ -11,25 +11,18 @@ import UIKit
 
 extension UIImageView {
     
-    public func loadImageFrom(urlString: String) {
-        self.image = nil
-        
-        
-        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
-            
-            if error != nil {
-                ValidationError.invalidData.localizedDescription //????
-                return
-            }
-            
-            DispatchQueue.main.async {
-                let image = UIImage(data: data!)
-                self.image = image
-            }
-            
-        }).resume()
+    func loadImageWith(string: String) {
+        guard let url = URL(string: string) else { return }
+        loadImageWith(url: url)
     }
     
-    
+    func loadImageWith(url: URL) {
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data)
+            }
+        }
+    }
     
 }

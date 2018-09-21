@@ -51,11 +51,13 @@ class ApiRequest {
         completion(users[phone] == enteredCode)
     }
     
-    static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity?) -> Void) {
-        if let jsonString = try? JSONSerialization.jsonObject(with: profileInfo.data(using: .utf8)! , options: []) as? [String: Any] {
-            //let data = UserProfileEntity(from: jsonString! as! Decoder)
-            //completion(data)
-        }
+    
+    static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity) -> Void) {
         
+        let data = profileInfo.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let profile = try! decoder.decode(UserProfileEntity.self, from: Data(data))
+        completion(profile)
     }
+    
 }
