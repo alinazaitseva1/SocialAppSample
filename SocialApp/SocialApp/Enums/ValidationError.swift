@@ -17,10 +17,10 @@ enum ValidationError: Error, LocalizedError {
         switch self {
             
         case .invalidData:
-            return ("Telephone number invalid")
+            return "Telephone number invalid"
             
         case .codeInvalid:
-            return ("Invalid code")
+            return "Invalid code"
             
         }
     }

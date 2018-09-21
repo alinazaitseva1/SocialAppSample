@@ -53,6 +53,13 @@ class UserProfileViewController: UIViewController {
     @IBAction func pushLogoutButton(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    @IBAction func pushWriteMessage(_ sender: UIButton) {
+        self.showAlert(title: "Ahtung", message: Warnings.notImplemented.message)
+    }
+    
+    @IBAction func pushAddFriendsButton(_ sender: UIButton) {
+        self.showAlert(title: "Ahtung", message: Warnings.notImplemented.message)
+    }
     
     // MARK: - Initialization functions
     
@@ -60,7 +67,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         uiTableView.rowHeight = UITableView.automaticDimension
-        //        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell") //TODO: Put in xib
+        //        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell") //TODO: USE xib instead
         
     }
 }

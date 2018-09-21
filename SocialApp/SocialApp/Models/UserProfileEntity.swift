@@ -50,6 +50,7 @@ class UserProfileEntity: Codable {
     // MARK: - Constants and Variables
     
     var id          : Int!
+    var avatar      : URL?
     var firstName   : String!
     var lastName    : String!
     var userName    : String?
@@ -75,6 +76,7 @@ class UserProfileEntity: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case userName = "username"
+        case avatar = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png"
         
         case age
         case country
@@ -94,6 +96,7 @@ class UserProfileEntity: Codable {
         firstName   = try values.decode(String.self, forKey: .firstName)
         lastName    = try values.decode(String.self, forKey: .lastName)
         
+        avatar      = try values.decodeIfPresent(URL.self, forKey: .avatar)
         userName    = try values.decodeIfPresent(String.self, forKey: .userName)
         
         age         = try values.decode(Int.self, forKey: .age)
@@ -113,6 +116,7 @@ class UserProfileEntity: Codable {
         try container.encodeIfPresent(firstName, forKey: .firstName)
         try container.encodeIfPresent(lastName, forKey: .lastName)
         
+        try container.encode(avatar, forKey: .avatar)
         try container.encode(userName, forKey: .userName)
         
         try container.encodeIfPresent(age, forKey: .age)

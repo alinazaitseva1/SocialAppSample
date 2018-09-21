@@ -51,12 +51,17 @@ class ApiRequest {
         completion(users[phone] == enteredCode)
     }
     
-    
     static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity) -> Void) {
-        
         let data = profileInfo.data(using: .utf8)!
         let decoder = JSONDecoder()
         let profile = try! decoder.decode(UserProfileEntity.self, from: Data(data))
+        completion(profile)
+    }
+    
+    static func getCountersInProfile(by userID: Int, completion: @escaping (Counters) -> Void) {
+        let data = profileInfo.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let profile = try! decoder.decode(Counters.self, from: Data(data))
         completion(profile)
     }
     
