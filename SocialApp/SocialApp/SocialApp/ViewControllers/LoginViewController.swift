@@ -7,88 +7,87 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var telephoneTextField: UITextField!
-    let telephoneNumberLimit = 12
+    // MARK: - Outlets
+    
+    @IBOutlet weak var telephoneTextField: PhoneNumberTextField!
+    @IBOutlet weak var sendButton: ChangeStateButton!
+    
+    // MARK: - Constants and Variables
+    
+    let telephoneNumberLimit = 14
+    var phone: String {
+        return telephoneTextField.text!
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func pushTelephoneButton(_ sender: UIButton) {
+        if isValid {
+            let phoneNumber = telephoneTextField.text!
+            if ApiRequest.login(with: phoneNumber) {
+                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+                self.navigationController?.pushViewController(userProfileVC, animated: true)
+            } else {
+                let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
+                codeViewController.phoneNumber = telephoneTextField.text!
+                self.navigationController?.pushViewController(codeViewController, animated: true)
+            }
+        } else {
+            self.showAlert(title: "Error", message: ValidationError.invalidData.localizedDescription)
+        }
+    }
+    
+    // MARK: - Initialization functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.telephoneTextField.defaultRegion = "FR" TODO: Investigate region
     }
     
-    // symbols validate, requered?
+    // MARK: - Validation functions
     
-    private func symbolsValidate (_ string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
-    }
-    
-    // RegExp for validate telephone number
-    
-    func validate(string: String) -> Bool {
-        let regex = try! NSRegularExpression(pattern: "^(0[0-9]{2,3}\\-)?([2-9][0-9]{6,7})+(\\-[0-9]{1,4})?$")
+    func validateNumber(string: String) -> Bool { // TODO: Nedless?
+        let regex = try! NSRegularExpression(pattern: "^[0-9]{2}[(]{0,1}[0-9]{1,4}[)]{0,1}[0-9]*$")  // RegExp to validate telephone number
         return regex.firstMatch(in: string, options: [], range: NSMakeRange(0, string.count)) != nil
     }
     
-    func setDefaultBorderColor(for textField: UITextField) {
-        textField.setAppropriateLookWith(color: #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1))
+    var isValid: Bool {
+        // check if amount of symbols and regEx is valid
+        let telephoneNumber = telephoneTextField.text?.count
+        if telephoneNumber == telephoneNumberLimit {
+            return true
+            //return validateNumber(string: self.telephoneTextField.text!) //TODO:
+        }
+        return false
     }
     
-    //MARK: Function to validate symbols amount in TextFields
+    // MARK: TextField functions
+    
+    @IBAction func editingPhoneTextField(_ sender: UITextField) {
+        if isValid {}
+        sendButton.isEnabled = phone.count == telephoneNumberLimit
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        setDefaultBorderColor(for: textField)
+        ColorAssigner.setLook(for: textField)
         
-        guard let text = textField.text else { return true }
+        let text = textField.text ?? ""
         
         let newLength = text.count + string.count - range.length
         var isValidationDone = false
         var limitLength: Int?
         
         if textField == telephoneTextField {
-            isValidationDone = symbolsValidate(string)
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
             limitLength = telephoneNumberLimit
         }
-            let lengthValidate = newLength <= limitLength!
-            return lengthValidate && isValidationDone
-       
-    }
-    
-    // check symbols validation
-    
-    var isValid: Bool {
-        
-       let telephoneNumber = telephoneTextField.text?.count
-        
-        if telephoneNumber == telephoneNumberLimit {
-            validate(string: self.telephoneTextField.text!)
-            return true
-        } else {
-            telephoneTextField.setAppropriateLookWith(color: .red)
-        }
-        return false
+        let lengthValidate = newLength <= limitLength!
+        return lengthValidate && isValidationDone
         
     }
-    
-    @IBAction func editingPhoneTextField(_ sender: UITextField) {
-        if isValid {
-            
-        }
-        
-    }
-    
-   
-    
-    @IBAction func pushTelephoneButton(_ sender: UIButton) {
-        guard let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as? CodeInputViewController else { return }
-        
-        
-        self.navigationController?.pushViewController(codeViewController, animated: true)
-        
-    }
-    
-    
 }
-

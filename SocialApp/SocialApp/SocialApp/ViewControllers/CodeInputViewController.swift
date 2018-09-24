@@ -9,30 +9,63 @@
 import UIKit
 
 class CodeInputViewController: UIViewController, UITextFieldDelegate {
-
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var firstCodeTextField: UITextField!
     @IBOutlet weak var secondCodeTextField: UITextField!
     @IBOutlet weak var thirdCodeTextField: UITextField!
     @IBOutlet weak var fourthCodeTextField: UITextField!
+    @IBOutlet weak var okCodeButton: ChangeStateButton!
+    
+    // MARK: - Constants and Variables
+    
     let codeNumberLimit = 1
-
+    var codeCharacters = [String]()
+    var phoneNumber = ""
+    let amountSymbolsInCode = 4
+    var isUserValid = false {
+        didSet {
+            if isUserValid {
+                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+                self.navigationController?.pushViewController(userProfileVC, animated: true)
+            } else {
+                self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
+            }
+        }
+    }
+    var code: String {
+        return (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func sendCodeButton(_ sender: UIButton) {
+       codeValid()
+    }
+    
+    // MARK: - Initialization functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    private func numbersValidate (_ string: String) -> Bool {
-        let allowedCharacters = CharacterSet.letters
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+    //MARK: - Validation functions
+    
+    private func codeValid() {
+        // to validate code in TextField with Code from ApiRequest
+        
+        ApiRequest.validateCode(phone: phoneNumber, enteredCode: code) { validationResult in
+            self.isUserValid = validationResult!
+        }
     }
     
-    func setDefaultBorderColor(for textField: UITextField) {
-        textField.setAppropriateLookWith(color: #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.9176470588, alpha: 1))
-    }
+    //MARK: - TextField functions
     
     @IBAction func editingCodeTextField(_ sender: UITextField) {
-        let numbersInField = sender.text?.count
-        if numbersInField! == codeNumberLimit {
+        let numbersInField = sender.text?.count ?? 0
+        if numbersInField == codeNumberLimit {
             switch sender {
             case firstCodeTextField :
                 secondCodeTextField.isEnabled = true
@@ -44,23 +77,49 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
                 fourthCodeTextField.isEnabled = true
                 textFieldShouldBecome(fourthCodeTextField)
             case fourthCodeTextField:
-                fourthCodeTextField.resignFirstResponder()
+                textFieldShouldReturn(fourthCodeTextField)
             default:
                 break
             }
         }
+        okCodeButton.isEnabled = code.count == amountSymbolsInCode
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-    }
-    
-    @IBAction func sendCodeButton(_ sender: UIButton) {
-        guard let userProfileViewController = self.storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as?  UserProfileViewController else { return }
-        self.navigationController?.pushViewController(userProfileViewController, animated: true)
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        ColorAssigner.setLook(for: textField)
+        
+        let text = textField.text ?? ""
+        
+        let newLength = text.count + string.count - range.length
+        var isValidationDone = false
+        var limitLength: Int?
+        
+        switch textField {
+        case firstCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        case secondCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        case thirdCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        case fourthCodeTextField:
+            isValidationDone = Validator.symbolsValidateOnlyNumbers(string)
+            limitLength = codeNumberLimit
+        default:
+            break
+        }
+        
+        let lengthValidate = newLength <= limitLength!
+        return lengthValidate && isValidationDone
+        
     }
     
     private func textFieldShouldBecome(_ textField: UITextField) {
         textField.becomeFirstResponder()
     }
-
+    private func textFieldShouldReturn(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
 }

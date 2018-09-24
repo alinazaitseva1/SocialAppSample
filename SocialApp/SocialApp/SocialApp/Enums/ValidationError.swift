@@ -7,14 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
-enum ValidationError: Error {
-    case dataIsAbsent
+enum ValidationError: Error, LocalizedError {
+    case invalidData
+    case codeInvalid
     
-    var localizedDescription: String {
+    var errorDescription: String? {
         switch self {
-        case .dataIsAbsent:
-            return NSLocalizedString("Required data are not valid", comment: "All fields should be filled in and valid")
+            
+        case .invalidData:
+            return "Telephone number invalid"
+            
+        case .codeInvalid:
+            return "Invalid code"
+            
         }
     }
 }
