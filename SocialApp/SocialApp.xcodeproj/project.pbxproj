@@ -179,8 +179,8 @@
 		DC27B8EC2153EA6A007978D1 /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
-				DC016C18214FCBB7009833AC /* ActionsTableViewCell.swift */,
 				DC016C16214FCB93009833AC /* InfoTableViewCell.swift */,
+				DC016C18214FCBB7009833AC /* ActionsTableViewCell.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -628,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ4JD7QCGM;
 				INFOPLIST_FILE = SocialApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -646,6 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ4JD7QCGM;
 				INFOPLIST_FILE = SocialApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -48,17 +48,21 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var uiTableView: UITableView!
     
+    // MARK: - Constants and Variables
+    
+    var userProfile: UserProfileEntity!
+    
     //MARK: - Actions
     
     @IBAction func pushLogoutButton(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     @IBAction func pushWriteMessage(_ sender: UIButton) {
-        self.showAlert(title: "Ahtung", message: Warnings.notImplemented.message)
+        self.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
     }
     
     @IBAction func pushAddFriendsButton(_ sender: UIButton) {
-        self.showAlert(title: "Ahtung", message: Warnings.notImplemented.message)
+        self.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
     }
     
     // MARK: - Initialization functions
@@ -67,7 +71,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         uiTableView.rowHeight = UITableView.automaticDimension
-        //        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell") //TODO: USE xib instead
+        //        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell") //TODO: USE xib instead?????
         
     }
 }
@@ -100,6 +104,11 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 return photoCell
             case .info:
                 let infoCell = uiTableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
+                infoCell.firstNameLabel.text = userProfile.firstName
+                infoCell.lastNameLabel.text = userProfile.lastName
+                infoCell.ageLabel.text = String(userProfile.age)
+                infoCell.countryLabel.text = userProfile.country
+                infoCell.isOnline.text = String(userProfile.isOnline)
                 return infoCell
             case .actions:
                 let actionsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionsTableViewCell", for: indexPath) as! ActionsTableViewCell

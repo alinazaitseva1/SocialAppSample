@@ -14,9 +14,11 @@ class CollectionInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var uiCollectionView: UICollectionView!
     
+    
     // MARK: - Constants and Variables
     
     let counterCollection = UserCounterInfo()
+    var userProfile: UserProfileEntity!
     
 }
 
