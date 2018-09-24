@@ -15,6 +15,4 @@ class UserProfileCounterCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var infoCollectionLabel: UILabel!
     @IBOutlet weak var nameInfoCollectionLabel: UILabel!
     
-    
-    
 }

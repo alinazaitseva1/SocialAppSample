@@ -13,6 +13,8 @@ struct Counters: Codable {
     
     // MARK: - Constants and Variables
     
+    static var count = 6 // amount of items in Counters Structure
+    
     var friends   : Int!
     var followers : Int!
     var tags      : Int!
@@ -79,19 +81,25 @@ class UserProfileEntity: Codable {
         case avatar = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png"
         
         case age
-        case country
-        case address
+        case location
         case isOnline = "is_online"
         
         case isFollower = "is_follower"
         case isFollowing = "is_following"
         case counters
         
+        enum Location: String, CodingKey {
+            case country
+            case address
+        }
+        
     }
+    
     
     required init(from decoder: Decoder) throws {
         
-        let values  = try decoder.container(keyedBy: CodingKeys.self)
+        let values   = try decoder.container(keyedBy: CodingKeys.self)
+        let locationContainer = try values.nestedContainer(keyedBy: CodingKeys.Location.self, forKey: .location)
         
         firstName   = try values.decode(String.self, forKey: .firstName)
         lastName    = try values.decode(String.self, forKey: .lastName)
@@ -100,8 +108,8 @@ class UserProfileEntity: Codable {
         userName    = try values.decodeIfPresent(String.self, forKey: .userName)
         
         age         = try values.decode(Int.self, forKey: .age)
-        country     = try values.decode(String.self, forKey: .country)
-        address     = try values.decode(String.self, forKey: .address)
+        country     = try locationContainer.decode(String.self, forKey: .country)
+        address     = try locationContainer.decode(String.self, forKey: .address)
         isOnline    = try values.decode(Bool.self, forKey: .isOnline)
         isFollower  = try values.decode(Bool.self, forKey: .isFollower)
         isFollowing = try values.decode(Bool.self, forKey: .isFollowing)
@@ -111,6 +119,7 @@ class UserProfileEntity: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        var locationContainer = container.nestedContainer(keyedBy: CodingKeys.Location.self, forKey: .location)
         
         
         try container.encodeIfPresent(firstName, forKey: .firstName)
@@ -120,8 +129,8 @@ class UserProfileEntity: Codable {
         try container.encode(userName, forKey: .userName)
         
         try container.encodeIfPresent(age, forKey: .age)
-        try container.encodeIfPresent(country, forKey: .country)
-        try container.encodeIfPresent(address, forKey: .address)
+        try locationContainer.encodeIfPresent(country, forKey: .country)
+        try locationContainer.encodeIfPresent(address, forKey: .address)
         try container.encodeIfPresent(isOnline, forKey: .isOnline)
         try container.encodeIfPresent(isFollower, forKey: .isFollower)
         try container.encodeIfPresent(isFollowing, forKey: .isFollowing)

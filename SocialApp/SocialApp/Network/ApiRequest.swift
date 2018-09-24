@@ -13,7 +13,7 @@ class ApiRequest {
     static private var users: [String: String] = [:]
     static private var profileInfo = """
     {
-        "id": 12,
+          "id": 12,
           "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
           "first_name": "John",
           "last_name": "Smith",
@@ -54,15 +54,11 @@ class ApiRequest {
     static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity) -> Void) {
         let data = profileInfo.data(using: .utf8)!
         let decoder = JSONDecoder()
-        let profile = try! decoder.decode(UserProfileEntity.self, from: Data(data))
-        completion(profile)
+        do {
+            let profile = try decoder.decode(UserProfileEntity.self, from: Data(data))
+            completion(profile)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
-    
-    static func getCountersInProfile(by userID: Int, completion: @escaping (Counters) -> Void) {
-        let data = profileInfo.data(using: .utf8)!
-        let decoder = JSONDecoder()
-        let profile = try! decoder.decode(Counters.self, from: Data(data))
-        completion(profile)
-    }
-    
 }

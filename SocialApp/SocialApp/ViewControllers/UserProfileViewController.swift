@@ -71,7 +71,9 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         uiTableView.rowHeight = UITableView.automaticDimension
-        //        uiTableView.register(UINib(nibName: "UserProfileCounterCollectionViewCell", bundle: nil), forCellReuseIdentifier: "UserProfileCounterCollectionViewCell") //TODO: USE xib instead?????
+        ApiRequest.getProfile(by: 12) { userProfile in
+            self.userProfile = userProfile
+        }
         
     }
 }
@@ -108,7 +110,11 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 infoCell.lastNameLabel.text = userProfile.lastName
                 infoCell.ageLabel.text = String(userProfile.age)
                 infoCell.countryLabel.text = userProfile.country
-                infoCell.isOnline.text = String(userProfile.isOnline)
+                if userProfile.isOnline{
+                    infoCell.userStateLabel.text = "Online"
+                } else {
+                    infoCell.userStateLabel.text = "Offline"
+                }
                 return infoCell
             case .actions:
                 let actionsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionsTableViewCell", for: indexPath) as! ActionsTableViewCell

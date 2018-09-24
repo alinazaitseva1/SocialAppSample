@@ -14,7 +14,7 @@
         <scene sceneID="Ylr-vh-1gf">
             <objects>
                 <viewController storyboardIdentifier="UserProfileViewController" id="1s6-be-Zgp" customClass="UserProfileViewController" customModule="SocialApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="G2E-oO-YCd" customClass="UserProfile">
+                    <view key="view" contentMode="scaleToFill" id="G2E-oO-YCd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -61,7 +61,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5c-ac-CND">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5c-ac-CND">
                                                     <rect key="frame" x="266" y="21" width="39" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,8 +120,8 @@
                                             <outlet property="ageLabel" destination="XqT-I2-3cU" id="wjh-nl-lkW"/>
                                             <outlet property="countryLabel" destination="3cu-vI-J1g" id="gcw-kT-Pos"/>
                                             <outlet property="firstNameLabel" destination="R74-Cd-npD" id="yQx-Dw-ENz"/>
-                                            <outlet property="isOnline" destination="w5c-ac-CND" id="pf3-c8-F6e"/>
                                             <outlet property="lastNameLabel" destination="USR-zd-lRI" id="6aq-6f-DjM"/>
+                                            <outlet property="userStateLabel" destination="w5c-ac-CND" id="pf3-c8-F6e"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionsTableViewCell" id="RNh-nQ-G5j" customClass="ActionsTableViewCell" customModule="SocialApp" customModuleProvider="target">

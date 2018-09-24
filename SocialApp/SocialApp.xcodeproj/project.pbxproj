@@ -18,7 +18,6 @@
 		DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C2821513A03009833AC /* ChangeStateButton.swift */; };
 		DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */; };
 		DC27B8DB21529E55007978D1 /* UserProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC27B8D921529E55007978D1 /* UserProfile.xib */; };
-		DC27B8DE2153A107007978D1 /* UserCounterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8DD2153A107007978D1 /* UserCounterInfo.swift */; };
 		DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */; };
 		DC27B8F32153EBEE007978D1 /* UIView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F22153EBEE007978D1 /* UIView+LoadImage.swift */; };
 		DC27B8F721553C8B007978D1 /* Warnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F621553C8B007978D1 /* Warnings.swift */; };
@@ -57,7 +56,6 @@
 		DC016C2821513A03009833AC /* ChangeStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStateButton.swift; sourceTree = "<group>"; };
 		DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCounterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC27B8D921529E55007978D1 /* UserProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfile.xib; sourceTree = "<group>"; };
-		DC27B8DD2153A107007978D1 /* UserCounterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCounterInfo.swift; sourceTree = "<group>"; };
 		DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
 		DC27B8F22153EBEE007978D1 /* UIView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadImage.swift"; sourceTree = "<group>"; };
 		DC27B8F621553C8B007978D1 /* Warnings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Warnings.swift; path = ../../../../../../.Trash/Warnings.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		DC27B8DC2153A079007978D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DC27B8DD2153A107007978D1 /* UserCounterInfo.swift */,
 				DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */,
 			);
 			path = Models;
@@ -482,7 +479,6 @@
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
 				DC7FE579214B94A9008C18F4 /* UIButton+Border.swift in Sources */,
 				DC016C1D214FCC00009833AC /* ActionWithPostsTableViewCell.swift in Sources */,
-				DC27B8DE2153A107007978D1 /* UserCounterInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

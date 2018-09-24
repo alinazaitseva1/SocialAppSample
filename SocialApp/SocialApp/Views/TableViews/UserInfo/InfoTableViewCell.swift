@@ -16,6 +16,6 @@ class InfoTableViewCell: UITableViewCell {
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
-    @IBOutlet weak var isOnline: UILabel!
+    @IBOutlet weak var userStateLabel: UILabel!
     
 }
