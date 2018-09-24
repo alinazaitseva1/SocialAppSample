@@ -11,6 +11,8 @@ import Foundation
 class ApiRequest {
     
     static private var users: [String: String] = [:]
+    var token = "5678t9gijfhvbhnj78b9vcd0" // put in user defaults
+    //UserDefaults.standard.set(true, forKey: "token") TODO: Fix???
     static private var profileInfo = """
     {
           "id": 12,

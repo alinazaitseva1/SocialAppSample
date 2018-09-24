@@ -16,13 +16,18 @@ class CollectionInfoTableViewCell: UITableViewCell {
     
     // MARK: - Constants and Variables
     
-    var userProfile: UserProfileEntity!
+    var userProfile: UserProfileEntity! {
+        didSet{
+            uiCollectionView.reloadData()
+        }
+    }
     
 }
 
 extension CollectionInfoTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let _ = userProfile else { return 0 }
         return Counters.count
     }
     
@@ -30,17 +35,17 @@ extension CollectionInfoTableViewCell: UICollectionViewDelegate, UICollectionVie
         let index = indexPath.row
         switch index {
         case 0:
-            return (userProfile.counters!.friends, "")
+            return (userProfile.counters!.friends, "friends")
         case 1:
-            return (userProfile.counters!.followers, "")
+            return (userProfile.counters!.followers, "folowers")
         case 2:
-            return (userProfile.counters!.photos, "")
+            return (userProfile.counters!.photos, "photos")
         case 3:
-            return (userProfile.counters!.tags, "")
+            return (userProfile.counters!.tags, "tags")
         case 4:
-            return (userProfile.counters!.posts, "")
+            return (userProfile.counters!.posts, "posts")
         case 5:
-            return (userProfile.counters!.videos, "")
+            return (userProfile.counters!.videos, "videos")
         default:
             break
         }
@@ -49,8 +54,10 @@ extension CollectionInfoTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collectionCell = uiCollectionView.dequeueReusableCell(withReuseIdentifier: "UserProfileCounterCollectionViewCell", for: indexPath) as! UserProfileCounterCollectionViewCell
-       
-        collectionCell.nameInfoCollectionLabel.text = String(userProfile.counters.friends)
+        
+        let content = getContent(indexPath: indexPath)
+        collectionCell.infoCollectionLabel.text = content.1
+        collectionCell.nameInfoCollectionLabel.text = String(content.0)
         return collectionCell
         
     }

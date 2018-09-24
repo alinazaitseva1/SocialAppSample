@@ -39,6 +39,7 @@ struct Counters: Codable {
         friends   = try values.decode(Int.self, forKey: .friends)
         followers = try values.decode(Int.self, forKey: .followers)
         tags      = try values.decode(Int.self, forKey: .tags)
+        posts     = try values.decode(Int.self, forKey: .posts)
         photos    = try values.decode(Int.self, forKey: .photos)
         videos    = try values.decode(Int.self, forKey: .videos)
         
@@ -78,7 +79,7 @@ class UserProfileEntity: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case userName = "username"
-        case avatar = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png"
+        case avatar
         
         case age
         case location

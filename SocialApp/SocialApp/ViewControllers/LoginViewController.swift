@@ -29,9 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if isValid {
             let phoneNumber = telephoneTextField.text!
             if ApiRequest.login(with: phoneNumber) {
-                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
-                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
-                self.navigationController?.pushViewController(userProfileVC, animated: true)
+                //
             } else {
                 let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
                 codeViewController.phoneNumber = telephoneTextField.text!
@@ -47,6 +45,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.telephoneTextField.defaultRegion = "FR" TODO: Investigate region
+//        if UserDefaults == true {
+//            go to userProfileViewController
+//        } else {
+//            go to CodeInputViewController
+        //        } TODO: Replace!!!
+//        if let savedValue = UserDefaults.standard.bool(forKey: "sound") {
+//            boolValue = savedValue  // Stack Overflow!!!
+//        }
     }
     
     // MARK: - Validation functions

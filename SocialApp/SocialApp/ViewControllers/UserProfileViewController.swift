@@ -50,7 +50,11 @@ class UserProfileViewController: UIViewController {
     
     // MARK: - Constants and Variables
     
-    var userProfile: UserProfileEntity!
+    var userProfile: UserProfileEntity! {
+        didSet{
+            uiTableView.reloadData()
+        }
+    }
     
     //MARK: - Actions
     
@@ -74,7 +78,6 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
-        
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -102,6 +105,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             switch row {
             case .photo:
                 let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
+                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!)
                 photoCell.mainAvatarImage.makeRounded()
                 return photoCell
             case .info:
@@ -121,6 +125,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 return actionsCell
             case .collectionInfo:
                 let collectionInfoCell = uiTableView.dequeueReusableCell(withIdentifier: "CollectionInfoTableViewCell", for: indexPath) as! CollectionInfoTableViewCell
+                collectionInfoCell.userProfile = userProfile
                 return collectionInfoCell
             }
         case .posts:
@@ -131,6 +136,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 return actionsWithPostsCell
             case .newsFeed:
                 let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
+                newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
                 return  newsFeedCell
             }
