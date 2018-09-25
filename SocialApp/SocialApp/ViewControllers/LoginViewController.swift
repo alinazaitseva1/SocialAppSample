@@ -16,9 +16,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var telephoneTextField: PhoneNumberTextField!
     @IBOutlet weak var sendButton: ChangeStateButton!
     
-    // MARK: - Constants and Variables
+    // MARK: - Constants
     
     let telephoneNumberLimit = 14
+    
+    // MARK: - Variables
+    
     var phone: String {
         return telephoneTextField.text!
     }
@@ -28,13 +31,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pushTelephoneButton(_ sender: UIButton) {
         if isValid {
             let phoneNumber = telephoneTextField.text!
-            if ApiRequest.login(with: phoneNumber) {
-                //
-            } else {
+            ApiRequest.login(with: phoneNumber, completion: {
                 let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
-                codeViewController.phoneNumber = telephoneTextField.text!
+                codeViewController.phoneNumber = phoneNumber
                 self.navigationController?.pushViewController(codeViewController, animated: true)
-            }
+            })
         } else {
             self.showAlert(title: "Error", message: ValidationError.invalidData.localizedDescription)
         }
@@ -44,15 +45,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: phone) == true {
+            let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+            let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+            self.navigationController?.pushViewController(userProfileVC, animated: true)
+        }
         //self.telephoneTextField.defaultRegion = "FR" TODO: Investigate region
-//        if UserDefaults == true {
-//            go to userProfileViewController
-//        } else {
-//            go to CodeInputViewController
-        //        } TODO: Replace!!!
-//        if let savedValue = UserDefaults.standard.bool(forKey: "sound") {
-//            boolValue = savedValue  // Stack Overflow!!!
-//        }
     }
     
     // MARK: - Validation functions

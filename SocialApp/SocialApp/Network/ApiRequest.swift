@@ -11,8 +11,7 @@ import Foundation
 class ApiRequest {
     
     static private var users: [String: String] = [:]
-    var token = "5678t9gijfhvbhnj78b9vcd0" // put in user defaults
-    //UserDefaults.standard.set(true, forKey: "token") TODO: Fix???
+    
     static private var profileInfo = """
     {
           "id": 12,
@@ -40,17 +39,14 @@ class ApiRequest {
     }
 """
     
-    static func login(with phone: String) -> Bool {
-        if users[phone] == nil {
-            users[phone] = "4444" // TODO: Generate random code
-            return false
-        } else {
-            return true
+    static func login(with phone: String, completion: @escaping () -> Void )  {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            completion()
         }
     }
     
-    static func validateCode(phone: String, enteredCode: String, completion: @escaping (Bool?) -> Void) {
-        completion(users[phone] == enteredCode)
+    static func validateCodeWith(phone: String, enteredCode: String, completion: @escaping (Bool?) -> Void) {
+        completion("4444" == enteredCode)
     }
     
     static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity) -> Void) {
@@ -64,3 +60,4 @@ class ApiRequest {
         }
     }
 }
+

@@ -18,23 +18,14 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fourthCodeTextField: UITextField!
     @IBOutlet weak var okCodeButton: ChangeStateButton!
     
-    // MARK: - Constants and Variables
+    // MARK: - Constants
     
     let codeNumberLimit = 1
-    var codeCharacters = [String]()
-    var phoneNumber = ""
     let amountSymbolsInCode = 4
-    var isUserValid = false {
-        didSet {
-            if isUserValid {
-                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
-                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
-                self.navigationController?.pushViewController(userProfileVC, animated: true)
-            } else {
-                self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
-            }
-        }
-    }
+    
+    // MARK: - Variables
+    
+    var phoneNumber = ""
     var code: String {
         return (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
     }
@@ -42,7 +33,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Actions
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
-       codeValid()
+       codeVerification()
     }
     
     // MARK: - Initialization functions
@@ -53,11 +44,19 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Validation functions
     
-    private func codeValid() {
+    private func codeVerification() {
         // to validate code in TextField with Code from ApiRequest
         
-        ApiRequest.validateCode(phone: phoneNumber, enteredCode: code) { validationResult in
-            self.isUserValid = validationResult!
+        ApiRequest.validateCodeWith(phone: phoneNumber, enteredCode: code) { isCodeValid in
+           let isUserValid = true
+            if isUserValid == isCodeValid {
+                let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+                let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+                self.navigationController?.pushViewController(userProfileVC, animated: true)
+            } else {
+                self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
+            }
+            UserDefaults.standard.set(true, forKey: "phone")
         }
     }
     

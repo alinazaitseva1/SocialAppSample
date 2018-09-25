@@ -19,8 +19,8 @@
 		DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */; };
 		DC27B8DB21529E55007978D1 /* UserProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC27B8D921529E55007978D1 /* UserProfile.xib */; };
 		DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */; };
-		DC27B8F32153EBEE007978D1 /* UIView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F22153EBEE007978D1 /* UIView+LoadImage.swift */; };
-		DC27B8F721553C8B007978D1 /* Warnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F621553C8B007978D1 /* Warnings.swift */; };
+		DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */; };
+		DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8FC215A180D007978D1 /* Warnings.swift */; };
 		DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F392146A6130068E511 /* AppDelegate.swift */; };
 		DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F3B2146A6130068E511 /* LoginViewController.swift */; };
 		DC358F3F2146A6130068E511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F3D2146A6130068E511 /* Main.storyboard */; };
@@ -38,7 +38,7 @@
 		DC81C848214A4BA200877D27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C847214A4BA200877D27 /* Validator.swift */; };
 		DC81C84A214A4D3800877D27 /* ColorAssigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C849214A4D3800877D27 /* ColorAssigner.swift */; };
 		DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC81C84B214A656B00877D27 /* UserProfile.storyboard */; };
-		DC81C851214AAD7200877D27 /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C850214AAD7200877D27 /* UIView+Image.swift */; };
+		DC81C851214AAD7200877D27 /* UIImageView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C850214AAD7200877D27 /* UIImageView+Image.swift */; };
 		E813F125E1F281606B25E4A3 /* Pods_SocialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A364BBB1EF8D5D0ECB81AFF6 /* Pods_SocialApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +57,8 @@
 		DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCounterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC27B8D921529E55007978D1 /* UserProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfile.xib; sourceTree = "<group>"; };
 		DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
-		DC27B8F22153EBEE007978D1 /* UIView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LoadImage.swift"; sourceTree = "<group>"; };
-		DC27B8F621553C8B007978D1 /* Warnings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Warnings.swift; path = ../../../../../../.Trash/Warnings.swift; sourceTree = "<group>"; };
+		DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
+		DC27B8FC215A180D007978D1 /* Warnings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warnings.swift; sourceTree = "<group>"; };
 		DC358F362146A6130068E511 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC358F392146A6130068E511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC358F3B2146A6130068E511 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		DC81C847214A4BA200877D27 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		DC81C849214A4D3800877D27 /* ColorAssigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssigner.swift; sourceTree = "<group>"; };
 		DC81C84B214A656B00877D27 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
-		DC81C850214AAD7200877D27 /* UIView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
+		DC81C850214AAD7200877D27 /* UIImageView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Image.swift"; sourceTree = "<group>"; };
 		F180877A42B29999181E5F3A /* Pods-SocialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,13 +214,13 @@
 			path = NewsFeed;
 			sourceTree = "<group>";
 		};
-		DC27B8F12153EBA3007978D1 /* UIImage */ = {
+		DC27B8F12153EBA3007978D1 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
-				DC81C850214AAD7200877D27 /* UIView+Image.swift */,
-				DC27B8F22153EBEE007978D1 /* UIView+LoadImage.swift */,
+				DC81C850214AAD7200877D27 /* UIImageView+Image.swift */,
+				DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */,
 			);
-			path = UIImage;
+			path = UIImageView;
 			sourceTree = "<group>";
 		};
 		DC358F2D2146A6130068E511 = {
@@ -292,7 +292,7 @@
 				DC6B37652147C25D00D6478F /* ValidationError.swift */,
 				DC7983A321495F69005FCA08 /* CustomColor.swift */,
 				DC7983A521495F7A005FCA08 /* CustomFont.swift */,
-				DC27B8F621553C8B007978D1 /* Warnings.swift */,
+				DC27B8FC215A180D007978D1 /* Warnings.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 		DC358F4F2146AC4A0068E511 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC27B8F12153EBA3007978D1 /* UIImage */,
+				DC27B8F12153EBA3007978D1 /* UIImageView */,
 				DC6B376C2147E1AC00D6478F /* UITextField+Border.swift */,
 				DC79839C2148F209005FCA08 /* UIViewController+Alert.swift */,
 				DC7FE578214B94A9008C18F4 /* UIButton+Border.swift */,
@@ -462,19 +462,19 @@
 				DC6B37632147A34000D6478F /* UserProfileViewController.swift in Sources */,
 				DC016C15214FAAFE009833AC /* PhotoTableViewCell.swift in Sources */,
 				DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */,
-				DC81C851214AAD7200877D27 /* UIView+Image.swift in Sources */,
+				DC81C851214AAD7200877D27 /* UIImageView+Image.swift in Sources */,
 				DC81C84A214A4D3800877D27 /* ColorAssigner.swift in Sources */,
 				DC81C848214A4BA200877D27 /* Validator.swift in Sources */,
 				DC016C19214FCBB7009833AC /* ActionsTableViewCell.swift in Sources */,
-				DC27B8F721553C8B007978D1 /* Warnings.swift in Sources */,
 				DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */,
 				DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */,
 				DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */,
+				DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */,
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
 				DC79839D2148F209005FCA08 /* UIViewController+Alert.swift in Sources */,
 				DC6B376D2147E1AC00D6478F /* UITextField+Border.swift in Sources */,
 				DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */,
-				DC27B8F32153EBEE007978D1 /* UIView+LoadImage.swift in Sources */,
+				DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
 				DC7FE579214B94A9008C18F4 /* UIButton+Border.swift in Sources */,
