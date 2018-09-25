@@ -33,7 +33,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Actions
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
-       codeVerification()
+        codeVerification()
     }
     
     // MARK: - Initialization functions
@@ -48,7 +48,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         // to validate code in TextField with Code from ApiRequest
         
         ApiRequest.validateCodeWith(phone: phoneNumber, enteredCode: code) { isCodeValid in
-           let isUserValid = true
+            let isUserValid = true
             if isUserValid == isCodeValid {
                 let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
@@ -56,7 +56,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
             } else {
                 self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
             }
-            UserDefaults.standard.set(true, forKey: "phone")
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.token.rawValue)
         }
     }
     

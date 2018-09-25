@@ -78,6 +78,7 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
+        
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -87,12 +88,15 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == SectionType.profile.rawValue {
+        
+        switch section {
+        case SectionType.profile.rawValue:
             return ProfileRowType.rows.count
-        } else if section == SectionType.posts.rawValue {
+        case SectionType.posts.rawValue:
             return PostsRowType.rows.count
+        default:
+            return 0 // TODO: ??????????????????????
         }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,7 +109,12 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             switch row {
             case .photo:
                 let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
-                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!)
+                //photoCell.activityIndicator.isHidden = false
+                // photoCell.activityIndicator.startAnimating()
+                
+                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!) {
+                    //                    photoCell.activityIndicator.stopAnimating()
+                }
                 photoCell.mainAvatarImage.makeRounded()
                 return photoCell
             case .info:
@@ -141,6 +150,5 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 return  newsFeedCell
             }
         }
-        
     }
 }

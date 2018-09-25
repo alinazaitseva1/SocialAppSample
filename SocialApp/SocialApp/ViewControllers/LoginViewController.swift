@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.bool(forKey: phone) == true {
+        if UserDefaults.standard.bool(forKey: UserDefaultsKeys.token.rawValue) == true {
             let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
             let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
             self.navigationController?.pushViewController(userProfileVC, animated: true)

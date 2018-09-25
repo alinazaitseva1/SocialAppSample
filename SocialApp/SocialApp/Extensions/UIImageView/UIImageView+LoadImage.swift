@@ -16,13 +16,19 @@ extension UIImageView {
         loadImageWith(url: url)
     }
     
-    func loadImageWith(url: URL) {
+    func loadImageWith(url: URL, showLoader: Bool = false ,completion: (() -> Void)? = nil) {
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else { return }
+            
             DispatchQueue.main.async {
+                let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
                 self.image = UIImage(data: data)
+                activityIndicator.center = self.center
+                activityIndicator.isHidden = showLoader
+                activityIndicator.startAnimating()
+                self.addSubview(activityIndicator)
+                completion?()
             }
         }
     }
-    
 }
