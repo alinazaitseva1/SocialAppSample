@@ -90,10 +90,6 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getPostsInfo(by: 1) { userPosts in
             self.userPosts = userPosts
         }
-        if let attach = userPosts[0].body.attachment, attach.type == .url {
-            let urlAttach = attach.value
-            let request = NSURLRequest(url: urlAttach!)
-        }
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -160,7 +156,14 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
                 newsFeedCell.webViewAttachment.allowsLinkPreview = true
-                newsFeedCell.webViewAttachment.loadRequest(request)
+                if let attach = userPosts[indexPath.row].body.attachment, attach.type == .url {
+                    let urlAttach = attach.value
+                    let request = URLRequest(url: urlAttach!)
+                    newsFeedCell.webViewAttachment.loadRequest(request)
+                    let webNavigationStoryboard = UIStoryboard(name: "WebNavigation", bundle: nil)
+                    let sfSafaryViewController = webNavigationStoryboard.instantiateViewController(withIdentifier: "SFSafaryViewController") as! SFSafaryViewController
+                    sfSafaryViewController.exactURL = urlAttach //?????
+                }
                 return newsFeedCell
             }
         }
