@@ -56,7 +56,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    var userPosts: UserPostsEntity! {
+    var userPosts: [UserPostsEntity]! {
         didSet{
             uiTableView.reloadData()
         }
@@ -88,9 +88,12 @@ class UserProfileViewController: UIViewController {
             self.userProfile = userProfile
         }
         ApiRequest.getPostsInfo(by: 1) { userPosts in
-            //self.userPosts = userPosts
+            self.userPosts = userPosts
         }
-        //let request = NSURLRequest(url: userPosts.author.first!)
+        if let attach = userPosts[0].body.attachment, attach.type == .url {
+            let urlAttach = attach.value
+            let request = NSURLRequest(url: urlAttach!)
+        }
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -157,7 +160,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
                 newsFeedCell.webViewAttachment.allowsLinkPreview = true
-                //newsFeedCell.firstNameNewsLabel
+                newsFeedCell.webViewAttachment.loadRequest(request)
                 return newsFeedCell
             }
         }
