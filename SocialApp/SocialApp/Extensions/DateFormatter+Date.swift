@@ -11,9 +11,7 @@ import Foundation
 extension DateFormatter {
     static let yyMMdd: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return formatter
     }()
 }

@@ -15,9 +15,9 @@ struct UserPostsEntity: Codable {
     
     var id         : Int!
     
-    var author     : [PostAuthor]!
+    var author     : PostAuthor!
     var created    : Date!
-    var body       : [PostBody]!
+    var body       : PostBody!
     
     struct PostAuthor: Codable {
         
@@ -47,7 +47,7 @@ struct UserPostsEntity: Codable {
     
     struct PostBody: Codable {
         var text       : String!
-        var attachment : [PostAttachment]?
+        var attachment : PostAttachment?
     }
     
     struct PostAttachment: Codable {

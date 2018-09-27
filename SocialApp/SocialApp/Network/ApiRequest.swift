@@ -115,13 +115,13 @@ class ApiRequest {
         }
     }
     
-    static func getPostsInfo(by postID: Int, completion: @escaping (UserPostsEntity) -> Void) {
+    static func getPostsInfo(by postID: Int, completion: @escaping ([UserPostsEntity]) -> Void) {
         //let sortedResult = postsInfo.sorted() ???
         let data = postsInfo.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
         do {
-            let posts = try decoder.decode(UserPostsEntity.self, from: Data(data))
+            let posts = try decoder.decode([UserPostsEntity].self, from: Data(data))
             completion(posts)
         } catch {
             print(error.localizedDescription)

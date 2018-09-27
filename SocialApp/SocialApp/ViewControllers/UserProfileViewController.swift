@@ -88,7 +88,7 @@ class UserProfileViewController: UIViewController {
             self.userProfile = userProfile
         }
         ApiRequest.getPostsInfo(by: 1) { userPosts in
-            self.userPosts = userPosts
+            //self.userPosts = userPosts
         }
         //let request = NSURLRequest(url: userPosts.author.first!)
     }
