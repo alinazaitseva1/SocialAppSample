@@ -38,6 +38,61 @@ class ApiRequest {
           "is_following": true
     }
 """
+    static let postsInfo = """
+    [
+      {
+        "id": 3,
+        "author": {
+          "id": 12,
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
+          "first_name": "John",
+          "last_name": "Smith",
+          "username": null
+        },
+        "created": "2018-09-25T12:45:12",
+        "body": {
+          "text": "First post",
+          "attachment": null
+        }
+      },
+      {
+        "id": 2,
+        "author": {
+          "id": 12,
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
+          "first_name": "John",
+          "last_name": "Smith",
+          "username": null
+        },
+        "created": "2018-09-21T12:45:12",
+        "body": {
+          "text": "Second post",
+          "attachment": {
+            "type": "url",
+            "value": "https://www.google.com.ua/"
+          }
+        }
+      },
+      {
+        "id": 1,
+        "author": {
+          "id": 12,
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
+          "first_name": "John",
+          "last_name": "Smith",
+          "username": null
+        },
+        "created": "2018-09-14T12:45:12",
+        "body": {
+          "text": "Third post",
+          "attachment": {
+            "type": "photo",
+            "value": "https://leader.pubs.asha.org/data/Journals/ASHANL/934378/NIB1_web.png"
+          }
+        }
+      }
+    ]
+    """
     
     static func login(with phone: String, completion: @escaping () -> Void )  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -59,5 +114,19 @@ class ApiRequest {
             print(error.localizedDescription)
         }
     }
+    
+    static func getPostsInfo(by postID: Int, completion: @escaping (UserPostsEntity) -> Void) {
+        //let sortedResult = postsInfo.sorted() ???
+        let data = postsInfo.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
+        do {
+            let posts = try decoder.decode(UserPostsEntity.self, from: Data(data))
+            completion(posts)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 

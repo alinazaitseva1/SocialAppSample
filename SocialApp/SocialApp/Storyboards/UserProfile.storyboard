@@ -240,6 +240,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </view>
+                                                            <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="FFJ-NX-bDN" secondAttribute="trailing" constant="6" id="4Y2-K7-wQy"/>
                                                                 <constraint firstItem="FFJ-NX-bDN" firstAttribute="top" secondItem="svp-Qf-sMB" secondAttribute="bottom" constant="2" id="6UJ-CV-cp8"/>
@@ -281,24 +282,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8hv-3r-1Tg">
-                                                    <rect key="frame" x="16" y="2" width="141" height="35.5"/>
+                                                    <rect key="frame" x="16" y="2" width="137" height="35.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdb-uf-HJ5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70.5" height="35.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <color key="textColor" red="0.27475564949999998" green="0.27475564949999998" blue="0.27475564949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts by Elon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYc-VX-g3q">
-                                                            <rect key="frame" x="70.5" y="0.0" width="70.5" height="35.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                            <color key="textColor" red="0.36663428320000002" green="0.36663428320000002" blue="0.36663428320000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-GX-CSl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="35.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="New first">
+                                                                <color key="titleColor" red="0.27475564949999998" green="0.27475564949999998" blue="0.27475564949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-tO-aCE">
+                                                            <rect key="frame" x="68.5" y="0.0" width="68.5" height="35.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="Old first ">
+                                                                <color key="titleColor" red="0.27475564949999998" green="0.27475564949999998" blue="0.27475564949999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0Pn-0D-LkK">
-                                                    <rect key="frame" x="218" y="7" width="87" height="25"/>
+                                                    <rect key="frame" x="214" y="7" width="91" height="25"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_create_black_18dp" translatesAutoresizingMaskIntoConstraints="NO" id="BUx-GP-dOV">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
@@ -307,15 +310,14 @@
                                                                 <constraint firstAttribute="width" constant="25" id="zbw-p7-7PD"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHS-en-mZY">
-                                                            <rect key="frame" x="35" y="0.0" width="52" height="25"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                            <color key="textColor" red="0.30648588780000002" green="0.43742210749999999" blue="0.75163517440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAc-71-bdT">
+                                                            <rect key="frame" x="40" y="0.0" width="51" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal" title="Add post"/>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="mHS-en-mZY" firstAttribute="leading" secondItem="BUx-GP-dOV" secondAttribute="trailing" constant="10" id="TSn-C4-a62"/>
+                                                        <constraint firstItem="YAc-71-bdT" firstAttribute="leading" secondItem="BUx-GP-dOV" secondAttribute="trailing" constant="15" id="ZXA-bU-f45"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>

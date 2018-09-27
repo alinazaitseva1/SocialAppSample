@@ -13,4 +13,11 @@ class NewsFeedTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet weak var newsAvatarImage: UIImageView!
+    @IBOutlet weak var firstNameNewsLabel: UILabel!
+    @IBOutlet weak var lastNameNewsLabel: UILabel!
+    @IBOutlet weak var createdLabel: UILabel!
+    @IBOutlet weak var textNewsLabel: UILabel!
+    @IBOutlet weak var imageAttachment: UIImageView!
+    @IBOutlet weak var webViewAttachment: UIWebView!
+    
 }

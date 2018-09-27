@@ -56,7 +56,9 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
             } else {
                 self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
             }
-            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.token.rawValue)
+            
+            UserDefaults.standard.setCustomUserDefaults(flag: true, for: .token)
+            
         }
     }
     

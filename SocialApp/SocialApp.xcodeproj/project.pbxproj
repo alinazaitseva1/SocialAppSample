@@ -17,11 +17,15 @@
 		DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */; };
 		DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C2821513A03009833AC /* ChangeStateButton.swift */; };
 		DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */; };
-		DC27B8DB21529E55007978D1 /* UserProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC27B8D921529E55007978D1 /* UserProfile.xib */; };
 		DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */; };
 		DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */; };
 		DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8FC215A180D007978D1 /* Warnings.swift */; };
 		DC27B901215A8307007978D1 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */; };
+		DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */; };
+		DC27B905215BB1F1007978D1 /* UserPostsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* UserPostsEntity.swift */; };
+		DC27B907215CC512007978D1 /* SFSafaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B906215CC512007978D1 /* SFSafaryViewController.swift */; };
+		DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27B908215CC59B007978D1 /* WebNavigation.storyboard */; };
+		DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */; };
 		DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F392146A6130068E511 /* AppDelegate.swift */; };
 		DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F3B2146A6130068E511 /* LoginViewController.swift */; };
 		DC358F3F2146A6130068E511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F3D2146A6130068E511 /* Main.storyboard */; };
@@ -56,11 +60,15 @@
 		DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		DC016C2821513A03009833AC /* ChangeStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStateButton.swift; sourceTree = "<group>"; };
 		DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCounterCollectionViewCell.swift; sourceTree = "<group>"; };
-		DC27B8D921529E55007978D1 /* UserProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfile.xib; sourceTree = "<group>"; };
 		DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
 		DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
 		DC27B8FC215A180D007978D1 /* Warnings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warnings.swift; sourceTree = "<group>"; };
 		DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+EnumKeys.swift"; sourceTree = "<group>"; };
+		DC27B904215BB1F1007978D1 /* UserPostsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsEntity.swift; sourceTree = "<group>"; };
+		DC27B906215CC512007978D1 /* SFSafaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafaryViewController.swift; sourceTree = "<group>"; };
+		DC27B908215CC59B007978D1 /* WebNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebNavigation.storyboard; sourceTree = "<group>"; };
+		DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		DC358F362146A6130068E511 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC358F392146A6130068E511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC358F3B2146A6130068E511 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */,
+				DC27B904215BB1F1007978D1 /* UserPostsEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */,
-				DC27B8D921529E55007978D1 /* UserProfile.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				DC358F3B2146A6130068E511 /* LoginViewController.swift */,
 				DC6B37602147A32800D6478F /* CodeInputViewController.swift */,
 				DC6B37622147A34000D6478F /* UserProfileViewController.swift */,
+				DC27B906215CC512007978D1 /* SFSafaryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +317,8 @@
 				DC79839C2148F209005FCA08 /* UIViewController+Alert.swift */,
 				DC7FE578214B94A9008C18F4 /* UIButton+Border.swift */,
 				DC016C0F214F9419009833AC /* UIColor+Color.swift */,
+				DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */,
+				DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +329,7 @@
 				DC27B8ED2153EAA7007978D1 /* Launch */,
 				DC358F3D2146A6130068E511 /* Main.storyboard */,
 				DC81C84B214A656B00877D27 /* UserProfile.storyboard */,
+				DC27B908215CC59B007978D1 /* WebNavigation.storyboard */,
 				DC27B8E22153A3BB007978D1 /* Xibs */,
 			);
 			path = Storyboards;
@@ -401,8 +413,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC27B8DB21529E55007978D1 /* UserProfile.xib in Resources */,
 				DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */,
+				DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */,
 				DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */,
 				DC358F442146A6140068E511 /* LaunchScreen.storyboard in Resources */,
 				DC358F412146A6140068E511 /* Assets.xcassets in Resources */,
@@ -457,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */,
+				DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */,
 				DC6B37662147C25D00D6478F /* ValidationError.swift in Sources */,
 				DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */,
 				DC016C17214FCB93009833AC /* InfoTableViewCell.swift in Sources */,
@@ -473,10 +486,13 @@
 				DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */,
 				DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */,
 				DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */,
+				DC27B905215BB1F1007978D1 /* UserPostsEntity.swift in Sources */,
+				DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */,
 				DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */,
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
 				DC79839D2148F209005FCA08 /* UIViewController+Alert.swift in Sources */,
 				DC6B376D2147E1AC00D6478F /* UITextField+Border.swift in Sources */,
+				DC27B907215CC512007978D1 /* SFSafaryViewController.swift in Sources */,
 				DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */,
 				DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,

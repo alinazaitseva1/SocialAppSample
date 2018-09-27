@@ -11,9 +11,11 @@ import Foundation
 
 struct Counters: Codable {
     
-    // MARK: - Constants and Variables
+    // MARK: - Constants
     
     static var count = 6 // amount of items in Counters Structure
+    
+    // MARK: - Variables
     
     var friends   : Int!
     var followers : Int!

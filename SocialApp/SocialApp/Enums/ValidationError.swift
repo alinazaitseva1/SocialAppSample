@@ -12,6 +12,7 @@ import UIKit
 enum ValidationError: Error, LocalizedError {
     case invalidData
     case codeInvalid
+    case pageNotExist
     
     var errorDescription: String? {
         switch self {
@@ -21,6 +22,9 @@ enum ValidationError: Error, LocalizedError {
             
         case .codeInvalid:
             return "Invalid code"
+            
+        case .pageNotExist:
+            return "Pade does not exist"
             
         }
     }

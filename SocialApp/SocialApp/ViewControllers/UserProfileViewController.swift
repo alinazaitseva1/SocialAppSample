@@ -56,10 +56,19 @@ class UserProfileViewController: UIViewController {
         }
     }
     
+    var userPosts: UserPostsEntity! {
+        didSet{
+            uiTableView.reloadData()
+        }
+    }
+    
     //MARK: - Actions
     
     @IBAction func pushLogoutButton(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
+        UserDefaults.standard.removeCustomUserDefaults(enumKey: .token)
+        
+        
     }
     @IBAction func pushWriteMessage(_ sender: UIButton) {
         self.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
@@ -78,7 +87,10 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
-        
+        ApiRequest.getPostsInfo(by: 1) { userPosts in
+            self.userPosts = userPosts
+        }
+        //let request = NSURLRequest(url: userPosts.author.first!)
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -89,13 +101,14 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        let section = SectionType(rawValue: section)!
+        
         switch section {
-        case SectionType.profile.rawValue:
+        case .profile:
             return ProfileRowType.rows.count
-        case SectionType.posts.rawValue:
+        case .posts:
             return PostsRowType.rows.count
-        default:
-            return 0 // TODO: ??????????????????????
+            
         }
     }
     
@@ -109,12 +122,8 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             switch row {
             case .photo:
                 let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
-                //photoCell.activityIndicator.isHidden = false
-                // photoCell.activityIndicator.startAnimating()
+                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!, showLoader: true)
                 
-                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!) {
-                    //                    photoCell.activityIndicator.stopAnimating()
-                }
                 photoCell.mainAvatarImage.makeRounded()
                 return photoCell
             case .info:
@@ -147,7 +156,9 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
-                return  newsFeedCell
+                newsFeedCell.webViewAttachment.allowsLinkPreview = true
+                //newsFeedCell.firstNameNewsLabel
+                return newsFeedCell
             }
         }
     }
