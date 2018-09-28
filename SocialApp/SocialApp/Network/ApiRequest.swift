@@ -115,14 +115,20 @@ class ApiRequest {
         }
     }
     
-    static func getPostsInfo(by postID: Int, completion: @escaping ([UserPostEntity]) -> Void) {
+    static func getPostsInfo(by postID: Int, order: OrderBy ,completion: @escaping ([UserPostEntity]) -> Void) {
         let data = postsInfo.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
         do {
             var posts = try decoder.decode([UserPostEntity].self, from: Data(data))
             posts.sort { (lhs, rhs) -> Bool in
-                return lhs.id < rhs.id
+                
+                switch order {
+                case .ascending:
+                    return lhs.id < rhs.id
+                case .descending:
+                    return lhs.id > rhs.id
+                }
             }
             completion(posts)
         } catch {

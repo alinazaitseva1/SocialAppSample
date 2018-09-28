@@ -67,9 +67,8 @@ class UserProfileViewController: UIViewController {
     @IBAction func pushLogoutButton(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
         UserDefaults.standard.removeCustomUserDefaults(enumKey: .token)
-        
-        
     }
+    
     @IBAction func pushWriteMessage(_ sender: UIButton) {
         self.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
     }
@@ -86,7 +85,7 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
-        ApiRequest.getPostsInfo(by: 2) { userPosts in
+        ApiRequest.getPostsInfo(by: 1) { userPosts in
             self.userPosts = userPosts
         }
     }
