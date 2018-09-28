@@ -64,27 +64,23 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUy-Ck-wlu">
-                                <rect key="frame" x="0.0" y="50" width="400" height="360.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="50" width="400" height="210.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="skw-be-pyF">
-                                <rect key="frame" x="0.0" y="410.5" width="400" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-Qe-DkR">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    </imageView>
-                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-Wg-d7r">
-                                        <rect key="frame" x="50" y="0.0" width="350" height="50"/>
-                                        <color key="backgroundColor" red="0.79803287089999997" green="0.93865065089999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                    </webView>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL1-Qe-DkR">
+                                <rect key="frame" x="0.0" y="260.5" width="400" height="100"/>
+                            </imageView>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2bl-Wg-d7r">
+                                <rect key="frame" x="0.0" y="360.5" width="400" height="100"/>
+                                <color key="backgroundColor" red="0.79803287089999997" green="0.93865065089999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="bro-f3-1QC"/>
+                                    <constraint firstAttribute="height" constant="100" id="OXf-Xv-ObB"/>
+                                    <constraint firstAttribute="width" constant="400" id="qi3-Dd-ofR"/>
                                 </constraints>
-                            </stackView>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
                         </subviews>
                     </stackView>
                 </subviews>

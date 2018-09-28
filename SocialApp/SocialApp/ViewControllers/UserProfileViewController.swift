@@ -56,7 +56,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    var userPosts: [UserPostsEntity]! {
+    var userPosts: [UserPostEntity]! {
         didSet{
             uiTableView.reloadData()
         }
@@ -83,16 +83,15 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
-        uiTableView.rowHeight = UITableView.automaticDimension
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
-        ApiRequest.getPostsInfo(by: 1) { userPosts in
+        ApiRequest.getPostsInfo(by: 2) { userPosts in
             self.userPosts = userPosts
         }
     }
 }
-extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -155,19 +154,18 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
-                //newsFeedCell.webViewAttachment.allowsLinkPreview = true
+                
                 if let attach = userPosts[indexPath.row].body.attachment, attach.type == .url {
                     let urlAttach = attach.value
                     let request = URLRequest(url: urlAttach!)
                     newsFeedCell.webViewAttachment.loadRequest(request)
-                    let webNavigationStoryboard = UIStoryboard(name: "WebNavigation", bundle: nil)
-                    //let sfSafaryViewController = webNavigationStoryboard.instantiateViewController(withIdentifier: "SFSafaryViewController") as! SFSafaryViewController
-                    //sfSafaryViewController.exactURL = urlAttach //?????
                 }
-                //newsFeedCell.createdLabel.text = userPosts[indexPath.row].created ?? Date
+                
+                newsFeedCell.createdLabel.text = userPosts[indexPath.row].created.description
                 newsFeedCell.firstNameNewsLabel.text = userPosts[indexPath.row].author.firstName
                 newsFeedCell.lastNameNewsLabel.text = userPosts[indexPath.row].author.lastName
                 newsFeedCell.textNewsLabel.text = userPosts[indexPath.row].body.text
+                
                 newsFeedCell.imageAttachment.loadImageWith(url: (userPosts[indexPath.row].body.attachment?.value)!)
                 
                 return newsFeedCell
