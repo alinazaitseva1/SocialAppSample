@@ -155,15 +155,21 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
-                newsFeedCell.webViewAttachment.allowsLinkPreview = true
+                //newsFeedCell.webViewAttachment.allowsLinkPreview = true
                 if let attach = userPosts[indexPath.row].body.attachment, attach.type == .url {
                     let urlAttach = attach.value
                     let request = URLRequest(url: urlAttach!)
                     newsFeedCell.webViewAttachment.loadRequest(request)
                     let webNavigationStoryboard = UIStoryboard(name: "WebNavigation", bundle: nil)
-                    let sfSafaryViewController = webNavigationStoryboard.instantiateViewController(withIdentifier: "SFSafaryViewController") as! SFSafaryViewController
-                    sfSafaryViewController.exactURL = urlAttach //?????
+                    //let sfSafaryViewController = webNavigationStoryboard.instantiateViewController(withIdentifier: "SFSafaryViewController") as! SFSafaryViewController
+                    //sfSafaryViewController.exactURL = urlAttach //?????
                 }
+                //newsFeedCell.createdLabel.text = userPosts[indexPath.row].created ?? Date
+                newsFeedCell.firstNameNewsLabel.text = userPosts[indexPath.row].author.firstName
+                newsFeedCell.lastNameNewsLabel.text = userPosts[indexPath.row].author.lastName
+                newsFeedCell.textNewsLabel.text = userPosts[indexPath.row].body.text
+                newsFeedCell.imageAttachment.loadImageWith(url: (userPosts[indexPath.row].body.attachment?.value)!)
+                
                 return newsFeedCell
             }
         }
