@@ -167,6 +167,13 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                         let imageView = UIImageView.init()
                         imageView.loadImageWith(url: (attach.value)!)
                         newsFeedCell.attachmentView.addSubview(imageView)
+                        
+                        imageView.translatesAutoresizingMaskIntoConstraints = false
+                        _ = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+                        _ = imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+                        _ = imageView.widthAnchor.constraint(equalToConstant: 100)
+                        _ = imageView.heightAnchor.constraint(equalToConstant: 100)
+                        
                     // TODO: AZ - add constraints attachmentView -> imageView
                     case .url:
                         let urlAttach = attach.value
@@ -175,6 +182,10 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                         let webView = UIWebView.init()
                         webView.loadRequest(request)
                         newsFeedCell.attachmentView.addSubview(webView)
+                        
+                        webView.translatesAutoresizingMaskIntoConstraints = false
+                        NSLayoutConstraint(item: webView, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.leadingMargin, multiplier: 1.0, constant: 20.0)
+
                         // TODO: AZ - add constraints attachmentView -> imageView
                     }
                 }

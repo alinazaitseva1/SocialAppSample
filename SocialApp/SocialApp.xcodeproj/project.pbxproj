@@ -27,6 +27,8 @@
 		DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27B908215CC59B007978D1 /* WebNavigation.storyboard */; };
 		DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */; };
 		DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90E215E494B007978D1 /* OrderBy.swift */; };
+		DC27B911215E727E007978D1 /* UIView+Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B910215E727E007978D1 /* UIView+Subview.swift */; };
+		DC27B913215E7298007978D1 /* DateFormatter+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B912215E7298007978D1 /* DateFormatter+String.swift */; };
 		DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F392146A6130068E511 /* AppDelegate.swift */; };
 		DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC358F3B2146A6130068E511 /* LoginViewController.swift */; };
 		DC358F3F2146A6130068E511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F3D2146A6130068E511 /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		DC27B908215CC59B007978D1 /* WebNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebNavigation.storyboard; sourceTree = "<group>"; };
 		DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		DC27B90E215E494B007978D1 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
+		DC27B910215E727E007978D1 /* UIView+Subview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subview.swift"; sourceTree = "<group>"; };
+		DC27B912215E7298007978D1 /* DateFormatter+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+String.swift"; sourceTree = "<group>"; };
 		DC358F362146A6130068E511 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC358F392146A6130068E511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC358F3B2146A6130068E511 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +325,8 @@
 				DC7FE578214B94A9008C18F4 /* UIButton+Border.swift */,
 				DC016C0F214F9419009833AC /* UIColor+Color.swift */,
 				DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */,
+				DC27B912215E7298007978D1 /* DateFormatter+String.swift */,
+				DC27B910215E727E007978D1 /* UIView+Subview.swift */,
 				DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */,
 			);
 			path = Extensions;
@@ -490,6 +496,7 @@
 				DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */,
 				DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */,
 				DC27B905215BB1F1007978D1 /* UserPostEntity.swift in Sources */,
+				DC27B911215E727E007978D1 /* UIView+Subview.swift in Sources */,
 				DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */,
 				DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */,
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
@@ -503,6 +510,7 @@
 				DC7FE579214B94A9008C18F4 /* UIButton+Border.swift in Sources */,
 				DC016C1D214FCC00009833AC /* ActionWithPostsTableViewCell.swift in Sources */,
 				DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */,
+				DC27B913215E7298007978D1 /* DateFormatter+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
