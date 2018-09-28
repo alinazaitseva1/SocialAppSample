@@ -17,7 +17,5 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var lastNameNewsLabel: UILabel!
     @IBOutlet weak var createdLabel: UILabel!
     @IBOutlet weak var textNewsLabel: UILabel!
-    @IBOutlet weak var imageAttachment: UIImageView!
-    @IBOutlet weak var webViewAttachment: UIWebView!
-    
+    @IBOutlet weak var attachmentView: UIView!
 }

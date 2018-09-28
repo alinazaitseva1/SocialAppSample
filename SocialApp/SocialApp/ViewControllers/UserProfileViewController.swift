@@ -31,19 +31,6 @@ private enum ProfileRowType: Int {
     static var rows: [ProfileRowType] = [.photo, .info, .actions, .collectionInfo]
 }
 
-// Remove cases
-
-//private enum PostsRowType: Int {
-//    case actionWithPosts
-//    case newsFeed
-//
-//    init?(indexPath: NSIndexPath) {
-//        self.init(rawValue: indexPath.row)
-//    }
-//
-//    static var rows: [PostsRowType] = [.actionWithPosts, .newsFeed]
-//}
-
 class UserProfileViewController: UIViewController {
     
     // MARK: - Outlets
@@ -92,7 +79,7 @@ class UserProfileViewController: UIViewController {
         }
     }
 }
-extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource, UIWebViewDelegate {
+extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -106,10 +93,29 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource,
         case .profile:
             return ProfileRowType.rows.count
         case .posts:
-            //return PostsRowType.rows.count
-            return userPosts.count // some post count
-            
+            return userPosts?.count ?? 0
+
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 0 : 32
+    }
+  
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        //TODO: AZ - add section switch, without break, nil ->, replace: dequeSuplementaryView
+        
+        
+        switch section {
+        case SectionType.posts.rawValue:
+            let actionsHeaderCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell") as! ActionWithPostsTableViewCell
+            return actionsHeaderCell.contentView
+            
+        default:
+            break
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -147,36 +153,37 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource,
                 return collectionInfoCell
             }
         case .posts:
-            // HeaderForRowInSection HERE
-            
-//            let row = PostsRowType(indexPath: indexPath as NSIndexPath)!
-//            switch row {
-//            case .actionWithPosts:
-//                let actionsWithPostsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell", for: indexPath) as! ActionWithPostsTableViewCell
-//                return actionsWithPostsCell
-            
-            
-            //case .newsFeed:
-            // chech attachmen != nil blabla adding subview to view
                 let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
                 
-                if let attach = userPosts[indexPath.row].body.attachment, attach.type == .url {
-                    let urlAttach = attach.value
-                    let request = URLRequest(url: urlAttach!)
-                    newsFeedCell.webViewAttachment.loadRequest(request)
+                let post = userPosts[indexPath.row]
+                
+                if let attach = post.body.attachment,
+                    let type = attach.type {
+                    
+                    switch type {
+                    case .photo:
+                        let imageView = UIImageView.init()
+                        imageView.loadImageWith(url: (attach.value)!)
+                        newsFeedCell.attachmentView.addSubview(imageView)
+                    // TODO: AZ - add constraints attachmentView -> imageView
+                    case .url:
+                        let urlAttach = attach.value
+                        let request = URLRequest(url: urlAttach!)
+                        
+                        let webView = UIWebView.init()
+                        webView.loadRequest(request)
+                        newsFeedCell.attachmentView.addSubview(webView)
+                        // TODO: AZ - add constraints attachmentView -> imageView
+                    }
                 }
-                
-                newsFeedCell.createdLabel.text = userPosts[indexPath.row].created.description
-                newsFeedCell.firstNameNewsLabel.text = userPosts[indexPath.row].author.firstName
-                newsFeedCell.lastNameNewsLabel.text = userPosts[indexPath.row].author.lastName
-                newsFeedCell.textNewsLabel.text = userPosts[indexPath.row].body.text
-                
-                newsFeedCell.imageAttachment.loadImageWith(url: (userPosts[indexPath.row].body.attachment?.value)!)
+                newsFeedCell.createdLabel.text = post.created.description
+                newsFeedCell.firstNameNewsLabel.text = post.author.firstName
+                newsFeedCell.lastNameNewsLabel.text = post.author.lastName
+                newsFeedCell.textNewsLabel.text = post.body.text
                 
                 return newsFeedCell
             }
         }
-    //}
 }
