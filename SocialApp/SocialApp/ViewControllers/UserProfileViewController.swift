@@ -31,16 +31,18 @@ private enum ProfileRowType: Int {
     static var rows: [ProfileRowType] = [.photo, .info, .actions, .collectionInfo]
 }
 
-private enum PostsRowType: Int {
-    case actionWithPosts
-    case newsFeed
-    
-    init?(indexPath: NSIndexPath) {
-        self.init(rawValue: indexPath.row)
-    }
-    
-    static var rows: [PostsRowType] = [.actionWithPosts, .newsFeed]
-}
+// Remove cases
+
+//private enum PostsRowType: Int {
+//    case actionWithPosts
+//    case newsFeed
+//
+//    init?(indexPath: NSIndexPath) {
+//        self.init(rawValue: indexPath.row)
+//    }
+//
+//    static var rows: [PostsRowType] = [.actionWithPosts, .newsFeed]
+//}
 
 class UserProfileViewController: UIViewController {
     
@@ -85,7 +87,7 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
-        ApiRequest.getPostsInfo(by: 1) { userPosts in
+        ApiRequest.getPostsInfo(by: 1, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
     }
@@ -104,7 +106,8 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource,
         case .profile:
             return ProfileRowType.rows.count
         case .posts:
-            return PostsRowType.rows.count
+            //return PostsRowType.rows.count
+            return userPosts.count // some post count
             
         }
     }
@@ -144,12 +147,17 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource,
                 return collectionInfoCell
             }
         case .posts:
-            let row = PostsRowType(indexPath: indexPath as NSIndexPath)!
-            switch row {
-            case .actionWithPosts:
-                let actionsWithPostsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell", for: indexPath) as! ActionWithPostsTableViewCell
-                return actionsWithPostsCell
-            case .newsFeed:
+            // HeaderForRowInSection HERE
+            
+//            let row = PostsRowType(indexPath: indexPath as NSIndexPath)!
+//            switch row {
+//            case .actionWithPosts:
+//                let actionsWithPostsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell", for: indexPath) as! ActionWithPostsTableViewCell
+//                return actionsWithPostsCell
+            
+            
+            //case .newsFeed:
+            // chech attachmen != nil blabla adding subview to view
                 let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
                 newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
                 newsFeedCell.newsAvatarImage.makeRounded()
@@ -170,5 +178,5 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource,
                 return newsFeedCell
             }
         }
-    }
+    //}
 }
