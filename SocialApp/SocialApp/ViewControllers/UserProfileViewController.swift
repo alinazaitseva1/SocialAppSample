@@ -158,6 +158,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 newsFeedCell.newsAvatarImage.makeRounded()
                 
                 let post = userPosts[indexPath.row]
+                let attachentView = newsFeedCell.attachmentView!
                 
                 if let attach = post.body.attachment,
                     let type = attach.type {
@@ -168,9 +169,12 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                         imageView.loadImageWith(url: (attach.value)!)
                         imageView.translatesAutoresizingMaskIntoConstraints = false
                         // MORE extension
-                        newsFeedCell.attachmentView.addSubview(imageView)
+                        attachentView.addSubview(imageView)
                         
-                        imageView.activate(leading: newsFeedCell.attachmentView.leadingAnchor, trailing: newsFeedCell.attachmentView.trailingAnchor, top: newsFeedCell.attachmentView.topAnchor, bottom: newsFeedCell.attachmentView.bottomAnchor)
+                        imageView.activate(leading: attachentView.leadingAnchor,
+                                           trailing: attachentView.trailingAnchor,
+                                           top: attachentView.topAnchor,
+                                           bottom: attachentView.bottomAnchor)
                         
                     case .url:
                         let urlAttach = attach.value
@@ -180,9 +184,12 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                         webView.loadRequest(request)
                         webView.translatesAutoresizingMaskIntoConstraints = false
                         // MORE extension
-                        newsFeedCell.attachmentView.addSubview(webView)
+                        attachentView.addSubview(webView)
                         
-                         webView.activate(leading: newsFeedCell.attachmentView.leadingAnchor, trailing: newsFeedCell.attachmentView.trailingAnchor, top: newsFeedCell.attachmentView.topAnchor, bottom: newsFeedCell.attachmentView.bottomAnchor)
+                         webView.activate(leading: attachentView.leadingAnchor,
+                                          trailing: attachentView.trailingAnchor,
+                                          top: attachentView.topAnchor,
+                                          bottom: attachentView.bottomAnchor)
                         
                     }
                 }
