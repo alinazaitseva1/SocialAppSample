@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-extension Formatter {
-    static let date = DateFormatter()
-}
-
 extension Date {
-    var stringFormmater: String {
-        Formatter.date.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return Formatter.date.string(from: self)
+    
+    var stringPresentation: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: self)
     }
 }

@@ -18,4 +18,14 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var createdLabel: UILabel!
     @IBOutlet weak var textNewsLabel: UILabel!
     @IBOutlet weak var attachmentView: UIView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        newsAvatarImage.image = nil
+        firstNameNewsLabel.text = nil
+        lastNameNewsLabel.text = nil
+        createdLabel.text = nil
+        textNewsLabel.text = nil
+        attachmentView.subviews.forEach({ $0.removeFromSuperview() })
+    }
 }

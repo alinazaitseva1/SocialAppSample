@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 private enum SectionType: Int {
     case profile
@@ -74,7 +75,7 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
         }
-        ApiRequest.getPostsInfo(by: 1, order: .descending) { userPosts in
+        ApiRequest.getPostsInfo(order: .descending) { userPosts in
             self.userPosts = userPosts
         }
     }
@@ -90,15 +91,14 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         let section = SectionType(rawValue: section)!
         
         switch section {
-        case .profile:
-            return ProfileRowType.rows.count
-        case .posts:
-            return userPosts?.count ?? 0
+        case .profile : return ProfileRowType.rows.count
+        case .posts   : return userPosts?.count ?? 0
             
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // TODO: AZ - add switch
         return section == 0 ? 0 : 32
     }
     
@@ -126,60 +126,72 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             switch row {
             case .photo:
                 let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
-                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!, showLoader: true)
+                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!, showLoader: true) // TODO: - check for nil if - let
                 
                 photoCell.mainAvatarImage.makeRounded()
                 return photoCell
+                
             case .info:
+                
                 let infoCell = uiTableView.dequeueReusableCell(withIdentifier: "InfoTableViewCell", for: indexPath) as! InfoTableViewCell
                 infoCell.firstNameLabel.text = userProfile.firstName
                 infoCell.lastNameLabel.text = userProfile.lastName
                 infoCell.ageLabel.text = String(userProfile.age)
                 infoCell.countryLabel.text = userProfile.country
-                if userProfile.isOnline{
+                
+                if userProfile.isOnline {
                     infoCell.userStateLabel.text = "Online"
                 } else {
                     infoCell.userStateLabel.text = "Offline"
                 }
                 return infoCell
+                
             case .actions:
+                
                 let actionsCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionsTableViewCell", for: indexPath) as! ActionsTableViewCell
                 return actionsCell
+                
             case .collectionInfo:
+                
                 let collectionInfoCell = uiTableView.dequeueReusableCell(withIdentifier: "CollectionInfoTableViewCell", for: indexPath) as! CollectionInfoTableViewCell
                 collectionInfoCell.userProfile = userProfile
                 return collectionInfoCell
             }
         case .posts:
+            
             let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
-            newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
+            newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!) // TODO: AZ - Check for nil
             newsFeedCell.newsAvatarImage.makeRounded()
             
             // Constants
             
             let post = userPosts[indexPath.row]
             let attachentView = newsFeedCell.attachmentView!
-            let constraintAnchors = ConstraintAnchors(with: attachentView)
             
             if let attach = post.body.attachment,
                 let type = attach.type {
                 
                 switch type {
+                    
                 case .photo:
+                    
                     let imageView = UIImageView.init()
                     imageView.loadImageWith(url: (attach.value)!)
                     attachentView.addSubview(imageView)
-                    imageView.activate(with: constraintAnchors)
+                    imageView.setUpConstraint(with: attachentView)
                     
                 case .url:
+                    
                     let request = URLRequest(url: attach.value!)
                     let webView = UIWebView.init()
+                    webView.scalesPageToFit = true
+                    webView.paginationMode = .leftToRight
                     webView.loadRequest(request)
                     attachentView.addSubview(webView)
-                    webView.activate(with: constraintAnchors)
+                    webView.setUpConstraint(with: attachentView)
                 }
             }
-            newsFeedCell.createdLabel.text = post.created.stringFormmater
+            newsFeedCell.createdLabel.text = post.created.stringPresentation
             newsFeedCell.firstNameNewsLabel.text = post.author.firstName
             newsFeedCell.lastNameNewsLabel.text = post.author.lastName
             newsFeedCell.textNewsLabel.text = post.body.text

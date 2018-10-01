@@ -25,25 +25,28 @@ extension UIImageView {
             loader.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(loader)
             loader.startAnimating()
-
+            
             loader.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
             loader.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
             
-//            let loaderConstraint = NSLayoutConstraint.init(item: loader, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
+            //            let loaderConstraint = NSLayoutConstraint.init(item: loader, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
             
-//            loader.addConstraint(loaderConstraint)
+            //            loader.addConstraint(loaderConstraint)
             
             activityIndicator = loader
         }
-
+        
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else { return }
             sleep(2)
-            DispatchQueue.main.async {
-                self.image = UIImage(data: data)
-                activityIndicator?.removeFromSuperview()
-                completion?()
+            DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data)
+                    activityIndicator?.removeFromSuperview()
+                    completion?()
+                }
             }
+            
         }
     }
 }

@@ -23,7 +23,6 @@ class ChangeStateButton: UIButton {
                 self.borderWidth = 1
             }
             super.isEnabled = newValue
-            
         }
     }
 }
