@@ -94,28 +94,26 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             return ProfileRowType.rows.count
         case .posts:
             return userPosts?.count ?? 0
-
+            
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 32
     }
-  
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        //TODO: AZ - add section switch, without break, nil ->, replace: dequeSuplementaryView
-        
+        let section = SectionType(rawValue: section)!
         
         switch section {
-        case SectionType.posts.rawValue:
+        case .profile:
+            return nil
+        case .posts:
             let actionsHeaderCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell") as! ActionWithPostsTableViewCell
             return actionsHeaderCell.contentView
             
-        default:
-            break
         }
-        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -153,52 +151,40 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 return collectionInfoCell
             }
         case .posts:
-                let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
-                newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
-                newsFeedCell.newsAvatarImage.makeRounded()
+            let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
+            newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!)
+            newsFeedCell.newsAvatarImage.makeRounded()
+            
+            // Constants
+            
+            let post = userPosts[indexPath.row]
+            let attachentView = newsFeedCell.attachmentView!
+            let constraintAnchors = ConstraintAnchors(with: attachentView)
+            
+            if let attach = post.body.attachment,
+                let type = attach.type {
                 
-                let post = userPosts[indexPath.row]
-                let attachentView = newsFeedCell.attachmentView!
-                
-                if let attach = post.body.attachment,
-                    let type = attach.type {
+                switch type {
+                case .photo:
+                    let imageView = UIImageView.init()
+                    imageView.loadImageWith(url: (attach.value)!)
+                    attachentView.addSubview(imageView)
+                    imageView.activate(with: constraintAnchors)
                     
-                    switch type {
-                    case .photo:
-                        let imageView = UIImageView.init()
-                        imageView.loadImageWith(url: (attach.value)!)
-                        imageView.translatesAutoresizingMaskIntoConstraints = false
-                        // MORE extension
-                        attachentView.addSubview(imageView)
-                        
-                        imageView.activate(leading: attachentView.leadingAnchor,
-                                           trailing: attachentView.trailingAnchor,
-                                           top: attachentView.topAnchor,
-                                           bottom: attachentView.bottomAnchor)
-                        
-                    case .url:
-                        let urlAttach = attach.value
-                        let request = URLRequest(url: urlAttach!)
-                        
-                        let webView = UIWebView.init()
-                        webView.loadRequest(request)
-                        webView.translatesAutoresizingMaskIntoConstraints = false
-                        // MORE extension
-                        attachentView.addSubview(webView)
-                        
-                         webView.activate(leading: attachentView.leadingAnchor,
-                                          trailing: attachentView.trailingAnchor,
-                                          top: attachentView.topAnchor,
-                                          bottom: attachentView.bottomAnchor)
-                        
-                    }
+                case .url:
+                    let request = URLRequest(url: attach.value!)
+                    let webView = UIWebView.init()
+                    webView.loadRequest(request)
+                    attachentView.addSubview(webView)
+                    webView.activate(with: constraintAnchors)
                 }
-                newsFeedCell.createdLabel.text = post.created.stringFormmater
-                newsFeedCell.firstNameNewsLabel.text = post.author.firstName
-                newsFeedCell.lastNameNewsLabel.text = post.author.lastName
-                newsFeedCell.textNewsLabel.text = post.body.text
-                
-                return newsFeedCell
             }
+            newsFeedCell.createdLabel.text = post.created.stringFormmater
+            newsFeedCell.firstNameNewsLabel.text = post.author.firstName
+            newsFeedCell.lastNameNewsLabel.text = post.author.lastName
+            newsFeedCell.textNewsLabel.text = post.body.text
+            
+            return newsFeedCell
         }
+    }
 }

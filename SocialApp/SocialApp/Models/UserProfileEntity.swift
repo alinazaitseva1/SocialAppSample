@@ -13,7 +13,7 @@ struct Counters: Codable {
     
     // MARK: - Constants
     
-    static var count = 6 // amount of items in Counters Structure
+    static var count = 6 // amount of items in Counters Struct
     
     // MARK: - Variables
     
