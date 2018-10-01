@@ -325,9 +325,9 @@
 				DC7FE578214B94A9008C18F4 /* UIButton+Border.swift */,
 				DC016C0F214F9419009833AC /* UIColor+Color.swift */,
 				DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */,
+				DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */,
 				DC27B912215E7298007978D1 /* DateFormatter+String.swift */,
 				DC27B910215E727E007978D1 /* UIView+Subview.swift */,
-				DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

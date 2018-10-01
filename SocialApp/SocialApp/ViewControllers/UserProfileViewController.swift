@@ -166,30 +166,27 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     case .photo:
                         let imageView = UIImageView.init()
                         imageView.loadImageWith(url: (attach.value)!)
+                        imageView.translatesAutoresizingMaskIntoConstraints = false
+                        // MORE extension
                         newsFeedCell.attachmentView.addSubview(imageView)
                         
-                        imageView.translatesAutoresizingMaskIntoConstraints = false
-                        _ = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-                        _ = imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-                        _ = imageView.widthAnchor.constraint(equalToConstant: 100)
-                        _ = imageView.heightAnchor.constraint(equalToConstant: 100)
+                        imageView.activate(leading: newsFeedCell.attachmentView.leadingAnchor, trailing: newsFeedCell.attachmentView.trailingAnchor, top: newsFeedCell.attachmentView.topAnchor, bottom: newsFeedCell.attachmentView.bottomAnchor)
                         
-                    // TODO: AZ - add constraints attachmentView -> imageView
                     case .url:
                         let urlAttach = attach.value
                         let request = URLRequest(url: urlAttach!)
                         
                         let webView = UIWebView.init()
                         webView.loadRequest(request)
+                        webView.translatesAutoresizingMaskIntoConstraints = false
+                        // MORE extension
                         newsFeedCell.attachmentView.addSubview(webView)
                         
-                        webView.translatesAutoresizingMaskIntoConstraints = false
-                        NSLayoutConstraint(item: webView, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.leadingMargin, multiplier: 1.0, constant: 20.0)
-
-                        // TODO: AZ - add constraints attachmentView -> imageView
+                         webView.activate(leading: newsFeedCell.attachmentView.leadingAnchor, trailing: newsFeedCell.attachmentView.trailingAnchor, top: newsFeedCell.attachmentView.topAnchor, bottom: newsFeedCell.attachmentView.bottomAnchor)
+                        
                     }
                 }
-                newsFeedCell.createdLabel.text = post.created.description
+                newsFeedCell.createdLabel.text = post.created.stringFormmater
                 newsFeedCell.firstNameNewsLabel.text = post.author.firstName
                 newsFeedCell.lastNameNewsLabel.text = post.author.lastName
                 newsFeedCell.textNewsLabel.text = post.body.text
