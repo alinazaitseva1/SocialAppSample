@@ -30,6 +30,8 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         return (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
     }
     
+    var userProfile: UserProfileEntity! // TODO: - investigate
+    
     //MARK: - Actions
     
     @IBAction func sendCodeButton(_ sender: UIButton) {
@@ -45,11 +47,14 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Validation functions
     
     private func codeVerification() {
+        
         // to validate code in TextField with Code from ApiRequest
         
         ApiRequest.validateCodeWith(phone: phoneNumber, enteredCode: code) { isCodeValid in
             let isUserValid = true
             if isUserValid == isCodeValid {
+                // TODO: - If success (UserDefaults. value in key  == user id )
+                // hidden button write a massege and add to friend
                 let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
                 self.navigationController?.pushViewController(userProfileVC, animated: true)
@@ -58,7 +63,12 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
             }
             
             UserDefaults.standard.setCustomUserDefaults(flag: true, for: .token)
+           
+            //UserDefaults.standard.set(T##value: Int##Int, forKey: T##String) // TODO: - save user id here
             
+            let userProfileId = ApiRequest.getProfile(by: 12) { userProfile in
+                self.userProfile = userProfile
+            } // TODO: - get id from IP an save in some variable
         }
     }
     

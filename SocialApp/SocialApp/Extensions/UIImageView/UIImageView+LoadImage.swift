@@ -29,10 +29,6 @@ extension UIImageView {
             loader.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
             loader.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
             
-            //            let loaderConstraint = NSLayoutConstraint.init(item: loader, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
-            
-            //            loader.addConstraint(loaderConstraint)
-            
             activityIndicator = loader
         }
         
