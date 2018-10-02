@@ -36,17 +36,18 @@ extension UIImageView {
             activityIndicator = loader
         }
         
-        DispatchQueue.global().async {
+        let queue = DispatchQueue.init(label: ObjectIdentifier.init(self).debugDescription, qos: .default, attributes: .concurrent, autoreleaseFrequency: .never, target: nil)
+        
+        queue.async {
             guard let data = try? Data(contentsOf: url) else { return }
             sleep(2)
-            DispatchQueue.global(qos: .userInitiated).async {
-                DispatchQueue.main.async {
-                    self.image = UIImage(data: data)
-                    activityIndicator?.removeFromSuperview()
-                    completion?()
-                }
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data)
+                activityIndicator?.removeFromSuperview()
+                completion?()
             }
             
         }
     }
+    
 }

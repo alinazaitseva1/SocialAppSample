@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class NewsFeedTableViewCell: UITableViewCell {
     
@@ -18,6 +19,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var createdLabel: UILabel!
     @IBOutlet weak var textNewsLabel: UILabel!
     @IBOutlet weak var attachmentView: UIView!
+    var url: URL!
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -32,15 +34,14 @@ class NewsFeedTableViewCell: UITableViewCell {
     // MARK: - Function to set gesture in webViewButton
     
     @objc @IBAction func handleTapAction(_ sender: UIButton!) {
-        print("TapGesture")
+
         
-//        UIApplication.shared.open(URL(string: "http://www.google.com")!, options: [:], completionHandler: {(success) in
-//
-//        })
-//        UIApplication.shared.open(url, options: [:],
-//                                  completionHandler: {
-//                                    (success) in
-//        })
+        if UIApplication.shared.canOpenURL(url) {
+            
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+        }
+        
         
     }
 }

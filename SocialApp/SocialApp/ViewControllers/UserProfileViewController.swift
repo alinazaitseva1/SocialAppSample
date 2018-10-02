@@ -106,7 +106,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         switch section {
             
         case .profile: return 0
-        case .posts: return 45
+        case .posts: return 55
             
         }
     }
@@ -215,21 +215,14 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     let webViewButton = UIButton.init()
                     attachentView.addSubview(webViewButton)
                     webViewButton.setUpConstraint(with: attachentView)
-                    
+
                     // Gesture to custom webViewButton
                     webViewButton.addTarget(newsFeedCell, action: #selector(NewsFeedTableViewCell.handleTapAction(_:)), for: .touchUpInside)
                     
-                    //  to Safary
-                    if UIApplication.shared.canOpenURL(url) {
-                        
-                        UIApplication.shared.open(url, options: [:],
-                                                  completionHandler: {
-                                                    (success) in
-                        })
-                    }
+                    newsFeedCell.url = url
+
                 }
             }
-            
             
             newsFeedCell.createdLabel.text = post.created.stringPresentation
             newsFeedCell.firstNameNewsLabel.text = post.author.firstName
