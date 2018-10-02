@@ -28,4 +28,19 @@ class NewsFeedTableViewCell: UITableViewCell {
         textNewsLabel.text = nil
         attachmentView.subviews.forEach({ $0.removeFromSuperview() })
     }
+    
+    // MARK: - Function to set gesture in webViewButton
+    
+    @objc @IBAction func handleTapAction(_ sender: UIButton!) {
+        print("TapGesture")
+        
+//        UIApplication.shared.open(URL(string: "http://www.google.com")!, options: [:], completionHandler: {(success) in
+//
+//        })
+//        UIApplication.shared.open(url, options: [:],
+//                                  completionHandler: {
+//                                    (success) in
+//        })
+        
+    }
 }

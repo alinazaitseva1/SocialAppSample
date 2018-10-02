@@ -23,7 +23,6 @@
 		DC27B901215A8307007978D1 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */; };
 		DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */; };
 		DC27B905215BB1F1007978D1 /* UserPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* UserPostEntity.swift */; };
-		DC27B907215CC512007978D1 /* SFSafaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B906215CC512007978D1 /* SFSafaryViewController.swift */; };
 		DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27B908215CC59B007978D1 /* WebNavigation.storyboard */; };
 		DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */; };
 		DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90E215E494B007978D1 /* OrderBy.swift */; };
@@ -69,7 +68,6 @@
 		DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+EnumKeys.swift"; sourceTree = "<group>"; };
 		DC27B904215BB1F1007978D1 /* UserPostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostEntity.swift; sourceTree = "<group>"; };
-		DC27B906215CC512007978D1 /* SFSafaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafaryViewController.swift; sourceTree = "<group>"; };
 		DC27B908215CC59B007978D1 /* WebNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebNavigation.storyboard; sourceTree = "<group>"; };
 		DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		DC27B90E215E494B007978D1 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
@@ -289,7 +287,6 @@
 				DC358F3B2146A6130068E511 /* LoginViewController.swift */,
 				DC6B37602147A32800D6478F /* CodeInputViewController.swift */,
 				DC6B37622147A34000D6478F /* UserProfileViewController.swift */,
-				DC27B906215CC512007978D1 /* SFSafaryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -502,7 +499,6 @@
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
 				DC79839D2148F209005FCA08 /* UIViewController+Alert.swift in Sources */,
 				DC6B376D2147E1AC00D6478F /* UITextField+Border.swift in Sources */,
-				DC27B907215CC512007978D1 /* SFSafaryViewController.swift in Sources */,
 				DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */,
 				DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */,
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,

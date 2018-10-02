@@ -51,9 +51,7 @@ class UserProfileViewController: UIViewController {
             uiTableView.reloadData()
         }
     }
-    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
-        // handling code
-    }
+    
     
     //MARK: - Actions
     
@@ -95,6 +93,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         let section = SectionType(rawValue: section)!
         
         switch section {
+            
         case .profile : return ProfileRowType.rows.count
         case .posts   : return userPosts?.count ?? 0
             
@@ -102,16 +101,13 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        // TODO: AZ - add switch
         let section = SectionType(rawValue: section)!
         
         switch section {
             
-        case .profile:
-            return 0
+        case .profile: return 0
+        case .posts: return 45
             
-        case .posts:
-            return 45
         }
     }
     
@@ -121,8 +117,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         
         switch section {
             
-        case .profile:
-            return nil
+        case .profile: return nil
             
         case .posts:
             let actionsHeaderCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell") as! ActionWithPostsTableViewCell
@@ -146,7 +141,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 
                 let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
                 if let userAvatar = userProfile.avatar {
-                    photoCell.mainAvatarImage.loadImageWith(url: userAvatar, showLoader: true) // TODO: - check for nil if - let
+                    photoCell.mainAvatarImage.loadImageWith(url: userAvatar, showLoader: true)
                 }
                 photoCell.mainAvatarImage.makeRounded()
                 return photoCell
@@ -181,13 +176,13 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         case .posts:
             
             let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
-           
+            
             if let userAvatar  =  userProfile.avatar {
-                newsFeedCell.newsAvatarImage.loadImageWith(url: userAvatar) // TODO: AZ - Check for nil
+                newsFeedCell.newsAvatarImage.loadImageWith(url: userAvatar)
                 newsFeedCell.newsAvatarImage.makeRounded()
             }
             
-            // Constants
+            // Constants cell
             
             let post = userPosts[indexPath.row]
             let attachentView = newsFeedCell.attachmentView!
@@ -211,18 +206,20 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     let webView = UIWebView.init()
                     webView.scalesPageToFit = true
                     webView.paginationMode = .topToBottom
+                    webView.isUserInteractionEnabled = false
+                    
                     webView.loadRequest(request)
                     attachentView.addSubview(webView)
                     webView.setUpConstraint(with: attachentView)
                     
-                   // Gesture
-                   
+                    let webViewButton = UIButton.init()
+                    attachentView.addSubview(webViewButton)
+                    webViewButton.setUpConstraint(with: attachentView)
                     
-                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(:)) )
-                    webView.addGestureRecognizer(tapGesture)
-                    handleTap()
+                    // Gesture to custom webViewButton
+                    webViewButton.addTarget(newsFeedCell, action: #selector(NewsFeedTableViewCell.handleTapAction(_:)), for: .touchUpInside)
                     
-                    
+                    //  to Safary
                     if UIApplication.shared.canOpenURL(url) {
                         
                         UIApplication.shared.open(url, options: [:],
