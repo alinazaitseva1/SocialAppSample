@@ -51,6 +51,9 @@ class UserProfileViewController: UIViewController {
             uiTableView.reloadData()
         }
     }
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
+        // handling code
+    }
     
     //MARK: - Actions
     
@@ -71,6 +74,7 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
@@ -99,7 +103,16 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // TODO: AZ - add switch
-        return section == 0 ? 0 : 32
+        let section = SectionType(rawValue: section)!
+        
+        switch section {
+            
+        case .profile:
+            return 0
+            
+        case .posts:
+            return 45
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -107,12 +120,13 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         let section = SectionType(rawValue: section)!
         
         switch section {
+            
         case .profile:
             return nil
+            
         case .posts:
             let actionsHeaderCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell") as! ActionWithPostsTableViewCell
             return actionsHeaderCell.contentView
-            
         }
     }
     
@@ -121,13 +135,19 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         let section = SectionType(indexPath: indexPath as NSIndexPath)!
         
         switch section {
+            
         case .profile:
+            
             let row = ProfileRowType(indexPath: indexPath as NSIndexPath)!
+            
             switch row {
-            case .photo:
-                let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
-                photoCell.mainAvatarImage.loadImageWith(url: userProfile.avatar!, showLoader: true) // TODO: - check for nil if - let
                 
+            case .photo:
+                
+                let photoCell = uiTableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
+                if let userAvatar = userProfile.avatar {
+                    photoCell.mainAvatarImage.loadImageWith(url: userAvatar, showLoader: true) // TODO: - check for nil if - let
+                }
                 photoCell.mainAvatarImage.makeRounded()
                 return photoCell
                 
@@ -157,11 +177,15 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 collectionInfoCell.userProfile = userProfile
                 return collectionInfoCell
             }
+            
         case .posts:
             
             let newsFeedCell = uiTableView.dequeueReusableCell(withIdentifier: "NewsFeedTableViewCell", for: indexPath) as! NewsFeedTableViewCell
-            newsFeedCell.newsAvatarImage.loadImageWith(url: userProfile.avatar!) // TODO: AZ - Check for nil
-            newsFeedCell.newsAvatarImage.makeRounded()
+           
+            if let userAvatar  =  userProfile.avatar {
+                newsFeedCell.newsAvatarImage.loadImageWith(url: userAvatar) // TODO: AZ - Check for nil
+                newsFeedCell.newsAvatarImage.makeRounded()
+            }
             
             // Constants
             
@@ -182,15 +206,34 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     
                 case .url:
                     
-                    let request = URLRequest(url: attach.value!)
+                    let url = attach.value!
+                    let request = URLRequest(url: url)
                     let webView = UIWebView.init()
                     webView.scalesPageToFit = true
-                    webView.paginationMode = .leftToRight
+                    webView.paginationMode = .topToBottom
                     webView.loadRequest(request)
                     attachentView.addSubview(webView)
                     webView.setUpConstraint(with: attachentView)
+                    
+                   // Gesture
+                   
+                    
+                    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(:)) )
+                    webView.addGestureRecognizer(tapGesture)
+                    handleTap()
+                    
+                    
+                    if UIApplication.shared.canOpenURL(url) {
+                        
+                        UIApplication.shared.open(url, options: [:],
+                                                  completionHandler: {
+                                                    (success) in
+                        })
+                    }
                 }
             }
+            
+            
             newsFeedCell.createdLabel.text = post.created.stringPresentation
             newsFeedCell.firstNameNewsLabel.text = post.author.firstName
             newsFeedCell.lastNameNewsLabel.text = post.author.lastName
