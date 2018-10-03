@@ -73,9 +73,15 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
+        
+        let nib = UINib(nibName: "CustomSectionHeader", bundle: nil)
+        uiTableView.register(nib, forHeaderFooterViewReuseIdentifier: "CustomSectionHeader")
+        
+        
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
-            UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: AZ - ??????
+            
+            UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: Do we need this?
         }
         ApiRequest.getPostsInfo(order: .descending) { userPosts in
             self.userPosts = userPosts
@@ -107,7 +113,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .profile: return 0
         case .posts:
-        if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
+            if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
             }
             return 55
         }
@@ -122,8 +128,10 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         case .profile: return nil
             
         case .posts:
-            let actionsHeaderCell = uiTableView.dequeueReusableCell(withIdentifier: "ActionWithPostsTableViewCell") as! ActionWithPostsTableViewCell
-            return actionsHeaderCell.contentView
+            
+            let actionsHeaderCell = uiTableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomSectionHeader") as! CustomSectionHeader
+            
+            return actionsHeaderCell
         }
     }
     
@@ -217,12 +225,12 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     let webViewButton = UIButton.init()
                     attachentView.addSubview(webViewButton)
                     webViewButton.setUpConstraint(with: attachentView)
-
+                    
                     // Gesture to custom webViewButton
                     webViewButton.addTarget(newsFeedCell, action: #selector(NewsFeedTableViewCell.handleTapAction(_:)), for: .touchUpInside)
                     
                     newsFeedCell.url = url
-
+                    
                 }
             }
             
@@ -236,10 +244,21 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //uiTableView.rowHeight = UITableView.automaticDimension
-        var row = indexPath.row
-        if indexPath = ActionsTableViewCell {
-         return 50
+        
+        let section = SectionType(indexPath: indexPath as NSIndexPath)!
+        
+        switch section {
+        case .profile:
+            let row = ProfileRowType(indexPath: indexPath as NSIndexPath)!
+            switch row {
+            case .actions:
+                //if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
+                return 0
+            //} TODO: - In case if we need userDefaults integer for Api/getProfile/
+            default: break
+            }
+        default: break
         }
+        return UITableView.automaticDimension
     }
 }

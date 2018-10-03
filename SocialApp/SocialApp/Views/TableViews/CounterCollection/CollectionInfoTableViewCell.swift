@@ -33,19 +33,20 @@ extension CollectionInfoTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func getContent(indexPath: IndexPath) -> (Int, String) {
         let index = indexPath.row
+        let profileContent = userProfile.counters!
         switch index {
         case 0:
-            return (userProfile.counters!.friends, "friends")
+            return (profileContent.friends, "friends")
         case 1:
-            return (userProfile.counters!.followers, "folowers")
+            return (profileContent.followers, "folowers")
         case 2:
-            return (userProfile.counters!.photos, "photos")
+            return (profileContent.photos, "photos")
         case 3:
-            return (userProfile.counters!.tags, "tags")
+            return (profileContent.tags, "tags")
         case 4:
-            return (userProfile.counters!.posts, "posts")
+            return (profileContent.posts, "posts")
         case 5:
-            return (userProfile.counters!.videos, "videos")
+            return (profileContent.videos, "videos")
         default:
             break
         }

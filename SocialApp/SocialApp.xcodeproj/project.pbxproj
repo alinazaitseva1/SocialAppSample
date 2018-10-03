@@ -12,10 +12,11 @@
 		DC016C17214FCB93009833AC /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C16214FCB93009833AC /* InfoTableViewCell.swift */; };
 		DC016C19214FCBB7009833AC /* ActionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C18214FCBB7009833AC /* ActionsTableViewCell.swift */; };
 		DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C1A214FCBE0009833AC /* CollectionInfoTableViewCell.swift */; };
-		DC016C1D214FCC00009833AC /* ActionWithPostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C1C214FCC00009833AC /* ActionWithPostsTableViewCell.swift */; };
 		DC016C1F214FCC1C009833AC /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C1E214FCC1C009833AC /* NewsFeedTableViewCell.swift */; };
 		DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */; };
 		DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC016C2821513A03009833AC /* ChangeStateButton.swift */; };
+		DC2517AE2164DFA600781321 /* CustomSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2517AD2164DFA600781321 /* CustomSectionHeader.swift */; };
+		DC2517B02164E1AE00781321 /* CustomSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC2517AF2164E1AE00781321 /* CustomSectionHeader.xib */; };
 		DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */; };
 		DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */; };
 		DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */; };
@@ -57,10 +58,11 @@
 		DC016C16214FCB93009833AC /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InfoTableViewCell.swift; path = SocialApp/Views/TableViews/UserInfo/InfoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		DC016C18214FCBB7009833AC /* ActionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionsTableViewCell.swift; path = SocialApp/Views/TableViews/UserInfo/ActionsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		DC016C1A214FCBE0009833AC /* CollectionInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInfoTableViewCell.swift; sourceTree = "<group>"; };
-		DC016C1C214FCC00009833AC /* ActionWithPostsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionWithPostsTableViewCell.swift; sourceTree = "<group>"; };
 		DC016C1E214FCC1C009833AC /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedTableViewCell.xib; sourceTree = "<group>"; };
 		DC016C2821513A03009833AC /* ChangeStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStateButton.swift; sourceTree = "<group>"; };
+		DC2517AD2164DFA600781321 /* CustomSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeader.swift; sourceTree = "<group>"; };
+		DC2517AF2164E1AE00781321 /* CustomSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSectionHeader.xib; sourceTree = "<group>"; };
 		DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCounterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
 		DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		DC016C13214FA9E3009833AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC2517AC2164DF6500781321 /* CustomSectionHeader */,
 				DC27B8E12153A385007978D1 /* TableViews */,
 				DC27B8E02153A369007978D1 /* CollectionViews */,
 			);
@@ -140,6 +143,14 @@
 				DC016C2821513A03009833AC /* ChangeStateButton.swift */,
 			);
 			path = Subclasses;
+			sourceTree = "<group>";
+		};
+		DC2517AC2164DF6500781321 /* CustomSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				DC2517AD2164DFA600781321 /* CustomSectionHeader.swift */,
+			);
+			path = CustomSectionHeader;
 			sourceTree = "<group>";
 		};
 		DC27B8DC2153A079007978D1 /* Models */ = {
@@ -165,7 +176,6 @@
 				DC27B8EB2153EA50007978D1 /* Photo */,
 				DC27B8EC2153EA6A007978D1 /* UserInfo */,
 				DC27B8EE2153EADE007978D1 /* CounterCollection */,
-				DC27B8EF2153EAFD007978D1 /* PostActions */,
 				DC27B8F02153EB29007978D1 /* NewsFeed */,
 			);
 			path = TableViews;
@@ -174,6 +184,7 @@
 		DC27B8E22153A3BB007978D1 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				DC2517AF2164E1AE00781321 /* CustomSectionHeader.xib */,
 				DC016C20214FDCF4009833AC /* NewsFeedTableViewCell.xib */,
 			);
 			path = Xibs;
@@ -210,14 +221,6 @@
 				DC016C1A214FCBE0009833AC /* CollectionInfoTableViewCell.swift */,
 			);
 			path = CounterCollection;
-			sourceTree = "<group>";
-		};
-		DC27B8EF2153EAFD007978D1 /* PostActions */ = {
-			isa = PBXGroup;
-			children = (
-				DC016C1C214FCC00009833AC /* ActionWithPostsTableViewCell.swift */,
-			);
-			path = PostActions;
 			sourceTree = "<group>";
 		};
 		DC27B8F02153EB29007978D1 /* NewsFeed */ = {
@@ -419,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2517B02164E1AE00781321 /* CustomSectionHeader.xib in Resources */,
 				DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */,
 				DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */,
 				DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */,
@@ -497,6 +501,7 @@
 				DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */,
 				DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */,
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
+				DC2517AE2164DFA600781321 /* CustomSectionHeader.swift in Sources */,
 				DC79839D2148F209005FCA08 /* UIViewController+Alert.swift in Sources */,
 				DC6B376D2147E1AC00D6478F /* UITextField+Border.swift in Sources */,
 				DC016C2921513A03009833AC /* ChangeStateButton.swift in Sources */,
@@ -504,7 +509,6 @@
 				DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */,
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
 				DC7FE579214B94A9008C18F4 /* UIButton+Border.swift in Sources */,
-				DC016C1D214FCC00009833AC /* ActionWithPostsTableViewCell.swift in Sources */,
 				DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */,
 				DC27B913215E7298007978D1 /* DateFormatter+String.swift in Sources */,
 			);
