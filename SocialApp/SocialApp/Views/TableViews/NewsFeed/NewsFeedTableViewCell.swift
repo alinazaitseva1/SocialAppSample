@@ -31,17 +31,14 @@ class NewsFeedTableViewCell: UITableViewCell {
         attachmentView.subviews.forEach({ $0.removeFromSuperview() })
     }
     
-    // MARK: - Function to set gesture in webViewButton
+    /// - Function to set gesture in webViewButton
     
     @objc @IBAction func handleTapAction(_ sender: UIButton!) {
-
         
         if UIApplication.shared.canOpenURL(url) {
             
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             
         }
-        
-        
     }
 }

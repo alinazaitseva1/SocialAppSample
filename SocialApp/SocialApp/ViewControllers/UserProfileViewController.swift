@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SafariServices
 
 private enum SectionType: Int {
     case profile
@@ -76,6 +75,7 @@ class UserProfileViewController: UIViewController {
         uiTableView.register(UINib(nibName: "NewsFeedTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsFeedTableViewCell")
         ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
+            UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: AZ - ??????
         }
         ApiRequest.getPostsInfo(order: .descending) { userPosts in
             self.userPosts = userPosts
@@ -106,8 +106,10 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         switch section {
             
         case .profile: return 0
-        case .posts: return 55
-            
+        case .posts:
+        if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
+            }
+            return 55
         }
     }
     
@@ -230,6 +232,14 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             newsFeedCell.textNewsLabel.text = post.body.text
             
             return newsFeedCell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //uiTableView.rowHeight = UITableView.automaticDimension
+        var row = indexPath.row
+        if indexPath = ActionsTableViewCell {
+         return 50
         }
     }
 }

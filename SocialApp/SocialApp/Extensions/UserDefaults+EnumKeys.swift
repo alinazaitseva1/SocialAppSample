@@ -10,13 +10,19 @@ import Foundation
 
 extension UserDefaults {
     
-    func setCustomUserDefaults(flag: Bool, for enumKey: UserDefaultsKeys) {
+    func setBooleanUserDefaults(flag: Bool, for enumKey: UserDefaultsKeys) {
         
         UserDefaults.standard.set(flag, forKey: enumKey.rawValue)
+    }
+    
+    func setIntUserDefaults(value: Int, for enumKey: UserDefaultsKeys) {
+        
+        UserDefaults.standard.set(value, forKey: enumKey.rawValue)
     }
     
     func removeCustomUserDefaults(enumKey: UserDefaultsKeys) {
         
         UserDefaults.standard.removeObject(forKey: enumKey.rawValue)
     }
+    
 }

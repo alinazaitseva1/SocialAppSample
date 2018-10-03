@@ -53,8 +53,6 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         ApiRequest.validateCodeWith(phone: phoneNumber, enteredCode: code) { isCodeValid in
             let isUserValid = true
             if isUserValid == isCodeValid {
-                // TODO: - If success (UserDefaults. value in key  == user id )
-                // hidden button write a massege and add to friend
                 let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
                 self.navigationController?.pushViewController(userProfileVC, animated: true)
@@ -62,13 +60,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
                 self.showAlert(title: "Error", message: ValidationError.codeInvalid.localizedDescription)
             }
             
-            UserDefaults.standard.setCustomUserDefaults(flag: true, for: .token)
-           
-            //UserDefaults.standard.set(T##value: Int##Int, forKey: T##String) // TODO: - save user id here
-            
-            let userProfileId = ApiRequest.getProfile(by: 12) { userProfile in
-                self.userProfile = userProfile
-            } // TODO: - get id from IP an save in some variable
+            UserDefaults.standard.setBooleanUserDefaults(flag: true, for: .token)
         }
     }
     

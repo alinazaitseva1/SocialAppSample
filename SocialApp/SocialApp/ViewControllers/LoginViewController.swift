@@ -45,12 +45,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if UserDefaults.standard.bool(forKey: UserDefaultsKeys.token.rawValue) == true {
             let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
             let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
             self.navigationController?.pushViewController(userProfileVC, animated: true)
         }
-        //self.telephoneTextField.defaultRegion = "FR" TODO: Investigate region
     }
     
     // MARK: - Validation functions
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let telephoneNumber = telephoneTextField.text?.count
         if telephoneNumber == telephoneNumberLimit {
             return true
-            //return validateNumber(string: self.telephoneTextField.text!) //TODO:
+            //return validateNumber(string: self.telephoneTextField.text!)
         }
         return false
     }

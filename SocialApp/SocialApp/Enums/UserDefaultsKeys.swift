@@ -12,4 +12,5 @@ import UIKit
 enum UserDefaultsKeys: String {
     
     case token
+    case userId
 }
