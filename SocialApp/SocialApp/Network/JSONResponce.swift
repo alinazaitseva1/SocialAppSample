@@ -225,7 +225,7 @@ class JSONResponce {
         },
         "created": "2018-09-21T12:45:12",
         "body": {
-          "text": "Sixth post: I am new to ios development. I want to load large amount of data in tableview using pagination.when new page is loaded i am appending data to "myMainList" and reloading the tableview , but it seems not a good way of loading more data.I could not be able to find a good solution in swift.",
+          "text": "Sixth post: I am new to ios development. I want to load large amount of data in tableview using pagination.when new page is loaded i am appending data to "myMainList" and reloading the tableview.I could not be able to find a good solution in swift",
           "attachment": {
             "type": "video",
             "value": "https://www.youtube.com/"
@@ -338,8 +338,8 @@ class JSONResponce {
         "body": {
           "text": "Fourth post: And just like this you can create multiple functions that adapt your need in relation with communication with your viewController or viewControllers",
           "attachment": {
-            "type": "video",
-            "value": "https://www.youtube.com/"
+             "type": "photo",
+             "value": "https://leader.pubs.asha.org/data/Journals/ASHANL/934378/NIB1_web.png"
           }
         }
       },
@@ -372,10 +372,10 @@ class JSONResponce {
         },
         "created": "2018-09-21T12:45:12",
         "body": {
-          "text": "Sixth post: I am new to ios development. I want to load large amount of data in tableview using pagination.when new page is loaded i am appending data to "myMainList" and reloading the tableview , but it seems not a good way of loading more data.I could not be able to find a good solution in swift.",
+          "text": "Sixth post: I am new to ios development. I want to load large amount of data in tableview using pagination.when new page is loaded i am appending data to and reloading the tableview , but it seems not a good way of loading more data.I could not be able to find a good solution in swift.",
           "attachment": {
-            "type": "video",
-            "value": "https://www.youtube.com/"
+             "type": "photo",
+             "value": "https://leader.pubs.asha.org/data/Journals/ASHANL/934378/NIB1_web.png"
           }
         }
       },
@@ -414,7 +414,7 @@ class JSONResponce {
             "value": "https://revistadiners.com.co/wp-content/uploads/2016/03/homero_800x669.jpg"
           }
         }
-      },
+      }
     ]
     """
 }

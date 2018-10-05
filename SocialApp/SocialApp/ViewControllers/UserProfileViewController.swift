@@ -36,6 +36,7 @@ class UserProfileViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var uiTableView: UITableView!
+    @IBOutlet weak var switchUserButton: UIButton!
     
     // MARK: - Variables
     
@@ -66,7 +67,7 @@ class UserProfileViewController: UIViewController {
         let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
         userProfileVC.userId = 12
         self.navigationController?.pushViewController(userProfileVC, animated: true)
-        
+        switchUserButton.isUserInteractionEnabled = false // TODO: - ??????
     }
     
     // MARK: - Initialization functions
@@ -212,6 +213,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     imageView.loadImageWith(url: (attach.value)!)
                     attachentView.addSubview(imageView)
                     imageView.setUpConstraint(with: attachentView)
+                    imageView.contentMode = .scaleAspectFit
                     
                 case .url:
                     
@@ -256,8 +258,11 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             let row = ProfileRowType(indexPath: indexPath as NSIndexPath)!
             switch row {
             case .actions:
-                if userProfile.isMine == false { return 0 }
-                else { return UITableView.automaticDimension }
+                if userProfile.isMine == false {
+                    return 0
+                } else {
+                    return 45
+                }
             default: break
             }
         default: break

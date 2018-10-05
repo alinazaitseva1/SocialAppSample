@@ -318,6 +318,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="switchUserButton" destination="4hx-CJ-Rqu" id="0qA-Id-HIW"/>
                         <outlet property="uiTableView" destination="As9-1P-kxx" id="xFq-i6-QUl"/>
                     </connections>
                 </viewController>

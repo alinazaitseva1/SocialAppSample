@@ -24,7 +24,6 @@
 		DC27B901215A8307007978D1 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */; };
 		DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */; };
 		DC27B905215BB1F1007978D1 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* PostEntity.swift */; };
-		DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27B908215CC59B007978D1 /* WebNavigation.storyboard */; };
 		DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */; };
 		DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90E215E494B007978D1 /* OrderBy.swift */; };
 		DC27B913215E7298007978D1 /* DateFormatter+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B912215E7298007978D1 /* DateFormatter+String.swift */; };
@@ -73,7 +72,6 @@
 		DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+EnumKeys.swift"; sourceTree = "<group>"; };
 		DC27B904215BB1F1007978D1 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
-		DC27B908215CC59B007978D1 /* WebNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebNavigation.storyboard; sourceTree = "<group>"; };
 		DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		DC27B90E215E494B007978D1 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
 		DC27B912215E7298007978D1 /* DateFormatter+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+String.swift"; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 				DC27B8ED2153EAA7007978D1 /* Launch */,
 				DC358F3D2146A6130068E511 /* Main.storyboard */,
 				DC81C84B214A656B00877D27 /* UserProfile.storyboard */,
-				DC27B908215CC59B007978D1 /* WebNavigation.storyboard */,
 				DC27B8E22153A3BB007978D1 /* Xibs */,
 			);
 			path = Storyboards;
@@ -433,7 +430,6 @@
 			files = (
 				DC2517B02164E1AE00781321 /* CustomSectionHeader.xib in Resources */,
 				DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */,
-				DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */,
 				DC016C21214FDCF4009833AC /* NewsFeedTableViewCell.xib in Resources */,
 				DC358F442146A6140068E511 /* LaunchScreen.storyboard in Resources */,
 				DC358F412146A6140068E511 /* Assets.xcassets in Resources */,
