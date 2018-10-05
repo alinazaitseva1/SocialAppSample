@@ -64,6 +64,4 @@ class ApiRequest {
             print(error.localizedDescription)
         }
     }
-    
 }
-
