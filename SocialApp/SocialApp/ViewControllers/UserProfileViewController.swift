@@ -84,14 +84,14 @@ class UserProfileViewController: UIViewController {
         
         // Request to get user's profile
         
-        ApiRequest.getProfile(by: 12, json: ApiRequest.userPostsInfo) { userProfile in
+        ApiRequest.getProfile(by: 12) { userProfile in
             self.userProfile = userProfile
             //UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: Do we need this?
         }
         
         // Request to get my profile
         
-        ApiRequest.getProfile(by: 13, json: ApiRequest.myProfileInfo) { myProfile
+        ApiRequest.getProfile(by: 13) { myProfile
             in
             self.myProfile = myProfile
         }
@@ -128,8 +128,8 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .profile: return 0
         case .posts:
-            //if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
-            //}
+            if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
+            }
             return 55
         }
     }
