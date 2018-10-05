@@ -37,7 +37,7 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var uiTableView: UITableView!
     
-    // MARK: - Constants and Variables
+    // MARK: - Variables
     
     var userProfile: ProfileEntity! {
         didSet{
@@ -51,11 +51,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    var myProfile: ProfileEntity! {
-        didSet{
-            uiTableView.reloadData()
-        }
-    }
+    var userId: Int?
     
     //MARK: - Actions
     
@@ -64,12 +60,13 @@ class UserProfileViewController: UIViewController {
         UserDefaults.standard.removeCustomUserDefaults(enumKey: .token)
     }
     
-    @IBAction func pushWriteMessage(_ sender: UIButton) {
-        self.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
-    }
-    
-    @IBAction func pushAddFriendsButton(_ sender: UIButton) {
-        self.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
+    @IBAction func pushSwitchUserButton(_ sender: UIButton) {
+        
+        let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+        let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
+        userProfileVC.userId = 13
+        self.navigationController?.pushViewController(userProfileVC, animated: true)
+        
     }
     
     // MARK: - Initialization functions
@@ -84,17 +81,11 @@ class UserProfileViewController: UIViewController {
         
         // Request to get user's profile
         
-        ApiRequest.getProfile(by: 12) { userProfile in
+        ApiRequest.getProfile(by: userId) { userProfile in
             self.userProfile = userProfile
-            //UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: Do we need this?
         }
         
         // Request to get my profile
-        
-        ApiRequest.getProfile(by: 13) { myProfile
-            in
-            self.myProfile = myProfile
-        }
         
         ApiRequest.getPostsInfo(order: .descending) { userPosts in
             self.userPosts = userPosts
@@ -128,8 +119,6 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .profile: return 0
         case .posts:
-            if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
-            }
             return 55
         }
     }
@@ -267,9 +256,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             let row = ProfileRowType(indexPath: indexPath as NSIndexPath)!
             switch row {
             case .actions:
-                //if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
-                return 0
-            //} TODO: - In case if we need userDefaults integer for Api/getProfile/
+                if userProfile.isMine == true { return 0 } else { return 45 }
             default: break
             }
         default: break

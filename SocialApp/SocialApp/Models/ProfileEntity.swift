@@ -70,6 +70,10 @@ class ProfileEntity: Codable {
     
     // MARK: - Custom vars
     
+    var isMine: Bool {
+        return self.id == UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue)
+    }
+    
     var getFullName: String {
         return "\(firstName!) \(lastName!)"
     }

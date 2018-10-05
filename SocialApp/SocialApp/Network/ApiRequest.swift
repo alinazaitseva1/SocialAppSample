@@ -35,6 +35,9 @@ class ApiRequest {
         } catch {
             print(error.localizedDescription)
         }
+        
+        UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId)
+        
     }
     
     static func getPostsInfo(by userID: Int? = nil, order: OrderBy ,completion: @escaping ([PostEntity]) -> Void) {

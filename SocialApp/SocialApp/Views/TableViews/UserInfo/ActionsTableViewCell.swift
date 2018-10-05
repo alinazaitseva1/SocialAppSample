@@ -9,5 +9,16 @@
 import UIKit
 
 class ActionsTableViewCell: UITableViewCell {
+   
+    // MARK: - Actions
+    
+    @IBAction func pushWriteMessage(_ sender: UIButton) {
+        parentViewController?.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
+        
+    }
+    
+    @IBAction func pushAddFriendsButton(_ sender: UIButton) {
+        parentViewController?.showAlert(title: "Achtung", message: Warnings.notImplemented.message)
+    }
     
 }

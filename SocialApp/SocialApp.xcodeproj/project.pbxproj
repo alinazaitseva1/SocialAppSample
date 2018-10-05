@@ -41,6 +41,7 @@
 		DC6B376D2147E1AC00D6478F /* UITextField+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376C2147E1AC00D6478F /* UITextField+Border.swift */; };
 		DC6B376F2147E27100D6478F /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B376E2147E27100D6478F /* ApiRequest.swift */; };
 		DC6BF4B52167532F00E84C5A /* JSONResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BF4B42167532F00E84C5A /* JSONResponce.swift */; };
+		DC739AEE216792D0005C5C38 /* UIView+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC739AED216792D0005C5C38 /* UIView+ShowAlert.swift */; };
 		DC79839D2148F209005FCA08 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79839C2148F209005FCA08 /* UIViewController+Alert.swift */; };
 		DC7983A421495F69005FCA08 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7983A321495F69005FCA08 /* CustomColor.swift */; };
 		DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7983A521495F7A005FCA08 /* CustomFont.swift */; };
@@ -91,6 +92,7 @@
 		DC6B376C2147E1AC00D6478F /* UITextField+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Border.swift"; sourceTree = "<group>"; };
 		DC6B376E2147E27100D6478F /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		DC6BF4B42167532F00E84C5A /* JSONResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponce.swift; sourceTree = "<group>"; };
+		DC739AED216792D0005C5C38 /* UIView+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShowAlert.swift"; sourceTree = "<group>"; };
 		DC79839C2148F209005FCA08 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		DC7983A321495F69005FCA08 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		DC7983A521495F7A005FCA08 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				DC27B912215E7298007978D1 /* DateFormatter+String.swift */,
 				DC27B916216240DB007978D1 /* UIView+Sub.swift */,
 				DC42C3BB2165FF8E00E1B46C /* UIViewController+CollectionView.swift */,
+				DC739AED216792D0005C5C38 /* UIView+ShowAlert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */,
 				DC7FE579214B94A9008C18F4 /* UIButton+Border.swift in Sources */,
 				DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */,
+				DC739AEE216792D0005C5C38 /* UIView+ShowAlert.swift in Sources */,
 				DC27B913215E7298007978D1 /* DateFormatter+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,11 +41,11 @@ class JSONResponce {
     static let myProfileInfo = """
     {
           "id": 13,
-          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
+          "avatar": "http://www.witchesgalore.co.uk/includes/templates/basetemplate/images/witch.jpg",
           "first_name": "Alina",
           "last_name": "Zaitseva",
           "username": null,
-          "age": 3,
+          "age": 26,
           "location": {
             "country": "Ukraine",
             "address": "7-th lane 46"
@@ -191,8 +191,8 @@ class JSONResponce {
         "body": {
           "text": "Second post",
           "attachment": {
-            "type": "url",
-            "value": "https://www.google.com.ua/"
+            "type": "video",
+            "value": "https://www.youtube.com/"
           }
         }
       },
@@ -210,7 +210,7 @@ class JSONResponce {
           "text": "Second post",
           "attachment": {
             "type": "url",
-            "value": "https://www.google.com.ua/"
+            "value": "https://www.wikipedia.org/"
           }
         }
       },
@@ -227,8 +227,8 @@ class JSONResponce {
         "body": {
           "text": "Second post",
           "attachment": {
-            "type": "url",
-            "value": "https://www.google.com.ua/"
+            "type": "video",
+            "value": "https://www.youtube.com/"
           }
         }
       },
@@ -246,7 +246,7 @@ class JSONResponce {
           "text": "Second post",
           "attachment": {
             "type": "url",
-            "value": "https://www.google.com.ua/"
+            "value": "https://www.apple.com/"
           }
         }
       },
@@ -263,8 +263,8 @@ class JSONResponce {
         "body": {
           "text": "Second post",
           "attachment": {
-            "type": "url",
-            "value": "https://www.google.com.ua/"
+            "type": "photo",
+            "value": "https://revistadiners.com.co/wp-content/uploads/2016/03/homero_800x669.jpg"
           }
         }
       },
