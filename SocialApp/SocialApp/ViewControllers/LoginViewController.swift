@@ -34,6 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             ApiRequest.login(with: phoneNumber, completion: {
                 let codeViewController = self.storyboard?.instantiateViewController(withIdentifier: "CodeInputViewController") as! CodeInputViewController
                 codeViewController.phoneNumber = phoneNumber
+                self.sendButton.isUserInteractionEnabled = false
                 self.navigationController?.pushViewController(codeViewController, animated: true)
             })
         } else {
@@ -65,7 +66,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let telephoneNumber = telephoneTextField.text?.count
         if telephoneNumber == telephoneNumberLimit {
             return true
-            //return validateNumber(string: self.telephoneTextField.text!)
         }
         return false
     }
@@ -94,4 +94,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return lengthValidate && isValidationDone
         
     }
+    
 }

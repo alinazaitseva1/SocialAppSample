@@ -12,7 +12,7 @@ class ApiRequest {
     
     static private var users: [String: String] = [:]
     
-    static private var profileInfo = """
+    static let userProfileInfo = """
     {
           "id": 12,
           "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
@@ -38,7 +38,35 @@ class ApiRequest {
           "is_following": true
     }
 """
-    static let postsInfo = """
+    
+    static let myProfileInfo = """
+    {
+          "id": 13,
+          "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Oxygen480-emotes-face-smile-big.svg/2000px-Oxygen480-emotes-face-smile-big.svg.png",
+          "first_name": "Alina",
+          "last_name": "Zaitseva",
+          "username": null,
+          "age": 3,
+          "location": {
+            "country": "Ukraine",
+            "address": "7-th lane 46"
+          },
+          "is_online": true,
+          "counters": {
+            "friends": 300,
+            "followers": 1956,
+            "tags": 195,
+            "posts": 13,
+            "photos": 19,
+            "videos": 14
+          },
+          "connection_type": "friends",
+          "is_follower": false,
+          "is_following": true
+    }
+"""
+    
+    static let userPostsInfo = """
     [
       {
         "id": 3,
@@ -104,24 +132,25 @@ class ApiRequest {
         completion("4444" == enteredCode)
     }
     
-    static func getProfile(by userID: Int, completion: @escaping (UserProfileEntity) -> Void) {
-        let data = profileInfo.data(using: .utf8)!
+    static func getProfile(by userID: Int, json: String, completion: @escaping (ProfileEntity) -> Void) {
+        
+        let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
         do {
-            let profile = try decoder.decode(UserProfileEntity.self, from: Data(data))
+            let profile = try decoder.decode(ProfileEntity.self, from: Data(data))
             completion(profile)
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    static func getPostsInfo(order: OrderBy ,completion: @escaping ([UserPostEntity]) -> Void) {
-        let data = postsInfo.data(using: .utf8)!
+    static func getPostsInfo(order: OrderBy ,completion: @escaping ([PostEntity]) -> Void) {
+        let data = userPostsInfo.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
         
         do {
-            var posts = try decoder.decode([UserPostEntity].self, from: Data(data))
+            var posts = try decoder.decode([PostEntity].self, from: Data(data))
             posts.sort { (lhs, rhs) -> Bool in
                 
                 switch order {

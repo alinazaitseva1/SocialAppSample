@@ -39,18 +39,23 @@ class UserProfileViewController: UIViewController {
     
     // MARK: - Constants and Variables
     
-    var userProfile: UserProfileEntity! {
+    var userProfile: ProfileEntity! {
         didSet{
             uiTableView.reloadData()
         }
     }
     
-    var userPosts: [UserPostEntity]! {
+    var userPosts: [PostEntity]! {
         didSet{
             uiTableView.reloadData()
         }
     }
     
+    var myProfile: ProfileEntity! {
+        didSet{
+            uiTableView.reloadData()
+        }
+    }
     
     //MARK: - Actions
     
@@ -77,16 +82,25 @@ class UserProfileViewController: UIViewController {
         let nib = UINib(nibName: "CustomSectionHeader", bundle: nil)
         uiTableView.register(nib, forHeaderFooterViewReuseIdentifier: "CustomSectionHeader")
         
+        // Request to get user's profile
         
-        ApiRequest.getProfile(by: 12) { userProfile in
+        ApiRequest.getProfile(by: 12, json: ApiRequest.userPostsInfo) { userProfile in
             self.userProfile = userProfile
-            
-            UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: Do we need this?
+            //UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId) // TODO: Do we need this?
         }
+        
+        // Request to get my profile
+        
+        ApiRequest.getProfile(by: 13, json: ApiRequest.myProfileInfo) { myProfile
+            in
+            self.myProfile = myProfile
+        }
+        
         ApiRequest.getPostsInfo(order: .descending) { userPosts in
             self.userPosts = userPosts
         }
     }
+    
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -107,14 +121,15 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         let section = SectionType(rawValue: section)!
         
         switch section {
             
         case .profile: return 0
         case .posts:
-            if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
-            }
+            //if UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue) == userProfile.id {
+            //}
             return 55
         }
     }

@@ -18,12 +18,12 @@
 		DC2517AE2164DFA600781321 /* CustomSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2517AD2164DFA600781321 /* CustomSectionHeader.swift */; };
 		DC2517B02164E1AE00781321 /* CustomSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC2517AF2164E1AE00781321 /* CustomSectionHeader.xib */; };
 		DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */; };
-		DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */; };
+		DC27B8E82153D7CF007978D1 /* ProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8E72153D7CF007978D1 /* ProfileEntity.swift */; };
 		DC27B8F32153EBEE007978D1 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */; };
 		DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8FC215A180D007978D1 /* Warnings.swift */; };
 		DC27B901215A8307007978D1 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */; };
 		DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */; };
-		DC27B905215BB1F1007978D1 /* UserPostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* UserPostEntity.swift */; };
+		DC27B905215BB1F1007978D1 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* PostEntity.swift */; };
 		DC27B909215CC59B007978D1 /* WebNavigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC27B908215CC59B007978D1 /* WebNavigation.storyboard */; };
 		DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */; };
 		DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90E215E494B007978D1 /* OrderBy.swift */; };
@@ -34,6 +34,7 @@
 		DC358F3F2146A6130068E511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F3D2146A6130068E511 /* Main.storyboard */; };
 		DC358F412146A6140068E511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC358F402146A6140068E511 /* Assets.xcassets */; };
 		DC358F442146A6140068E511 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC358F422146A6140068E511 /* LaunchScreen.storyboard */; };
+		DC42C3BC2165FF8E00E1B46C /* UIViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC42C3BB2165FF8E00E1B46C /* UIViewController+CollectionView.swift */; };
 		DC6B37612147A32800D6478F /* CodeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37602147A32800D6478F /* CodeInputViewController.swift */; };
 		DC6B37632147A34000D6478F /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37622147A34000D6478F /* UserProfileViewController.swift */; };
 		DC6B37662147C25D00D6478F /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6B37652147C25D00D6478F /* ValidationError.swift */; };
@@ -64,12 +65,12 @@
 		DC2517AD2164DFA600781321 /* CustomSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSectionHeader.swift; sourceTree = "<group>"; };
 		DC2517AF2164E1AE00781321 /* CustomSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSectionHeader.xib; sourceTree = "<group>"; };
 		DC27B8D821529E55007978D1 /* UserProfileCounterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCounterCollectionViewCell.swift; sourceTree = "<group>"; };
-		DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
+		DC27B8E72153D7CF007978D1 /* ProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntity.swift; sourceTree = "<group>"; };
 		DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
 		DC27B8FC215A180D007978D1 /* Warnings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warnings.swift; sourceTree = "<group>"; };
 		DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+EnumKeys.swift"; sourceTree = "<group>"; };
-		DC27B904215BB1F1007978D1 /* UserPostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostEntity.swift; sourceTree = "<group>"; };
+		DC27B904215BB1F1007978D1 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
 		DC27B908215CC59B007978D1 /* WebNavigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebNavigation.storyboard; sourceTree = "<group>"; };
 		DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		DC27B90E215E494B007978D1 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		DC358F402146A6140068E511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC358F432146A6140068E511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC358F452146A6140068E511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC42C3BB2165FF8E00E1B46C /* UIViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		DC6B37602147A32800D6478F /* CodeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputViewController.swift; sourceTree = "<group>"; };
 		DC6B37622147A34000D6478F /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DC6B37652147C25D00D6478F /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
@@ -156,8 +158,8 @@
 		DC27B8DC2153A079007978D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DC27B8E72153D7CF007978D1 /* UserProfileEntity.swift */,
-				DC27B904215BB1F1007978D1 /* UserPostEntity.swift */,
+				DC27B8E72153D7CF007978D1 /* ProfileEntity.swift */,
+				DC27B904215BB1F1007978D1 /* PostEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +330,7 @@
 				DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */,
 				DC27B912215E7298007978D1 /* DateFormatter+String.swift */,
 				DC27B916216240DB007978D1 /* UIView+Sub.swift */,
+				DC42C3BB2165FF8E00E1B46C /* UIViewController+CollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -481,8 +484,9 @@
 				DC358F3C2146A6130068E511 /* LoginViewController.swift in Sources */,
 				DC27B917216240DB007978D1 /* UIView+Sub.swift in Sources */,
 				DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */,
+				DC42C3BC2165FF8E00E1B46C /* UIViewController+CollectionView.swift in Sources */,
 				DC6B37662147C25D00D6478F /* ValidationError.swift in Sources */,
-				DC27B8E82153D7CF007978D1 /* UserProfileEntity.swift in Sources */,
+				DC27B8E82153D7CF007978D1 /* ProfileEntity.swift in Sources */,
 				DC016C17214FCB93009833AC /* InfoTableViewCell.swift in Sources */,
 				DC27B901215A8307007978D1 /* UserDefaultsKeys.swift in Sources */,
 				DC016C1F214FCC1C009833AC /* NewsFeedTableViewCell.swift in Sources */,
@@ -497,7 +501,7 @@
 				DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */,
 				DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */,
 				DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */,
-				DC27B905215BB1F1007978D1 /* UserPostEntity.swift in Sources */,
+				DC27B905215BB1F1007978D1 /* PostEntity.swift in Sources */,
 				DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */,
 				DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */,
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,
@@ -587,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -641,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -656,13 +660,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQ4JD7QCGM;
+				DEVELOPMENT_TEAM = 7N4XWEA584;
 				INFOPLIST_FILE = SocialApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = steelkiwi.SocialApp;
+				PRODUCT_BUNDLE_IDENTIFIER = steelkiwi.testt.SocialApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -675,13 +679,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQ4JD7QCGM;
+				DEVELOPMENT_TEAM = 7N4XWEA584;
 				INFOPLIST_FILE = SocialApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = steelkiwi.SocialApp;
+				PRODUCT_BUNDLE_IDENTIFIER = steelkiwi.testt.SocialApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

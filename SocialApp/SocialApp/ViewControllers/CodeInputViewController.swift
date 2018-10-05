@@ -30,7 +30,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
         return (firstCodeTextField.text! + secondCodeTextField.text! + thirdCodeTextField.text! + fourthCodeTextField.text!)
     }
     
-    var userProfile: UserProfileEntity! // TODO: - investigate
+    var userProfile: ProfileEntity! // TODO: - investigate
     
     //MARK: - Actions
     

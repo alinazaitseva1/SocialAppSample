@@ -16,7 +16,7 @@ class CollectionInfoTableViewCell: UITableViewCell {
     
     // MARK: - Constants and Variables
     
-    var userProfile: UserProfileEntity! {
+    var userProfile: ProfileEntity! {
         didSet{
             uiCollectionView.reloadData()
         }
