@@ -64,7 +64,7 @@ class UserProfileViewController: UIViewController {
         
         let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
         let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
-        userProfileVC.userId = 13
+        userProfileVC.userId = 12
         self.navigationController?.pushViewController(userProfileVC, animated: true)
         
     }
@@ -87,7 +87,7 @@ class UserProfileViewController: UIViewController {
         
         // Request to get my profile
         
-        ApiRequest.getPostsInfo(order: .descending) { userPosts in
+        ApiRequest.getPostsInfo(by: userId, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
     }
@@ -256,7 +256,8 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             let row = ProfileRowType(indexPath: indexPath as NSIndexPath)!
             switch row {
             case .actions:
-                if userProfile.isMine == true { return 0 } else { return 45 }
+                if userProfile.isMine == false { return 0 }
+                else { return UITableView.automaticDimension }
             default: break
             }
         default: break

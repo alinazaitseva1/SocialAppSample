@@ -40,9 +40,11 @@ class ApiRequest {
         
     }
     
-    static func getPostsInfo(by userID: Int? = nil, order: OrderBy ,completion: @escaping ([PostEntity]) -> Void) {
+    static func getPostsInfo(by id: Int? = nil, order: OrderBy ,completion: @escaping ([PostEntity]) -> Void) {
         
-        let data = JSONResponce.userPostsInfo.data(using: .utf8)!
+        let json = id == nil ? JSONResponce.myPostsInfo : JSONResponce.userPostsInfo
+        
+        let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
         
