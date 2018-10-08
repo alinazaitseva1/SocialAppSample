@@ -42,7 +42,6 @@ struct PostEntity: Codable {
             case lastName = "last_name"
             case userName = "username"
         }
-        
     }
     
     struct PostBody: Codable {
@@ -58,5 +57,7 @@ struct PostEntity: Codable {
     enum PostType: String, Codable {
         case photo
         case url
+        case video
     }
+    
 }

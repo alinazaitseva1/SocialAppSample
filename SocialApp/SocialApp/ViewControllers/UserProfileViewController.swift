@@ -91,6 +91,7 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getPostsInfo(by: userId, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
+        
     }
     
 }
@@ -135,9 +136,9 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         case .posts:
             
             let actionsHeaderCell = uiTableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomSectionHeader") as! CustomSectionHeader
-            
             return actionsHeaderCell
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -236,6 +237,22 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     webViewButton.addTarget(newsFeedCell, action: #selector(NewsFeedTableViewCell.handleTapAction(_:)), for: .touchUpInside)
                     
                     newsFeedCell.url = url
+                    
+                case .video:
+                    
+                    let url = attach.value!
+                    let stringUrl = url.absoluteString
+                    
+                    let videoView = UIWebView.init()
+                    videoView.scalesPageToFit = true
+                    videoView.paginationMode = .topToBottom
+                    videoView.isUserInteractionEnabled = false
+                    
+                    let youtubeURL = URL(string: "https://www.youtube.com/embed/\(stringUrl)")
+                    
+                    videoView.loadRequest(URLRequest(url: youtubeURL!))
+                    
+                    attachentView.addSubview(videoView)
                     
                 }
             }

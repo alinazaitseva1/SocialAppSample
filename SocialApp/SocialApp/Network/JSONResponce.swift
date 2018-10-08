@@ -192,7 +192,7 @@ class JSONResponce {
           "text": "Fourth post: And just like this you can create multiple functions that adapt your need in relation with communication with your viewController or viewControllers",
           "attachment": {
             "type": "video",
-            "value": "https://www.youtube.com/"
+            "value": "RD6vlm4JsBsPE"
           }
         }
       },
@@ -228,7 +228,7 @@ class JSONResponce {
           "text": "Sixth post: I am new to ios development. I want to load large amount of data in tableview using pagination.when new page is loaded i am appending data to "myMainList" and reloading the tableview.I could not be able to find a good solution in swift",
           "attachment": {
             "type": "video",
-            "value": "https://www.youtube.com/"
+            "value": "RDTBXv37PFcAQ"
           }
         }
       },
@@ -271,7 +271,7 @@ class JSONResponce {
     ]
     }
     """
-   
+    
     static let myPostsInfo = """
     [
       {
@@ -392,8 +392,8 @@ class JSONResponce {
         "body": {
           "text": "Seventh post: This answer is a bit incomplete but seems to be the correct method. How would I go about creating the custom header view with a unique id in the first place? Currently I've seen a lot of methods online that just use a custom created cell that returns the content view of that cell. Would it be possible for you to expand a bit?",
           "attachment": {
-            "type": "url",
-            "value": "https://www.apple.com/"
+            "type": "video",
+            "value": "RD6vlm4JsBsPE"
           }
         }
       },
