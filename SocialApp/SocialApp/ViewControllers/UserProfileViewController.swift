@@ -219,13 +219,13 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                 case .url:
                     
                     let url = attach.value!
-                    let request = URLRequest(url: url)
+                    
                     let webView = UIWebView.init()
                     webView.scalesPageToFit = true
                     webView.paginationMode = .topToBottom
                     webView.isUserInteractionEnabled = false
                     
-                    webView.loadRequest(request)
+                    webView.loadRequest(URLRequest(url: url))
                     attachentView.addSubview(webView)
                     webView.setUpConstraint(with: attachentView)
                     
@@ -249,10 +249,18 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     videoView.isUserInteractionEnabled = false
                     
                     let youtubeURL = URL(string: "https://www.youtube.com/embed/\(stringUrl)")
-                    
                     videoView.loadRequest(URLRequest(url: youtubeURL!))
                     
                     attachentView.addSubview(videoView)
+                    videoView.setUpConstraint(with: attachentView)
+                    
+                    let videoViewButton = UIButton.init()
+                    attachentView.addSubview(videoViewButton)
+                    videoViewButton.setUpConstraint(with: attachentView)
+                    
+                    videoViewButton.addTarget(newsFeedCell, action: #selector(NewsFeedTableViewCell.handleTapAction(_:)), for: .touchUpInside)
+                    
+                     newsFeedCell.url = youtubeURL
                     
                 }
             }
