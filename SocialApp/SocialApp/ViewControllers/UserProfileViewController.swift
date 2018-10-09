@@ -54,6 +54,7 @@ class UserProfileViewController: UIViewController {
     
     var userId: Int?
     var isLoading = false
+    var displayingPostRowCount = 5
     
     //MARK: - Actions
     
@@ -68,6 +69,7 @@ class UserProfileViewController: UIViewController {
         let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
         userProfileVC.userId = 12
         self.navigationController?.pushViewController(userProfileVC, animated: true)
+        
     }
     
     // MARK: - Initialization functions
@@ -92,10 +94,7 @@ class UserProfileViewController: UIViewController {
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func loadMoreData() {
-        for _ in 5...userPosts.results.count {
-            //            userPosts.results.count
-            //load data from server
-        }
+        displayingPostRowCount += 3
         uiTableView.reloadData()
     }
     
@@ -110,7 +109,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         switch section {
             
         case .profile : return ProfileRowType.rows.count
-        case .posts   : return userPosts?.count ?? 0 // Here to pagination mode
+        case .posts   : return displayingPostRowCount ?? 3// Here to pagination mode
             
         }
     }
@@ -297,13 +296,22 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell , forRowAt indexPath: IndexPath) { // TODO: -
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-        let lastItem = userPosts.results.count - 1
+        //Bottom Refresh
         
-        if !isLoading && indexPath.row == lastItem {
-            isLoading = true
-            loadMoreData()
+        if scrollView == uiTableView{
+            
+            if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height))
+            {
+                if !isLoading{
+                    
+                    if userPosts.results.count == 4 {
+                        isLoading = true
+                        loadMoreData()
+                    }
+                }
+            }
         }
     }
     
