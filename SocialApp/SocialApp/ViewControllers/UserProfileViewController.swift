@@ -46,7 +46,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    var userPosts: [PaginatedPost]! {
+    var userPosts: PaginatedPost! {
         didSet{
             uiTableView.reloadData()
         }
@@ -101,7 +101,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         switch section {
             
         case .profile : return ProfileRowType.rows.count
-        case .posts   : return userPosts?.count ?? 0
+        case .posts   : return userPosts?.count ?? 0 // Here to pagination mode
 
         }
     }
@@ -193,7 +193,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
             // Constants cell
             
-            let post = userPosts[indexPath.row]
+            let post = userPosts.results[indexPath.row]
             let attachentView = newsFeedCell.attachmentView!
             
             if let attach = post.body.attachment,

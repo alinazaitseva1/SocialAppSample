@@ -40,17 +40,17 @@ class ApiRequest {
         
     }
     
-    static func getPostsInfo(by id: Int? = nil, order: OrderBy ,completion: @escaping ([PaginatedPost]) -> Void) {
+    static func getPostsInfo(by id: Int? = nil, order: OrderBy ,completion: @escaping (PaginatedPost) -> Void) {
         
-        let json = id == nil ? JSONResponce.snfo : JSONResponce.userPostsInfo
+        let json = id == nil ? JSONResponce.myPostsInfo : JSONResponce.userPostsInfo
         
         let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
         
         do {
-            var posts = try decoder.decode([PaginatedPost].self, from: Data(data))
-            posts.sort { (lhs, rhs) -> Bool in
+            var posts = try decoder.decode(PaginatedPost.self, from: Data(data))
+            posts.results.sort { (lhs, rhs) -> Bool in
                 
                 switch order {
                 case .ascending:
