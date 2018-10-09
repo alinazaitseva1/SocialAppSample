@@ -9,55 +9,60 @@
 import Foundation
 import UIKit
 
-struct PostEntity: Codable {
+struct Result: Codable {
     
-    // MARK: - Variables
+        var count      : Int?
+        var prev       : String?
+        var next       : String?
+        var results    : PostEntity!
+}
     
-    var id         : Int!
-    
-    var author     : PostAuthor!
-    var created    : Date!
-    var body       : PostBody!
-    
-    struct PostAuthor: Codable {
+    struct PostEntity: Codable {
         
         var id         : Int!
-        var avatar     : URL?
-        var firstName  : String!
-        var lastName   : String!
-        var userName   : String?
         
-        // MARK: - Custom vars
+        var author     : PostAuthor!
+        var created    : Date!
+        var body       : PostBody!
         
-        var getFullName: String {
-            return "\(firstName!) \(lastName!)"
+        struct PostAuthor: Codable {
+            
+            var id         : Int!
+            var avatar     : URL?
+            var firstName  : String!
+            var lastName   : String!
+            var userName   : String?
+            
+            // MARK: - Custom vars
+            
+            var getFullName: String {
+                return "\(firstName!) \(lastName!)"
+            }
+            
+            private enum CodingKeys: String, CodingKey {
+                
+                case id
+                
+                case avatar
+                case firstName = "first_name"
+                case lastName = "last_name"
+                case userName = "username"
+            }
         }
         
-        private enum CodingKeys: String, CodingKey {
-            
-            case id
-            
-            case avatar
-            case firstName = "first_name"
-            case lastName = "last_name"
-            case userName = "username"
+        struct PostBody: Codable {
+            var text       : String!
+            var attachment : PostAttachment?
+        }
+        
+        struct PostAttachment: Codable {
+            var type  : PostType!
+            var value : URL!
+        }
+        
+        enum PostType: String, Codable {
+            case photo
+            case url
+            case video
         }
     }
-    
-    struct PostBody: Codable {
-        var text       : String!
-        var attachment : PostAttachment?
-    }
-    
-    struct PostAttachment: Codable {
-        var type  : PostType!
-        var value : URL!
-    }
-    
-    enum PostType: String, Codable {
-        case photo
-        case url
-        case video
-    }
-    
-}

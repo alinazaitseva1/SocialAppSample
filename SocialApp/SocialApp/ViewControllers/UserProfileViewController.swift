@@ -67,7 +67,6 @@ class UserProfileViewController: UIViewController {
         let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
         userProfileVC.userId = 12
         self.navigationController?.pushViewController(userProfileVC, animated: true)
-        switchUserButton.isUserInteractionEnabled = false // TODO: - ??????
     }
     
     // MARK: - Initialization functions
@@ -80,20 +79,14 @@ class UserProfileViewController: UIViewController {
         let nib = UINib(nibName: "CustomSectionHeader", bundle: nil)
         uiTableView.register(nib, forHeaderFooterViewReuseIdentifier: "CustomSectionHeader")
         
-        // Request to get user's profile
-        
         ApiRequest.getProfile(by: userId) { userProfile in
             self.userProfile = userProfile
         }
-        
-        // Request to get my profile
-        
+    
         ApiRequest.getPostsInfo(by: userId, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
-        
     }
-    
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -109,7 +102,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .profile : return ProfileRowType.rows.count
         case .posts   : return userPosts?.count ?? 0
-            
+
         }
     }
     
@@ -216,7 +209,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     imageView.setUpConstraint(with: attachentView)
                     imageView.contentMode = .scaleAspectFit
                     
-                case .url:
+                case .url :
                     
                     let url = attach.value!
                     
@@ -226,6 +219,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     webView.isUserInteractionEnabled = false
                     
                     webView.loadRequest(URLRequest(url: url))
+                    
                     attachentView.addSubview(webView)
                     webView.setUpConstraint(with: attachentView)
                     
@@ -238,7 +232,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     
                     newsFeedCell.url = url
                     
-                case .video:
+                case .video: // TODO: - AZ: unit in one multiple switch case
                     
                     let url = attach.value!
                     let stringUrl = url.absoluteString
@@ -260,8 +254,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
                     
                     videoViewButton.addTarget(newsFeedCell, action: #selector(NewsFeedTableViewCell.handleTapAction(_:)), for: .touchUpInside)
                     
-                     newsFeedCell.url = youtubeURL
-                    
+                    newsFeedCell.url = youtubeURL
                 }
             }
             
@@ -294,4 +287,9 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         }
         return UITableView.automaticDimension
     }
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell , forRowAtIndexPath indexPath: NSIndexPath) {
+//
+//    }
+    
 }

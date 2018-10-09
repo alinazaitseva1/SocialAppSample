@@ -42,7 +42,7 @@ class ApiRequest {
     
     static func getPostsInfo(by id: Int? = nil, order: OrderBy ,completion: @escaping ([PostEntity]) -> Void) {
         
-        let json = id == nil ? JSONResponce.myPostsInfo : JSONResponce.userPostsInfo
+        let json = id == nil ? JSONResponce.snfo : JSONResponce.userPostsInfo
         
         let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
