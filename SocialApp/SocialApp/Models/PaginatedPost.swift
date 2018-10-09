@@ -15,6 +15,8 @@ struct PaginatedPost: Codable {
     var prev       : String?
     var next       : String?
     var results    : [PostEntity]!
+    
+    
 }
 
 struct PostEntity: Codable {
@@ -48,6 +50,8 @@ struct PostEntity: Codable {
             case lastName = "last_name"
             case userName = "username"
         }
+        
+        
     }
     
     struct PostBody: Codable {

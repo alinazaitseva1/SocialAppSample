@@ -61,6 +61,7 @@ class CodeInputViewController: UIViewController, UITextFieldDelegate {
             }
             
             UserDefaults.standard.setBooleanUserDefaults(flag: true, for: .token)
+            UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId)
         }
     }
     

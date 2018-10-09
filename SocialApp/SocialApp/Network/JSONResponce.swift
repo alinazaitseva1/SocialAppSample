@@ -66,6 +66,9 @@ class JSONResponce {
 """
     
     static let userPostsInfo = """
+    {
+    "count": 3,
+    "results":
     [
       {
         "id": 3,
@@ -119,6 +122,7 @@ class JSONResponce {
         }
       }
     ]
+    }
     """
     
     static let myPostsInfo = """

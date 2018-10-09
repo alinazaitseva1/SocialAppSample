@@ -51,6 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let userProfileStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
             let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
             self.navigationController?.pushViewController(userProfileVC, animated: true)
+            
         }
     }
     

@@ -37,10 +37,9 @@ class ApiRequest {
         }
         
         UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId)
-        
     }
     
-    static func getPostsInfo(by id: Int? = nil, order: OrderBy ,completion: @escaping (PaginatedPost) -> Void) {
+    static func getPostsInfo(by id: Int? = nil, limit: Int? = nil, order: OrderBy ,completion: @escaping (PaginatedPost) -> Void) {
         
         let json = id == nil ? JSONResponce.myPostsInfo : JSONResponce.userPostsInfo
         

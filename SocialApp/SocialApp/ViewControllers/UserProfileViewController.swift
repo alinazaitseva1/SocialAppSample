@@ -54,7 +54,7 @@ class UserProfileViewController: UIViewController {
     
     var userId: Int?
     var isLoading = false
-    var displayingPostRowCount = 5
+    //var displayingPostRowCount = 3
     
     //MARK: - Actions
     
@@ -86,17 +86,18 @@ class UserProfileViewController: UIViewController {
             self.userProfile = userProfile
         }
         
-        ApiRequest.getPostsInfo(by: userId, order: .descending) { userPosts in
+        ApiRequest.getPostsInfo(by: userId, limit: 5, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
+        print("Alina\(UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue))") // TODO: - AZ - REMOVE
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func loadMoreData() {
-        displayingPostRowCount += 3
-        uiTableView.reloadData()
-    }
+//    func loadMoreData() {
+//        displayingPostRowCount += 5
+//        uiTableView.reloadData()
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -109,8 +110,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         switch section {
             
         case .profile : return ProfileRowType.rows.count
-        case .posts   : return displayingPostRowCount ?? 3// Here to pagination mode
-            
+        case .posts   : return userPosts?.results.count ?? 0
         }
     }
     
@@ -295,24 +295,20 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         }
         return UITableView.automaticDimension
     }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        //Bottom Refresh
-        
-        if scrollView == uiTableView{
-            
-            if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height))
-            {
-                if !isLoading{
-                    
-                    if userPosts.results.count == 4 {
-                        isLoading = true
-                        loadMoreData()
-                    }
-                }
-            }
-        }
-    }
-    
+//
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//
+//        //Bottom Refresh
+//
+//        if scrollView == uiTableView{
+//
+//            if !isLoading {
+//
+//                if userPosts.results.count < displayingPostRowCount {
+//                    isLoading = true
+//                    loadMoreData()
+//                }
+//            }
+//        }
+//    }
 }
