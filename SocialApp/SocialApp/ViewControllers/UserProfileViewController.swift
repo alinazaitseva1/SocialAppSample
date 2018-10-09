@@ -53,6 +53,7 @@ class UserProfileViewController: UIViewController {
     }
     
     var userId: Int?
+    var isLoading = false
     
     //MARK: - Actions
     
@@ -82,13 +83,21 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: userId) { userProfile in
             self.userProfile = userProfile
         }
-    
+        
         ApiRequest.getPostsInfo(by: userId, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func loadMoreData() {
+        for _ in 5...userPosts.results.count {
+            //            userPosts.results.count
+            //load data from server
+        }
+        uiTableView.reloadData()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -102,7 +111,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
         case .profile : return ProfileRowType.rows.count
         case .posts   : return userPosts?.count ?? 0 // Here to pagination mode
-
+            
         }
     }
     
@@ -288,8 +297,14 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         return UITableView.automaticDimension
     }
     
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell , forRowAtIndexPath indexPath: NSIndexPath) {
-//
-//    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell , forRowAt indexPath: IndexPath) { // TODO: -
+        
+        let lastItem = userPosts.results.count - 1
+        
+        if !isLoading && indexPath.row == lastItem {
+            isLoading = true
+            loadMoreData()
+        }
+    }
     
 }
