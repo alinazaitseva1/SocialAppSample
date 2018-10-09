@@ -14,7 +14,7 @@ struct PaginatedPost: Codable {
     var count      : Int?
     var prev       : String?
     var next       : String?
-    var results    : PostEntity!
+    var results    : [PostEntity]!
 }
 
 struct PostEntity: Codable {

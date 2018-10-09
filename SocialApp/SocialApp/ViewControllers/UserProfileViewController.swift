@@ -46,7 +46,7 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    var userPosts: [PostEntity]! {
+    var userPosts: [PaginatedPost]! {
         didSet{
             uiTableView.reloadData()
         }
