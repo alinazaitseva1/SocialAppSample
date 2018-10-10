@@ -108,6 +108,7 @@ class ProfileEntity: Codable {
         let values   = try decoder.container(keyedBy: CodingKeys.self)
         let locationContainer = try values.nestedContainer(keyedBy: CodingKeys.Location.self, forKey: .location)
         
+        id          = try values.decode(Int.self, forKey: .id)
         firstName   = try values.decode(String.self, forKey: .firstName)
         lastName    = try values.decode(String.self, forKey: .lastName)
         
@@ -128,7 +129,7 @@ class ProfileEntity: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         var locationContainer = container.nestedContainer(keyedBy: CodingKeys.Location.self, forKey: .location)
         
-        
+        try container.encode(id, forKey: .id)
         try container.encodeIfPresent(firstName, forKey: .firstName)
         try container.encodeIfPresent(lastName, forKey: .lastName)
         
