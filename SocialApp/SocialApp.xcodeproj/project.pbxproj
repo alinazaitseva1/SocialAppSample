@@ -23,7 +23,7 @@
 		DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B8FC215A180D007978D1 /* Warnings.swift */; };
 		DC27B901215A8307007978D1 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */; };
 		DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */; };
-		DC27B905215BB1F1007978D1 /* PaginatedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* PaginatedPost.swift */; };
+		DC27B905215BB1F1007978D1 /* PostEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B904215BB1F1007978D1 /* PostEntity.swift */; };
 		DC27B90B215CF40C007978D1 /* DateFormatter+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */; };
 		DC27B90F215E494B007978D1 /* OrderBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B90E215E494B007978D1 /* OrderBy.swift */; };
 		DC27B913215E7298007978D1 /* DateFormatter+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27B912215E7298007978D1 /* DateFormatter+String.swift */; };
@@ -49,6 +49,7 @@
 		DC81C84A214A4D3800877D27 /* ColorAssigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C849214A4D3800877D27 /* ColorAssigner.swift */; };
 		DC81C84C214A656B00877D27 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC81C84B214A656B00877D27 /* UserProfile.storyboard */; };
 		DC81C851214AAD7200877D27 /* UIImageView+RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81C850214AAD7200877D27 /* UIImageView+RoundImage.swift */; };
+		DC8E46382188A2CC00EB8053 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8E46372188A2CC00EB8053 /* File.swift */; };
 		E813F125E1F281606B25E4A3 /* Pods_SocialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A364BBB1EF8D5D0ECB81AFF6 /* Pods_SocialApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +72,7 @@
 		DC27B8FC215A180D007978D1 /* Warnings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warnings.swift; sourceTree = "<group>"; };
 		DC27B900215A8307007978D1 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		DC27B902215B8604007978D1 /* UserDefaults+EnumKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+EnumKeys.swift"; sourceTree = "<group>"; };
-		DC27B904215BB1F1007978D1 /* PaginatedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedPost.swift; sourceTree = "<group>"; };
+		DC27B904215BB1F1007978D1 /* PostEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEntity.swift; sourceTree = "<group>"; };
 		DC27B90A215CF40C007978D1 /* DateFormatter+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Date.swift"; sourceTree = "<group>"; };
 		DC27B90E215E494B007978D1 /* OrderBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBy.swift; sourceTree = "<group>"; };
 		DC27B912215E7298007978D1 /* DateFormatter+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+String.swift"; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		DC81C849214A4D3800877D27 /* ColorAssigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssigner.swift; sourceTree = "<group>"; };
 		DC81C84B214A656B00877D27 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		DC81C850214AAD7200877D27 /* UIImageView+RoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+RoundImage.swift"; sourceTree = "<group>"; };
+		DC8E46372188A2CC00EB8053 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = SocialApp/ViewControllers/File.swift; sourceTree = SOURCE_ROOT; };
 		F180877A42B29999181E5F3A /* Pods-SocialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				DC27B8E72153D7CF007978D1 /* ProfileEntity.swift */,
-				DC27B904215BB1F1007978D1 /* PaginatedPost.swift */,
+				DC27B904215BB1F1007978D1 /* PostEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +242,7 @@
 			children = (
 				DC81C850214AAD7200877D27 /* UIImageView+RoundImage.swift */,
 				DC27B8F22153EBEE007978D1 /* UIImageView+LoadImage.swift */,
+				DC8E46372188A2CC00EB8053 /* File.swift */,
 			);
 			path = UIImageView;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				DC016C1F214FCC1C009833AC /* NewsFeedTableViewCell.swift in Sources */,
 				DC7983A421495F69005FCA08 /* CustomColor.swift in Sources */,
 				DC6B37632147A34000D6478F /* UserProfileViewController.swift in Sources */,
+				DC8E46382188A2CC00EB8053 /* File.swift in Sources */,
 				DC016C15214FAAFE009833AC /* PhotoTableViewCell.swift in Sources */,
 				DC358F3A2146A6130068E511 /* AppDelegate.swift in Sources */,
 				DC81C851214AAD7200877D27 /* UIImageView+RoundImage.swift in Sources */,
@@ -503,7 +507,7 @@
 				DC7983A621495F7A005FCA08 /* CustomFont.swift in Sources */,
 				DC016C1B214FCBE0009833AC /* CollectionInfoTableViewCell.swift in Sources */,
 				DC27B8DA21529E55007978D1 /* UserProfileCounterCollectionViewCell.swift in Sources */,
-				DC27B905215BB1F1007978D1 /* PaginatedPost.swift in Sources */,
+				DC27B905215BB1F1007978D1 /* PostEntity.swift in Sources */,
 				DC27B903215B8604007978D1 /* UserDefaults+EnumKeys.swift in Sources */,
 				DC27B8FD215A180D007978D1 /* Warnings.swift in Sources */,
 				DC016C10214F9419009833AC /* UIColor+Color.swift in Sources */,

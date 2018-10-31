@@ -37,19 +37,20 @@ class ApiRequest {
         }
         
         UserDefaults.standard.setIntUserDefaults(value: 12, for: .userId)
+        
     }
     
-    static func getPostsInfo(by id: Int? = nil, limit: Int? = nil, order: OrderBy ,completion: @escaping (PaginatedPost) -> Void) {
+    static func getPostsInfo(by id: Int? = nil, order: OrderBy ,completion: @escaping ([PostEntity]) -> Void) {
         
-        let json = id == nil ? JSONResponce.myPostsInfo : JSONResponce.userPostsInfo
+        let json = id == nil ? JSONResponce.snfo : JSONResponce.userPostsInfo
         
         let data = json.data(using: .utf8)!
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyMMdd)
         
         do {
-            var posts = try decoder.decode(PaginatedPost.self, from: Data(data))
-            posts.results.sort { (lhs, rhs) -> Bool in
+            var posts = try decoder.decode([PostEntity].self, from: Data(data))
+            posts.sort { (lhs, rhs) -> Bool in
                 
                 switch order {
                 case .ascending:

@@ -46,15 +46,13 @@ class UserProfileViewController: UIViewController {
         }
     }
     
-    var userPosts: PaginatedPost! {
+    var userPosts: [PostEntity]! {
         didSet{
             uiTableView.reloadData()
         }
     }
     
     var userId: Int?
-    var isLoading = false
-    //var displayingPostRowCount = 3
     
     //MARK: - Actions
     
@@ -69,7 +67,6 @@ class UserProfileViewController: UIViewController {
         let userProfileVC = userProfileStoryboard.instantiateViewController(withIdentifier: "UserProfileViewController") as!  UserProfileViewController
         userProfileVC.userId = 12
         self.navigationController?.pushViewController(userProfileVC, animated: true)
-        
     }
     
     // MARK: - Initialization functions
@@ -85,19 +82,13 @@ class UserProfileViewController: UIViewController {
         ApiRequest.getProfile(by: userId) { userProfile in
             self.userProfile = userProfile
         }
-        
-        ApiRequest.getPostsInfo(by: userId, limit: 5, order: .descending) { userPosts in
+    
+        ApiRequest.getPostsInfo(by: userId, order: .descending) { userPosts in
             self.userPosts = userPosts
         }
-        print("Alina\(UserDefaults.standard.integer(forKey: UserDefaultsKeys.userId.rawValue))") // TODO: - AZ - REMOVE
     }
 }
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
-    
-//    func loadMoreData() {
-//        displayingPostRowCount += 5
-//        uiTableView.reloadData()
-//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return SectionType.section.count
@@ -110,7 +101,8 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         switch section {
             
         case .profile : return ProfileRowType.rows.count
-        case .posts   : return userPosts?.results.count ?? 0
+        case .posts   : return userPosts?.count ?? 0
+
         }
     }
     
@@ -201,7 +193,7 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
             
             // Constants cell
             
-            let post = userPosts.results[indexPath.row]
+            let post = userPosts[indexPath.row]
             let attachentView = newsFeedCell.attachmentView!
             
             if let attach = post.body.attachment,
@@ -295,20 +287,9 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
         }
         return UITableView.automaticDimension
     }
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell , forRowAtIndexPath indexPath: NSIndexPath) {
 //
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//
-//        //Bottom Refresh
-//
-//        if scrollView == uiTableView{
-//
-//            if !isLoading {
-//
-//                if userPosts.results.count < displayingPostRowCount {
-//                    isLoading = true
-//                    loadMoreData()
-//                }
-//            }
-//        }
 //    }
+    
 }
